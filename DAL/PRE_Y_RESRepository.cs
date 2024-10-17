@@ -33,12 +33,59 @@ namespace DAL
             return pre;
         }
 
+        private void SaveAll(List<Preg_Y_Resp> pregs)
+        {
+            // Sobrescribir el archivo con todos los huéspedes actualizados
+            using (StreamWriter writer = new StreamWriter(_fileName, false)) // Sobrescribir archivo
+            {
+                foreach (var preg in pregs)
+                {
+                    writer.WriteLine(preg.ToString());
+                }
+            }
+        }
+
+        public string Delete(int id)
+        {
+            try
+            {
+                List<Preg_Y_Resp> preg = GetAll();
+
+                Preg_Y_Resp pregToDelete = preg.Find(g => g.Id == id);
+
+                if (pregToDelete != null)
+                {
+                    preg.Remove(pregToDelete);
+
+                    SaveAll(preg);
+
+                    return "pregutas y respuesta eliminadas correctamente.";
+                }
+                else
+                {
+                    return "pregutas y respuesta no encontradas.";
+                }
+            }
+            catch (Exception ex)
+            {
+                return $"Error al eliminar las pregutas y respuesta: {ex.Message}";
+            }
+        }
+
         private Preg_Y_Resp Map(string line)
         {
             string[] columns = line.Split(';');
-            string preg = columns[0],res = columns[1];
+            string preg = columns[1],res = columns[2];
+            int id = int.Parse(columns[0]);
 
-            return new Preg_Y_Resp(preg,res);
+            return new Preg_Y_Resp(id,preg,res);
+        }
+
+        public Preg_Y_Resp GetById(int id)
+        {
+            List<Preg_Y_Resp> pre = GetAll();
+            Preg_Y_Resp pres = pre.Find(g => g.Id == id);
+            return pres;
         }
     }
 }

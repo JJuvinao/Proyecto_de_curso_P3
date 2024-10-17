@@ -46,6 +46,7 @@
     <Compile Include="Gerrero.cs" />
     <Compile Include="Habilidades.cs" />
     <Compile Include="Mago.cs" />
+    <Compile Include="Mundo.cs" />
     <Compile Include="Npc.cs" />
     <Compile Include="NpcAcciones.cs" />
     <Compile Include="PersoAcciones.cs" />
@@ -55,6 +56,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SavePersonaje.cs" />
     <Compile Include="User.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Animaciones\Animaciones.csproj">
+      <Project>{be683cb5-45fb-4b9e-b221-8914d2b8946d}</Project>
+      <Name>Animaciones</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

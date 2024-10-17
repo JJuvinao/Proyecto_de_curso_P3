@@ -77,9 +77,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{9d1f703b-577c-459b-b6be-7462a9e1d22e}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Entity\Entity.csproj">
       <Project>{db619be2-1cf7-43e2-86eb-fdceaac3df41}</Project>
       <Name>Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IGU\IGU.csproj">
+      <Project>{8fdfd443-5404-4ed9-8a24-00c7aeb2760c}</Project>
+      <Name>IGU</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -8,10 +8,8 @@ namespace Entity
 {
     public class Mago : Plantilla, PersoAcciones
     {
-        public Mago(string nombre, int vida, int fuerza, int defensa, int mana, int arma, int armaSecun) : base(nombre, vida, fuerza, defensa, mana, arma, armaSecun)
+        public Mago(int id, string clase, string nombre, int vida, int mana, int fuerza, int defensa, int armaid) : base(id, clase, nombre, vida, mana, fuerza, defensa, armaid)
         {
-            this.mana = mana + armaSecun;
-            this.fuerza += armaSecun;
         }
 
         public override int Atacar()
