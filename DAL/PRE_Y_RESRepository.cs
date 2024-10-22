@@ -83,9 +83,7 @@ namespace DAL
 
         public Preg_Y_Resp GetById(int id)
         {
-            List<Preg_Y_Resp> pre = GetAll();
-            Preg_Y_Resp pres = pre.Find(g => g.Id == id);
-            return pres;
+            return GetAll().FirstOrDefault<Preg_Y_Resp>(x => x.Id == id);
         }
     }
 }

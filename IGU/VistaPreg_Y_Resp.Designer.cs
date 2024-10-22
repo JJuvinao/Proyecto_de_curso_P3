@@ -34,10 +34,12 @@
             this.txtpreg = new System.Windows.Forms.TextBox();
             this.txtresp = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Btsalir = new System.Windows.Forms.Button();
             this.btver = new System.Windows.Forms.Button();
             this.Respuestas = new System.Windows.Forms.ListBox();
             this.Preguntas = new System.Windows.Forms.ListBox();
-            this.Btsalir = new System.Windows.Forms.Button();
+            this.Btconculta = new System.Windows.Forms.Button();
+            this.Btlimpiar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,6 +87,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.Btconculta);
             this.panel1.Controls.Add(this.Btsalir);
             this.panel1.Controls.Add(this.btver);
             this.panel1.Controls.Add(this.Respuestas);
@@ -94,11 +97,21 @@
             this.panel1.Size = new System.Drawing.Size(409, 437);
             this.panel1.TabIndex = 5;
             // 
+            // Btsalir
+            // 
+            this.Btsalir.Location = new System.Drawing.Point(301, 381);
+            this.Btsalir.Name = "Btsalir";
+            this.Btsalir.Size = new System.Drawing.Size(90, 35);
+            this.Btsalir.TabIndex = 3;
+            this.Btsalir.Text = "Salir";
+            this.Btsalir.UseVisualStyleBackColor = true;
+            this.Btsalir.Click += new System.EventHandler(this.Btsalir_Click);
+            // 
             // btver
             // 
-            this.btver.Location = new System.Drawing.Point(31, 382);
+            this.btver.Location = new System.Drawing.Point(18, 381);
             this.btver.Name = "btver";
-            this.btver.Size = new System.Drawing.Size(144, 35);
+            this.btver.Size = new System.Drawing.Size(99, 35);
             this.btver.TabIndex = 2;
             this.btver.Text = "VER";
             this.btver.UseVisualStyleBackColor = true;
@@ -119,22 +132,34 @@
             this.Preguntas.Name = "Preguntas";
             this.Preguntas.Size = new System.Drawing.Size(374, 160);
             this.Preguntas.TabIndex = 0;
+            this.Preguntas.SelectedIndexChanged += new System.EventHandler(this.Preguntas_SelectedIndexChanged);
             // 
-            // Btsalir
+            // Btconculta
             // 
-            this.Btsalir.Location = new System.Drawing.Point(301, 385);
-            this.Btsalir.Name = "Btsalir";
-            this.Btsalir.Size = new System.Drawing.Size(90, 31);
-            this.Btsalir.TabIndex = 3;
-            this.Btsalir.Text = "Salir";
-            this.Btsalir.UseVisualStyleBackColor = true;
-            this.Btsalir.Click += new System.EventHandler(this.Btsalir_Click);
+            this.Btconculta.Location = new System.Drawing.Point(154, 381);
+            this.Btconculta.Name = "Btconculta";
+            this.Btconculta.Size = new System.Drawing.Size(99, 34);
+            this.Btconculta.TabIndex = 4;
+            this.Btconculta.Text = "Consultar";
+            this.Btconculta.UseVisualStyleBackColor = true;
+            this.Btconculta.Click += new System.EventHandler(this.Btconculta_Click);
+            // 
+            // Btlimpiar
+            // 
+            this.Btlimpiar.Location = new System.Drawing.Point(26, 406);
+            this.Btlimpiar.Name = "Btlimpiar";
+            this.Btlimpiar.Size = new System.Drawing.Size(115, 36);
+            this.Btlimpiar.TabIndex = 6;
+            this.Btlimpiar.Text = "limpiar";
+            this.Btlimpiar.UseVisualStyleBackColor = true;
+            this.Btlimpiar.Click += new System.EventHandler(this.Btlimpiar_Click);
             // 
             // VistaPreg_Y_Resp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Btlimpiar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtresp);
             this.Controls.Add(this.txtpreg);
@@ -161,5 +186,7 @@
         private System.Windows.Forms.ListBox Respuestas;
         private System.Windows.Forms.Button btver;
         private System.Windows.Forms.Button Btsalir;
+        private System.Windows.Forms.Button Btconculta;
+        private System.Windows.Forms.Button Btlimpiar;
     }
 }

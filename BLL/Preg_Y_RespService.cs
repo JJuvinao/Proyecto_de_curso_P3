@@ -86,12 +86,6 @@ namespace BLL
             return msg;
 
         }
-
-        public List<Preg_Y_Resp> Consultar()
-        {
-            return list;
-        }
-
         public int Number()
         {
             return list.Count;
