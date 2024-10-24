@@ -54,18 +54,15 @@ namespace IGU
             this.Hide();
             new Inicio().ShowDialog();
             this.Close();
-
         }
 
         private bool Validar(string pre, string res)
         {
-            bool x;
             if (string.IsNullOrEmpty(pre) && string.IsNullOrEmpty(res))
             {
-                x = true;
+                return true;
             }
-            else { x = false; }
-            return x;
+            else { return false; }
         }
 
         private void Limpiar()
@@ -99,7 +96,7 @@ namespace IGU
             Limpiar();
         }
 
-        private void Preguntas_SelectedIndexChanged(object sender, EventArgs e){}
+        private void Preguntas_SelectedIndexChanged(object sender, EventArgs e) { }
 
         private void Buscar(string v)
         {
@@ -144,7 +141,7 @@ namespace IGU
 
         private void Update(string id, string pre, string res)
         {
-            var Uppreg = Preg_Y_RespService.Update(new Preg_Y_Resp(int.Parse(id),pre,res));
+            var Uppreg = Preg_Y_RespService.Update(new Preg_Y_Resp(int.Parse(id), pre, res));
             MessageBox.Show(Uppreg);
         }
     }

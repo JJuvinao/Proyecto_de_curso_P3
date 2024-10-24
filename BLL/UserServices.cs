@@ -68,5 +68,15 @@ namespace BLL
             RefrescarLista();
             return mgs;
         }
+
+        public int Number()
+        {
+            if (users.Count != 0)
+            {
+                var last = users.Last<User>();
+                return last.Id + 1;
+            }
+            else { return 0; }
+        }
     }
 }

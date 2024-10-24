@@ -37,10 +37,9 @@ namespace DAL
         private User Map(string line)
         {
             string[] columns = line.Split(';');
-            int Id = int.Parse(columns[0]), perso1 = int.Parse(columns[3]), 
-                perso2 = int.Parse(columns[4]), pers3 = int.Parse(columns[5]);
-            string Name = columns[1],Contra = columns[2],rol = columns[6];
-            return new User  (Id,Name,Contra,perso1,perso2,pers3,rol);
+            int Id = int.Parse(columns[0]);
+            string Name = columns[1],Contra = columns[2],rol = columns[3];
+            return new User (Id,Name,Contra,rol);
         }
 
         private void SaveAll(List<User> pregs)
@@ -94,9 +93,6 @@ namespace DAL
                     updauser.Id = entity.Id;
                     updauser.Name = entity.Name;
                     updauser.Contra = entity.Contra;
-                    updauser.PersoId1 = entity.PersoId1;
-                    updauser.PersoId2 = entity.PersoId2;
-                    updauser.PersoId3 = entity.PersoId3;
                     updauser.Rol = entity.Rol;
 
                     SaveAll(user);

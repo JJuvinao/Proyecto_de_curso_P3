@@ -31,5 +31,11 @@ namespace IGU
             new VistaUser().ShowDialog();
             this.Close();
         }
+
+        private void Btsalir_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Close();
+        }
     }
 }
