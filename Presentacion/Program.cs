@@ -17,7 +17,7 @@ namespace Presentacion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new VistaPreg_Y_Resp());
+            Application.Run(new Inicio());
         }
     }
 }

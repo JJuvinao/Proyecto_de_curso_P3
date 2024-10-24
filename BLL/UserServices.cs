@@ -8,7 +8,7 @@ using Entity;
 
 namespace BLL
 {
-    public class UserServices : ICRUD<User>
+    public class UserServices
     {
         List<User> users;
         UserRepository UserRepository;
@@ -16,10 +16,10 @@ namespace BLL
         public UserServices()
         {
             UserRepository = new UserRepository(Config.FILENAME_User);
-            ResfrescarLista();
+            RefrescarLista();
         }
 
-        private void ResfrescarLista()
+        private void RefrescarLista()
         {
             users = UserRepository.GetAll();
         }
@@ -31,16 +31,42 @@ namespace BLL
 
         public User GetId(int id)
         {
-            throw new NotImplementedException();
+            User user = UserRepository.GetById(id);
+            return user;
         }
 
         public string SaveData(User entity)
         {
-            throw new NotImplementedException();
+            User user = UserRepository.GetById(entity.Id);
+            if (user != null)
+            {
+                return "No pueden repetir el id del usuario";
+            }
+            var msg = UserRepository.SaveData(entity);
+            RefrescarLista();
+            return msg;
         }
         public string Delete(int id)
         {
-            throw new NotImplementedException();
+            User user = UserRepository.GetById(id);
+            if (user == null)
+            {
+                return null;
+            }
+            var msg = UserRepository.Delete(id);
+            RefrescarLista();
+            return msg;
+        }
+        public string Update(User entity)
+        {
+            User user = GetId(entity.Id);
+            if (user == null)
+            {
+                return "Preguntas y repuestas no existentes";
+            }
+            var mgs = UserRepository.Update(entity);
+            RefrescarLista();
+            return mgs;
         }
     }
 }

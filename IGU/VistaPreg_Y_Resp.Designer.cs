@@ -34,18 +34,19 @@
             this.txtpreg = new System.Windows.Forms.TextBox();
             this.txtresp = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Btconculta = new System.Windows.Forms.Button();
             this.Btsalir = new System.Windows.Forms.Button();
             this.btver = new System.Windows.Forms.Button();
             this.Respuestas = new System.Windows.Forms.ListBox();
             this.Preguntas = new System.Windows.Forms.ListBox();
-            this.Btconculta = new System.Windows.Forms.Button();
             this.Btlimpiar = new System.Windows.Forms.Button();
+            this.BtActu = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btguaradar
             // 
-            this.btguaradar.Location = new System.Drawing.Point(23, 283);
+            this.btguaradar.Location = new System.Drawing.Point(23, 259);
             this.btguaradar.Name = "btguaradar";
             this.btguaradar.Size = new System.Drawing.Size(148, 51);
             this.btguaradar.TabIndex = 0;
@@ -97,6 +98,16 @@
             this.panel1.Size = new System.Drawing.Size(409, 437);
             this.panel1.TabIndex = 5;
             // 
+            // Btconculta
+            // 
+            this.Btconculta.Location = new System.Drawing.Point(154, 381);
+            this.Btconculta.Name = "Btconculta";
+            this.Btconculta.Size = new System.Drawing.Size(99, 34);
+            this.Btconculta.TabIndex = 4;
+            this.Btconculta.Text = "Consultar";
+            this.Btconculta.UseVisualStyleBackColor = true;
+            this.Btconculta.Click += new System.EventHandler(this.Btconculta_Click);
+            // 
             // Btsalir
             // 
             this.Btsalir.Location = new System.Drawing.Point(301, 381);
@@ -134,16 +145,6 @@
             this.Preguntas.TabIndex = 0;
             this.Preguntas.SelectedIndexChanged += new System.EventHandler(this.Preguntas_SelectedIndexChanged);
             // 
-            // Btconculta
-            // 
-            this.Btconculta.Location = new System.Drawing.Point(154, 381);
-            this.Btconculta.Name = "Btconculta";
-            this.Btconculta.Size = new System.Drawing.Size(99, 34);
-            this.Btconculta.TabIndex = 4;
-            this.Btconculta.Text = "Consultar";
-            this.Btconculta.UseVisualStyleBackColor = true;
-            this.Btconculta.Click += new System.EventHandler(this.Btconculta_Click);
-            // 
             // Btlimpiar
             // 
             this.Btlimpiar.Location = new System.Drawing.Point(26, 406);
@@ -154,11 +155,22 @@
             this.Btlimpiar.UseVisualStyleBackColor = true;
             this.Btlimpiar.Click += new System.EventHandler(this.Btlimpiar_Click);
             // 
+            // BtActu
+            // 
+            this.BtActu.Location = new System.Drawing.Point(23, 330);
+            this.BtActu.Name = "BtActu";
+            this.BtActu.Size = new System.Drawing.Size(148, 50);
+            this.BtActu.TabIndex = 7;
+            this.BtActu.Text = "Actualizar";
+            this.BtActu.UseVisualStyleBackColor = true;
+            this.BtActu.Click += new System.EventHandler(this.BtActu_Click);
+            // 
             // VistaPreg_Y_Resp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BtActu);
             this.Controls.Add(this.Btlimpiar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtresp);
@@ -188,5 +200,6 @@
         private System.Windows.Forms.Button Btsalir;
         private System.Windows.Forms.Button Btconculta;
         private System.Windows.Forms.Button Btlimpiar;
+        private System.Windows.Forms.Button BtActu;
     }
 }

@@ -41,7 +41,6 @@ namespace IGU
             {
                 MessageBox.Show("Los campos no pueden estar vacios");
             }
-
         }
 
         private void Guardar(Preg_Y_Resp preg_Y_Resp)
@@ -52,7 +51,10 @@ namespace IGU
 
         private void Btsalir_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            new Inicio().ShowDialog();
             this.Close();
+
         }
 
         private bool Validar(string pre, string res)
@@ -102,16 +104,48 @@ namespace IGU
         private void Buscar(string v)
         {
             var pre = Preg_Y_RespService.GetId(int.Parse(v));
-            Verpre(pre);
+            if (pre != null)
+            {
+                Verpre(pre);
+            }
+            else
+            {
+                MessageBox.Show("No se encontro ninguna referencia");
+            }
         }
 
         private void Verpre(Preg_Y_Resp pre)
         {
-            if (pre != null)
+            txtpreg.Text = pre.Pregunta;
+            txtresp.Text = pre.Repuesta;
+        }
+
+        private void BtActu_Click(object sender, EventArgs e)
+        {
+            try
             {
-                txtpreg.Text = pre.Pregunta;
-                txtresp.Text = pre.Repuesta;
+                string pre = Preguntas.SelectedValue.ToString();
+                if (string.IsNullOrEmpty(pre) && Validar(txtpreg.Text, txtresp.Text))
+                {
+                    MessageBox.Show("campos vacios");
+                }
+                else
+                {
+                    Update(pre, txtpreg.Text, txtresp.Text);
+                    Cargarlista();
+                    Limpiar();
+                }
             }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("No hay elementos en la lista");
+            }
+        }
+
+        private void Update(string id, string pre, string res)
+        {
+            var Uppreg = Preg_Y_RespService.Update(new Preg_Y_Resp(int.Parse(id),pre,res));
+            MessageBox.Show(Uppreg);
         }
     }
 }

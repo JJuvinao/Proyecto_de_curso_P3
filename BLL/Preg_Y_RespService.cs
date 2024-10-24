@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class Preg_Y_RespService : ICRUD<Preg_Y_Resp>
+    public class Preg_Y_RespService
     {
-        List<Preg_Y_Resp> list;
+        List<Preg_Y_Resp> listaPreYRes;
         PRE_Y_RESRepository PRE_Y_RESRepository;
 
         public Preg_Y_RespService()
@@ -21,48 +21,27 @@ namespace BLL
 
         private void RefrescarLista()
         {
-            list = PRE_Y_RESRepository.GetAll();
+            listaPreYRes = PRE_Y_RESRepository.GetAll();
         }
 
         public List<Preg_Y_Resp> GetAll()
         {
-            return list;
+            return listaPreYRes;
         }
 
         public Preg_Y_Resp GetId(int id)
         {
-            string di = id.ToString();
-            if (string.IsNullOrEmpty(di))
-            {
-                return null;
-            }
             Preg_Y_Resp pres = PRE_Y_RESRepository.GetById(id);
-            if(pres != null)
-            {
-                return pres;
-            }
-            else
-            {
-                return null;
-            }
+            return pres;
         }
 
         public string SaveData(Preg_Y_Resp entity)
         {
-            if(entity == null)
-            {
-                return "Los datos no pueden estar vacios";
-            }
-            if(string.IsNullOrEmpty(entity.Id.ToString()) || string.IsNullOrEmpty(entity.Repuesta) || string.IsNullOrEmpty(entity.Repuesta))
-            {
-                return "el id,pregunta y respuestas no pueden estar vacios";
-            }
             Preg_Y_Resp pre = PRE_Y_RESRepository.GetById(entity.Id);
             if(pre != null)
             {
                 return "No pueden repetir las preguntas o cambiar el id";
             }
-
             var msg = PRE_Y_RESRepository.SaveData(entity);
             RefrescarLista();
             return msg;
@@ -70,25 +49,30 @@ namespace BLL
 
         public string Delete(int id)
         {
-            string di = id.ToString();
-            if (string.IsNullOrEmpty(di))
-            {
-                return "el id no puede estar vacio";
-            }
             Preg_Y_Resp pres = PRE_Y_RESRepository.GetById(id);
             if (pres == null)
             {
                 return null;
             }
-
             var msg = PRE_Y_RESRepository.Delete(id);
             RefrescarLista();
             return msg;
+        }
 
+        public string Update(Preg_Y_Resp entity)
+        {
+            Preg_Y_Resp PreYRes = GetId(entity.Id);
+            if (PreYRes == null) 
+            {
+                return "Preguntas y repuestas no existentes";
+            }
+            var mgs = PRE_Y_RESRepository.Update(entity);
+            RefrescarLista();
+            return mgs;
         }
         public int Number()
         {
-            return list.Count;
+            return listaPreYRes.Count;
         }
 
     }

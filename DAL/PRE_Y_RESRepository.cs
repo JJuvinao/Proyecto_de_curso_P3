@@ -35,8 +35,7 @@ namespace DAL
 
         private void SaveAll(List<Preg_Y_Resp> pregs)
         {
-            // Sobrescribir el archivo con todos los huéspedes actualizados
-            using (StreamWriter writer = new StreamWriter(_fileName, false)) // Sobrescribir archivo
+            using (StreamWriter writer = new StreamWriter(_fileName, false))
             {
                 foreach (var preg in pregs)
                 {
@@ -69,6 +68,35 @@ namespace DAL
             catch (Exception ex)
             {
                 return $"Error al eliminar las pregutas y respuesta: {ex.Message}";
+            }
+        }
+
+        public string Update(Preg_Y_Resp entity)
+        {
+            try
+            {
+                List<Preg_Y_Resp> pres = GetAll();
+
+                Preg_Y_Resp updaP_Y_R = pres.Find(g => g.Id == entity.Id);
+
+                if (updaP_Y_R != null)
+                {
+                    updaP_Y_R.Id = entity.Id;
+                    updaP_Y_R.Pregunta = entity.Pregunta;
+                    updaP_Y_R.Repuesta = entity.Repuesta;
+
+                    SaveAll(pres);
+
+                    return "informacion actualizada";
+                }
+                else
+                {
+                    return "pregutas y respuesta no encontradas.";
+                }
+            }
+            catch (Exception ex)
+            {
+                return $"Error al actualizar las pregutas y respuesta:  {ex.Message}";
             }
         }
 
