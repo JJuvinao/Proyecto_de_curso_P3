@@ -15,17 +15,17 @@ namespace IGU
             CargarLista();
         }
 
-        private void Btvisi_Click(object sender, EventArgs e)
-        {
-            //    if(Btop.Visible == true)
-            //    {
-            //        Btop.Visible = false;
-            //    }
-            //    else
-            //    {
-            //        Btop.Visible = true;
-            //    }
-        }
+        //private void Btvisi_Click(object sender, EventArgs e)
+        //{
+        //    //    if(Btop.Visible == true)
+        //    //    {
+        //    //        Btop.Visible = false;
+        //    //    }
+        //    //    else
+        //    //    {
+        //    //        Btop.Visible = true;
+        //    //    }
+        //}
 
         private void BtVolver_Click(object sender, EventArgs e)
         {
@@ -42,9 +42,16 @@ namespace IGU
             }
             else
             {
-                Guardar(new User(UserServices.Number(), Txtnom.Text, Txtcontra.Text, Boxrol.Text));
-                CargarLista();
-                Limpiar();
+                if (UserServices.ValidarNombre(Txtnom.Text))
+                {
+                    Guardar(new User(UserServices.Number(), Txtnom.Text, Txtcontra.Text, Boxrol.Text));
+                    CargarLista();
+                    Limpiar();
+                }
+                else
+                {
+                    MessageBox.Show("Nombre ya existente,se recomienda escribir otro");
+                }
             }
         }
 

@@ -49,6 +49,12 @@
     <Compile Include="Inicio.Designer.cs">
       <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="VistaMundo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaMundo.Designer.cs">
+      <DependentUpon>VistaMundo.cs</DependentUpon>
+    </Compile>
     <Compile Include="VistaPreg_Y_Resp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,9 @@
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VistaMundo.resx">
+      <DependentUpon>VistaMundo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VistaPreg_Y_Resp.resx">
       <DependentUpon>VistaPreg_Y_Resp.cs</DependentUpon>
     </EmbeddedResource>
@@ -83,6 +92,9 @@
       <Project>{db619be2-1cf7-43e2-86eb-fdceaac3df41}</Project>
       <Name>Entity</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

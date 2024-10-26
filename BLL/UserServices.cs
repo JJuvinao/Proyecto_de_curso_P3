@@ -69,6 +69,19 @@ namespace BLL
             return mgs;
         }
 
+        public bool ValidarNombre(string nom)
+        {
+            var use = users.FirstOrDefault<User>(x=>x.Name==nom);
+            if(use == null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public int Number()
         {
             if (users.Count != 0)

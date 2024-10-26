@@ -11,9 +11,7 @@ namespace DAL
 {
     public class UserRepository : BaseRepository<User>
     {
-        public UserRepository(string filename) : base(filename)
-        {
-        }
+        public UserRepository(string filename) : base(filename){}
 
         public override List<User> GetAll()
         {

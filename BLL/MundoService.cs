@@ -1,4 +1,5 @@
-﻿using Entity;
+﻿using DAL;
+using Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,27 @@ namespace BLL
     public class MundoService
     {
         List<Mundo> mundos;
-        public MundoService() { }
+        MundoRepository MundoRepository;
+        public MundoService() 
+        {
+            MundoRepository = new MundoRepository(Config.FILENAME_Mundo);
+            Resfrescarlista();
+        }
+
+        private void Resfrescarlista()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Mundo> Getid()
+        {
+            return mundos = MundoRepository.GetAll();
+        }
+
+        public Mundo GetId(int id)
+        {
+            var mundo = MundoRepository.GetById(id);
+            return mundo;
+        }
     }
 }

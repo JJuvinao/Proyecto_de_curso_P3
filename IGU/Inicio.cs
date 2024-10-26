@@ -37,5 +37,12 @@ namespace IGU
             this.Hide();
             this.Close();
         }
+
+        private void Btmundos_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new VistaMundo().ShowDialog();
+            this.Close();
+        }
     }
 }

@@ -10,20 +10,23 @@ namespace Entity
     {
         public int Id {  get; set; }
         public bool Estado { get; set; }
-        public int Idnpc { get; set; }
-        public int Nescenario { get; set; }
+        public string Nombre { get; set; }
+        public string Fondo { get; set; }
+        public string Piso { get; set; }
 
-        public Mundo(int id,bool estado,int idnpc, int nescenario) 
+        public Mundo() { }
+        public Mundo(int id,bool estado, string fondo, string piso, string nombre)
         {
             Id = id;
             Estado = estado;
-            Idnpc = idnpc;
-            Nescenario = nescenario;
+            Fondo = fondo;
+            Piso = piso;
+            Nombre = nombre;
         }
 
         public override string ToString()
         {
-            return $"{Id};{Estado};{Idnpc};{Nescenario}";
+            return $"{Id};{Estado};{Fondo};{Piso}";
         }
     }
 }
