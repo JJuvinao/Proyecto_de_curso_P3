@@ -40,7 +40,7 @@
             // 
             // Btfondo1
             // 
-            this.Btfondo1.Location = new System.Drawing.Point(30, 40);
+            this.Btfondo1.Location = new System.Drawing.Point(9, 15);
             this.Btfondo1.Name = "Btfondo1";
             this.Btfondo1.Size = new System.Drawing.Size(158, 48);
             this.Btfondo1.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             // Btfondo2
             // 
-            this.Btfondo2.Location = new System.Drawing.Point(213, 41);
+            this.Btfondo2.Location = new System.Drawing.Point(197, 15);
             this.Btfondo2.Name = "Btfondo2";
             this.Btfondo2.Size = new System.Drawing.Size(164, 47);
             this.Btfondo2.TabIndex = 1;
@@ -62,25 +62,26 @@
             // 
             this.panel2.Controls.Add(this.Btfondo2);
             this.panel2.Controls.Add(this.Btfondo1);
-            this.panel2.Location = new System.Drawing.Point(-2, 277);
+            this.panel2.Location = new System.Drawing.Point(3, 372);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(408, 120);
+            this.panel2.Size = new System.Drawing.Size(640, 76);
             this.panel2.TabIndex = 1;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.Picture);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(404, 398);
+            this.panel1.Size = new System.Drawing.Size(646, 451);
             this.panel1.TabIndex = 0;
             // 
             // Picture
             // 
-            this.Picture.Location = new System.Drawing.Point(3, 24);
+            this.Picture.Location = new System.Drawing.Point(3, 3);
             this.Picture.Name = "Picture";
-            this.Picture.Size = new System.Drawing.Size(398, 191);
+            this.Picture.Size = new System.Drawing.Size(640, 268);
             this.Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Picture.TabIndex = 0;
             this.Picture.TabStop = false;
@@ -89,8 +90,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 398);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(646, 451);
             this.Controls.Add(this.panel1);
             this.Name = "VistaMundo";
             this.Text = "VistaMundo";
