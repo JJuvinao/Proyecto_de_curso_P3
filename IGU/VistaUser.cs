@@ -27,6 +27,85 @@ namespace IGU
         //    //    }
         //}
 
+        #region "Metodos"
+        private bool ValidarBox()
+        {
+            if (Boxrol.Text == "Profesor" || Boxrol.Text == "Estudiante")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void Limpiar()
+        {
+            Txtnom.Text = "";
+            Txtcontra.Text = "";
+            Boxrol.Text = "";
+        }
+
+        private void Guardar(User user)
+        {
+            var mgs = UserServices.SaveData(user);
+            MessageBox.Show(mgs);
+        }
+
+        private void CargarLista()
+        {
+            UserServices Tableusers = new UserServices();
+            if (Tableusers != null)
+            {
+                Tablauser.DataSource = Tableusers.getall();
+            }
+            else
+            {
+                MessageBox.Show("No hay usuario actualmente");
+            }
+        }
+
+        private void Uptade(string userid)
+        {
+            var use = UserServices.GetId(int.Parse(userid));
+            if (use != null)
+            {
+                use.Id = int.Parse(userid);
+                use.Contra = Txtcontra.Text;
+                use.Name = Txtnom.Text;
+                use.Rol = Boxrol.Text;
+                var msg = UserServices.Update(use);
+                MessageBox.Show(msg);
+            }
+            else
+            {
+                MessageBox.Show("No se encontro ninguna referencia");
+            }
+        }
+
+        private void Buscar(string userid)
+        {
+            var user = UserServices.GetId(int.Parse(userid));
+            if (user != null)
+            {
+                Veruser(user);
+            }
+            else
+            {
+                MessageBox.Show("No se encontro ninguna referencia");
+            }
+        }
+
+        private void Veruser(User user)
+        {
+            Txtcontra.Text = user.Contra;
+            Txtnom.Text = user.Name;
+            Boxrol.Text = user.Rol;
+        }
+
+        #endregion
+
         private void BtVolver_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -55,125 +134,50 @@ namespace IGU
             }
         }
 
-        private bool ValidarBox()
-        {
-            if (Boxrol.Text == "Profesor" || Boxrol.Text == "Estudiante")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        private void Limpiar()
-        {
-            Txtnom.Text = "";
-            Txtcontra.Text = "";
-            Boxrol.Text = "";
-        }
-
-        private void Guardar(User user)
-        {
-            var mgs = UserServices.SaveData(user);
-            MessageBox.Show(mgs);
-        }
-
-        private void CargarLista()
-        {
-            List<User> lisusers = UserServices.GetAll();
-            if (lisusers != null)
-            {
-                Listauser.DataSource = lisusers;
-                Listauser.ValueMember = "Id";
-                Listauser.DisplayMember = "Name";
-            }
-            else
-            {
-                MessageBox.Show("No hay usuario actualmente");
-            }
-        }
-
         private void Btver_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string userid = Listauser.SelectedValue.ToString();
-                if (string.IsNullOrEmpty(userid))
-                {
-                    MessageBox.Show("campos vacios");
-                }
-                else
-                {
-                    Buscar(userid);
-                }
-            }
-            catch (NullReferenceException)
-            {
-                MessageBox.Show("No hay elementos en la lista");
-            }
+            //try
+            //{
+            //    string userid = Listauser.SelectedValue.ToString();
+            //    if (string.IsNullOrEmpty(userid))
+            //    {
+            //        MessageBox.Show("campos vacios");
+            //    }
+            //    else
+            //    {
+            //        Buscar(userid);
+            //    }
+            //}
+            //catch (NullReferenceException)
+            //{
+            //    MessageBox.Show("No hay elementos en la lista");
+            //}
         }
-
-        private void Buscar(string userid)
-        {
-            var user = UserServices.GetId(int.Parse(userid));
-            if (user != null)
-            {
-                Veruser(user);
-            }
-            else
-            {
-                MessageBox.Show("No se encontro ninguna referencia");
-            }
-        }
-
-        private void Veruser(User user)
-        {
-            Txtcontra.Text = user.Contra;
-            Txtnom.Text = user.Name;
-            Boxrol.Text = user.Rol;
-        }
-
         private void Btupdate_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string userid = Listauser.SelectedValue.ToString();
-                if (string.IsNullOrEmpty(userid))
-                {
-                    MessageBox.Show("campos vacios");
-                }
-                else
-                {
-                    Buscar(userid);
-                    Uptade(userid);
-                    CargarLista();
-                    Limpiar();
-                }
-            }
-            catch (NullReferenceException)
-            {
-                MessageBox.Show("No hay elementos en la lista");
-            }
+            //try
+            //{
+            //    string userid = Listauser.SelectedValue.ToString();
+            //    if (string.IsNullOrEmpty(userid))
+            //    {
+            //        MessageBox.Show("campos vacios");
+            //    }
+            //    else
+            //    {
+            //        Buscar(userid);
+            //        Uptade(userid);
+            //        CargarLista();
+            //        Limpiar();
+            //    }
+            //}
+            //catch (NullReferenceException)
+            //{
+            //    MessageBox.Show("No hay elementos en la lista");
+            //}
         }
-
-        private void Uptade(string userid)
+        private void Listauser_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var use = UserServices.GetId(int.Parse(userid));
-            if (use != null)
-            {
-                use.Id = int.Parse(userid);
-                use.Contra = Txtcontra.Text;
-                use.Name = Txtnom.Text;
-                use.Rol = Boxrol.Text;
-                var msg = UserServices.Update(use);
-                MessageBox.Show(msg);
-            }
-            else
-            {
-                MessageBox.Show("No se encontro ninguna referencia");
-            }
+
         }
     }
 }

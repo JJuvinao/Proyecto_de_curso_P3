@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,10 @@ namespace BLL
             users = UserRepository.GetAll();
         }
 
+        public DataTable getall()
+        {
+            return UserRepository.Listado_User();
+        }
         public List<User> GetAll()
         {
             return users;

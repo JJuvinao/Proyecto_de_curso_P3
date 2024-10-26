@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.BtVolver = new System.Windows.Forms.Button();
-            this.Listauser = new System.Windows.Forms.ListBox();
             this.Btver = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,31 +38,25 @@
             this.Boxrol = new System.Windows.Forms.ComboBox();
             this.Btsave = new System.Windows.Forms.Button();
             this.Btupdate = new System.Windows.Forms.Button();
+            this.Tablauser = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.Tablauser)).BeginInit();
             this.SuspendLayout();
             // 
             // BtVolver
             // 
             this.BtVolver.Location = new System.Drawing.Point(319, 202);
             this.BtVolver.Name = "BtVolver";
-            this.BtVolver.Size = new System.Drawing.Size(84, 40);
+            this.BtVolver.Size = new System.Drawing.Size(117, 40);
             this.BtVolver.TabIndex = 1;
             this.BtVolver.Text = "Volver";
             this.BtVolver.UseVisualStyleBackColor = true;
             this.BtVolver.Click += new System.EventHandler(this.BtVolver_Click);
             // 
-            // Listauser
-            // 
-            this.Listauser.FormattingEnabled = true;
-            this.Listauser.Location = new System.Drawing.Point(174, 10);
-            this.Listauser.Name = "Listauser";
-            this.Listauser.Size = new System.Drawing.Size(184, 186);
-            this.Listauser.TabIndex = 2;
-            // 
             // Btver
             // 
-            this.Btver.Location = new System.Drawing.Point(364, 8);
+            this.Btver.Location = new System.Drawing.Point(468, 202);
             this.Btver.Name = "Btver";
-            this.Btver.Size = new System.Drawing.Size(94, 29);
+            this.Btver.Size = new System.Drawing.Size(112, 40);
             this.Btver.TabIndex = 3;
             this.Btver.Text = "Ver user";
             this.Btver.UseVisualStyleBackColor = true;
@@ -141,11 +134,23 @@
             this.Btupdate.UseVisualStyleBackColor = true;
             this.Btupdate.Click += new System.EventHandler(this.Btupdate_Click);
             // 
+            // Tablauser
+            // 
+            this.Tablauser.AllowUserToAddRows = false;
+            this.Tablauser.AllowUserToDeleteRows = false;
+            this.Tablauser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Tablauser.Location = new System.Drawing.Point(173, 26);
+            this.Tablauser.Name = "Tablauser";
+            this.Tablauser.ReadOnly = true;
+            this.Tablauser.Size = new System.Drawing.Size(407, 161);
+            this.Tablauser.TabIndex = 18;
+            // 
             // VistaUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(467, 249);
+            this.ClientSize = new System.Drawing.Size(605, 249);
+            this.Controls.Add(this.Tablauser);
             this.Controls.Add(this.Btupdate);
             this.Controls.Add(this.Btsave);
             this.Controls.Add(this.Boxrol);
@@ -155,10 +160,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Btver);
-            this.Controls.Add(this.Listauser);
             this.Controls.Add(this.BtVolver);
             this.Name = "VistaUser";
             this.Text = "VistaUser";
+            ((System.ComponentModel.ISupportInitialize)(this.Tablauser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,7 +171,6 @@
 
         #endregion
         private System.Windows.Forms.Button BtVolver;
-        private System.Windows.Forms.ListBox Listauser;
         private System.Windows.Forms.Button Btver;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -176,5 +180,6 @@
         private System.Windows.Forms.ComboBox Boxrol;
         private System.Windows.Forms.Button Btsave;
         private System.Windows.Forms.Button Btupdate;
+        private System.Windows.Forms.DataGridView Tablauser;
     }
 }

@@ -11,8 +11,8 @@ namespace DAL
     {
         private static DBConnection Conexion = null;
 
-        private static string connectionString = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)" +
-                                                 "(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=xepdb1)))" +
+        private static string connectionString = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=DESKTOP-OKG32L4)" +
+                                                 "(PORT=1521))(CONNECT_DATA=(SERVER = DEDICATED)(SERVICE_NAME=xe)))" +
                                                  "User Id=admin;Password=1234;";
 
         public DBConnection() { }
