@@ -9,15 +9,36 @@ namespace DAL
 {
     public class DBConnection
     {
-        //private static string connectionString = "User Id=admin;Password=1234;" +
-        //    "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=xepdb1)))";
+        private static DBConnection Conexion = null;
 
-        //public DBConnection() { }
+        private static string connectionString = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)" +
+                                                 "(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=xepdb1)))" +
+                                                 "User Id=admin;Password=1234;";
 
-        //public static OracleConnection GetConnection()
-        //{
-        //    OracleConnection connection = new OracleConnection(connectionString);
-        //    return connection;
-        //}
+        public DBConnection() { }
+
+        public OracleConnection GetConnection()
+        {
+            OracleConnection connection = new OracleConnection();
+            try
+            { 
+                connection.ConnectionString= connectionString;
+
+            } catch(Exception ex)
+            {
+                connection = null;
+                throw ex;
+            }
+            return connection;
+        }
+
+        public static DBConnection Getinstancia()
+        {
+            if (Conexion == null)
+            {
+                Conexion = new DBConnection();
+            }
+            return Conexion;
+        }
     }
 }

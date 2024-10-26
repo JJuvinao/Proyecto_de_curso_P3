@@ -42,7 +42,6 @@ namespace IGU
             }
             else
             {
-                MessageBox.Show(imagePath);
                 MessageBox.Show("La imagen no se encuentra");
             }
         }

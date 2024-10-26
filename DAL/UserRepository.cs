@@ -1,6 +1,8 @@
 ﻿using Entity;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,6 +14,34 @@ namespace DAL
     public class UserRepository : BaseRepository<User>
     {
         public UserRepository(string filename) : base(filename){}
+
+        public DataTable Listado_User()
+        {
+            OracleDataReader dataReader;
+            DataTable tabla = new DataTable();
+            OracleConnection sqlconnec = new OracleConnection();
+            try
+            {
+                sqlconnec = DBConnection.Getinstancia().GetConnection();
+                OracleCommand command = new OracleCommand("",sqlconnec);
+                command.CommandType = CommandType.Text;
+                sqlconnec.Open();
+                dataReader = command.ExecuteReader();
+                tabla.Load(dataReader);
+                return tabla;
+            }
+            catch (Exception e) 
+            {
+                throw e;
+            }
+            finally
+            {
+                if(sqlconnec.State == ConnectionState.Open)
+                {
+                    sqlconnec.Close();
+                }
+            }
+        }
 
         public override List<User> GetAll()
         {
