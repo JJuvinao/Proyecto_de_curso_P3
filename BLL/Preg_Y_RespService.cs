@@ -72,9 +72,9 @@ namespace BLL
         }
         public int Number()
         {
-            var last = listaPreYRes.Last<Preg_Y_Resp>();
-            if(last != null) 
+            if(listaPreYRes.Count != 0) 
             {
+                var last = listaPreYRes.Last<Preg_Y_Resp>();
                 return last.Id + 1; 
             }else { return 0;}
         }
