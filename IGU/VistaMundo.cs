@@ -20,7 +20,7 @@ namespace IGU
 
         private void Btfondo1_Click(object sender, EventArgs e)
         {
-            string imagePath = Path.Combine(Environment.CurrentDirectory, "Resources", "fondo1.jfif");
+            string imagePath = Path.Combine(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName, "imagenes", "fondo1.jfif");
 
             if (File.Exists(imagePath))
             {
@@ -34,7 +34,7 @@ namespace IGU
 
         private void Btfondo2_Click(object sender, EventArgs e)
         {
-            string imagePath = Path.Combine(Environment.CurrentDirectory, "Resources", "fondo2.jfif");
+            string imagePath = Path.Combine(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName, "imagenes", "fondo2.jfif");
 
             if (File.Exists(imagePath))
             {
