@@ -11,9 +11,5 @@ namespace Entity
         public SavePersonaje(int id, string clase, string nombre, int vida, int mana, int fuerza, int defensa, int armaid) : base(id, clase, nombre, vida, mana, fuerza, defensa, armaid)
         {
         }
-        public override int Atacar()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

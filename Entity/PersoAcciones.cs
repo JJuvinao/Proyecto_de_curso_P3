@@ -8,14 +8,16 @@ namespace Entity
 {
     public interface PersoAcciones
     {
-        int Atacar();
         bool SigueVivo();
-        int Danio(int def);
         void RecibirDanio(int danio);
         bool TieneMana();
         void RecargarMana();
+        void ReducionMana(int mana);
         void AumentarDanio();
         void Defender(bool turno);
         void Morir();
+        string Basico(int def);
+        string Hab1(int def);
+        string Hab2(int def);
     }
 }

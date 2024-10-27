@@ -142,14 +142,14 @@
             this.Tablauser.Location = new System.Drawing.Point(173, 26);
             this.Tablauser.Name = "Tablauser";
             this.Tablauser.ReadOnly = true;
-            this.Tablauser.Size = new System.Drawing.Size(407, 161);
+            this.Tablauser.Size = new System.Drawing.Size(586, 161);
             this.Tablauser.TabIndex = 18;
             // 
             // VistaUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(605, 249);
+            this.ClientSize = new System.Drawing.Size(771, 249);
             this.Controls.Add(this.Tablauser);
             this.Controls.Add(this.Btupdate);
             this.Controls.Add(this.Btsave);

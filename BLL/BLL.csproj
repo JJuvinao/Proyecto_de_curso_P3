@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GestorPerso.cs" />
     <Compile Include="MundoService.cs" />
     <Compile Include="NPCservice.cs" />
     <Compile Include="PersonajeService.cs" />

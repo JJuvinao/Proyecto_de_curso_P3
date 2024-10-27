@@ -44,5 +44,12 @@ namespace IGU
             new VistaMundo().ShowDialog();
             this.Close();
         }
+
+        private void Btacciones_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new AccionesPerso().ShowDialog();
+            this.Close();
+        }
     }
 }
