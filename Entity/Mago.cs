@@ -1,85 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entity
+﻿namespace Entity
 {
-    public class Mago : Plantilla, PersoAcciones
+    public class Mago : Plantilla
     {
         public Mago(int id, string clase, string nombre, int vida, int mana, int fuerza, int defensa, int armaid) : base(id, clase, nombre, vida, mana, fuerza, defensa, armaid)
         {
         }
+        public Mago() { }
 
-        public override int Atacar()
+        public string Basico(int def)
         {
-            int opc = 0;
-            string confi;
-            bool selec = false;
+            string basi = "Un ataque basico que" + "\n"
+                          + $"hara {fuerza - def} de daño" + "\n"
+                          + "consumira 5 de mana";
+            return basi;
+        }
 
-            do
-            {
-                Console.WriteLine("Escoja el ataque: (el numero)" + "\n"
-                                 + "1. Basico" + "\n"
-                                 + "2. Hab: Daño aumetado en 10" + "\n"
-                                 + "3. Hab: Lanza de hielo" + "\n"
-                                 + "4. Hab: Bola de fuego" + "\n"
-                                 + "5. Volver" + "\n");
-                string inp = Console.ReadLine();
+        public string Hab1(int def)
+        {
+            string habi1 = "Una bola de fuego que" + "\n"
+                          + $"hara {(int)((fuerza * 1.5) - def)} de daño," + "\n"
+                          + "consumira 15 de mana";
+            return habi1;
+        }
 
-                bool v = int.TryParse(inp, out opc);
-                if (!v)
-                {
-
-                    Console.WriteLine("Error al ingresar el numero");
-                }
-                else
-                {
-                    switch (opc)
-                    {
-                        case 1:
-                            {
-                                Console.WriteLine("Confirmar ataque" + "\n" + $"Un ataque basico, hace {this.fuerza} de daño" + "\n" + "Usa 10 de mana" + "\n" + "Desea atacar? [si/no]");
-                                confi = Console.ReadLine();
-                                selec = confi.ToLower() == "si";
-                            }
-                            break;
-
-                        case 2:
-                            {
-                                Console.WriteLine("Confirmar ataque" + "\n" + "Se aumenta el daño en 10" + "\n" + "Usa 5 de mana" + "\n" + "Desea atacar? [si/no]");
-                                confi = Console.ReadLine();
-                                selec = confi.ToLower() == "si";
-                            }
-                            break;
-
-                        case 3:
-                            {
-                                Console.WriteLine("Confirmar ataque" + "\n" + $"Tiene la probabilidad de congelar al oponente y hace {(int)(this.fuerza * 1.5)} de daño" + "\n" + "Usa 20 de mana" + "\n" + "Desea atacar? [si/no]");
-                                confi = Console.ReadLine();
-                                selec = confi.ToLower() == "si";
-                            }
-                            break;
-
-                        case 4:
-                            {
-                                Console.WriteLine("Confirmar ataque" + "\n" + $"Hace {this.fuerza * 2} de daño" + "\n" + "Usa 25 de mana" + "\n" + "Desea atacar? [si/no]");
-                                confi = Console.ReadLine();
-                                selec = confi.ToLower() == "si";
-                            }
-                            break;
-                        case 5:
-                            {
-                                selec = true;
-                            };
-                            break;
-                    }
-                }
-
-            } while (selec == false);
-
-            return opc;
+        public string Hab2(int def)
+        {
+            string habi2 = "Probabilidad de congelar y que" + "\n"
+                          + $"hace {(int)((fuerza * 2) - def)} de daño," + "\n"
+                          + "\n" + "consumira 25 de mana";
+            return habi2;
         }
     }
 }

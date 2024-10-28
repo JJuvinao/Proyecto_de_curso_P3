@@ -23,7 +23,7 @@ namespace DAL
             try
             {
                 sqlconnec = DBConnection.Getinstancia().GetConnection();
-                OracleCommand command = new OracleCommand("SELECT id_user,nombre_user,contra,rol FROM preguntas_y_respuestas", sqlconnec);
+                OracleCommand command = new OracleCommand("select id_user,nombre_user,contra_user,rol from usuarios", sqlconnec);
                 command.CommandType = CommandType.Text;
                 sqlconnec.Open();
                 dataReader = command.ExecuteReader();

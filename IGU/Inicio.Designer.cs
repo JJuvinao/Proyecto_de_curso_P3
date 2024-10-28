@@ -32,6 +32,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.Btsalir = new System.Windows.Forms.Button();
             this.Btmundos = new System.Windows.Forms.Button();
+            this.Btacciones = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -74,11 +75,22 @@
             this.Btmundos.UseVisualStyleBackColor = true;
             this.Btmundos.Click += new System.EventHandler(this.Btmundos_Click);
             // 
+            // Btacciones
+            // 
+            this.Btacciones.Location = new System.Drawing.Point(175, 126);
+            this.Btacciones.Name = "Btacciones";
+            this.Btacciones.Size = new System.Drawing.Size(118, 64);
+            this.Btacciones.TabIndex = 4;
+            this.Btacciones.Text = "Acciones";
+            this.Btacciones.UseVisualStyleBackColor = true;
+            this.Btacciones.Click += new System.EventHandler(this.Btacciones_Click);
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(313, 278);
+            this.Controls.Add(this.Btacciones);
             this.Controls.Add(this.Btmundos);
             this.Controls.Add(this.Btsalir);
             this.Controls.Add(this.button2);
@@ -95,5 +107,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button Btsalir;
         private System.Windows.Forms.Button Btmundos;
+        private System.Windows.Forms.Button Btacciones;
     }
 }

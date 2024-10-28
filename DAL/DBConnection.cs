@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,9 +12,9 @@ namespace DAL
     {
         private static DBConnection Conexion = null;
 
-        private static string connectionString = "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=DESKTOP-OKG32L4)" +
-                                                 "(PORT=1521))(CONNECT_DATA=(SERVER = DEDICATED)(SERVICE_NAME=xe)))" +
-                                                 "User Id=admin;Password=1234;";
+        private static string connectionString = "User Id=usuario01;Password=admin123;Data Source=(DESCRIPTION =(" +
+            "ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(" +
+            "SERVER = DEDICATED)(SERVICE_NAME = XE)))";
 
         public DBConnection() { }
 

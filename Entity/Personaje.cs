@@ -9,11 +9,11 @@ namespace Entity
 {
     public class Personaje
     {
-        PersoAcciones Presonajes { get; set; }
+        Plantilla Presonajes { get; set; }
         PersoAnimacion Animacion { get; set; }
         Habilidades Habili { get; set; }
 
-        public Personaje(PersoAcciones perso, PersoAnimacion ani, Habilidades habili)
+        public Personaje(Plantilla perso, PersoAnimacion ani, Habilidades habili)
         {
             Presonajes = perso;
             Animacion = ani;

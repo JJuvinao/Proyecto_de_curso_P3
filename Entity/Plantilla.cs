@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entity
 {
-    public abstract class Plantilla
+    public class Plantilla
     {
         public int id { get; set; }
         public string clase { get; set; }
@@ -16,8 +16,7 @@ namespace Entity
         public int defensa { get; set; }
         public int mana { get; set; }
         public int armaid { get; set; }
-
-        public abstract int Atacar();
+        public Plantilla() { }
         public Plantilla(int id, string clase, string nombre, int vida, int mana, int fuerza, int defensa, int armaid)
         {
             this.id = id;
@@ -35,12 +34,6 @@ namespace Entity
             return this.vida > 0;
         }
 
-        public int Danio(int def)
-        {
-            int o = Math.Abs(this.fuerza - def);
-            return o;
-        }
-
         public void RecibirDanio(int danio)
         {
             this.vida = -danio;
@@ -52,7 +45,12 @@ namespace Entity
 
         public void RecargarMana()
         {
-            this.mana = 50;
+            this.mana += 50;
+        }
+
+        public void ReducionMana(int mana)
+        {
+            this.mana -= mana;
         }
 
         public void AumentarDanio() 
@@ -75,6 +73,20 @@ namespace Entity
         public void Morir()
         {
             this.vida = 0;
+        }
+        public string Basico(int def)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string Hab1(int def)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string Hab2(int def)
+        {
+            throw new NotImplementedException();
         }
         public override string ToString()
         {

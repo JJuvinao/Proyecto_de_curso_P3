@@ -48,8 +48,6 @@
     <Compile Include="Mago.cs" />
     <Compile Include="Mundo.cs" />
     <Compile Include="Npc.cs" />
-    <Compile Include="NpcAcciones.cs" />
-    <Compile Include="PersoAcciones.cs" />
     <Compile Include="Personaje.cs" />
     <Compile Include="Plantilla.cs" />
     <Compile Include="Preg_Y_Resp.cs" />
