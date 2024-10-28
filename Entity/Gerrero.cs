@@ -1,10 +1,11 @@
 ﻿namespace Entity
 {
-    public class Gerrero : Plantilla, PersoAcciones
+    public class Gerrero : Plantilla
     {
         public Gerrero(int id, string clase, string nombre, int vida, int mana, int fuerza, int defensa, int armaid) : base(id, clase, nombre, vida, mana, fuerza, defensa, armaid)
         {
         }
+        public Gerrero() { }
 
         public string Basico(int def)
         {

@@ -1,12 +1,5 @@
 ﻿using Entity;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IGU
@@ -14,31 +7,93 @@ namespace IGU
     public partial class OpcionesPerso : Form
     {
         public int opcion = 0;
-        Gerrero gerrero = new Gerrero(1, "gerrero", "hola", 200, 30, 250, 100, 12);
-        public OpcionesPerso()
+        Gerrero gerrero;
+        Mago mago;
+        Npc npc;
+        Plantilla personaje;
+
+        public OpcionesPerso(Plantilla plantilla, Npc npc1)
         {
             InitializeComponent();
-            MostrarInfomacion();
+            Cargar(plantilla);
+            npc = npc1;
+            personaje = plantilla;
+            MostrarPorClase(plantilla.clase);
+            ValidarElMana();
         }
 
         #region Metodos
+
+        private void Cargar(Plantilla plantilla)
+        {
+            switch (plantilla.clase)
+            {
+                case "gerrero": { gerrero = new Gerrero(plantilla.id, plantilla.clase, plantilla.nombre, plantilla.vida, plantilla.mana, plantilla.fuerza, plantilla.defensa, plantilla.armaid); } break;
+                case "mago": { mago = new Mago(plantilla.id, plantilla.clase, plantilla.nombre, plantilla.vida, plantilla.mana, plantilla.fuerza, plantilla.defensa, plantilla.armaid); } break;
+            }
+        }
 
         public int Prueba()
         {
             return opcion;
         }
-
-        private void MostrarInfomacion()
+        private void MostrarPorClase(string clase)
         {
-            labelbasico.Text = gerrero.Basico(gerrero.defensa);
-            labelhab1.Text = gerrero.Hab1(gerrero.defensa);
-            labelhab2.Text = gerrero.Hab2(gerrero.defensa);
+            switch (clase)
+            {
+                case "gerrero": { MostrarInfoGerrero(); } break;
+                case "mago": { MostrarInfoMago(); } break;
+            }
+        }
+
+        private void MostrarInfoGerrero()
+        {
+            labelbasico.Text = gerrero.Basico(npc.defensa);
+            labelhab1.Text = gerrero.Hab1(npc.defensa);
+            labelhab2.Text = gerrero.Hab2(npc.defensa);
             labelcancelar.Text = "Cancelar el ataque";
+        }
+
+        private void MostrarInfoMago()
+        {
+            labelbasico.Text = mago.Basico(mago.defensa);
+            labelhab1.Text = mago.Hab1(mago.defensa);
+            labelhab2.Text = mago.Hab2(mago.defensa);
+            labelcancelar.Text = "Cancelar el ataque";
+        }
+
+        private void ValidarElMana()
+        {
+            if (personaje.mana >= 5)
+            {
+                Btbasico.Enabled = true;
+            }
+            else
+            {
+                Btbasico.Enabled = false;
+                if(personaje.mana >= 15)
+                {
+                    Bthabilidad01.Enabled = true;
+                }
+                else
+                {
+                    Bthabilidad01.Enabled = false;
+                    if( personaje.mana >= 25)
+                    {
+                        Bthabilidad02.Enabled = true;
+                    }
+                    else
+                    {
+                        Bthabilidad02.Enabled = false;
+                    }
+                }
+            }
         }
 
         #endregion
         private void button4_Click(object sender, EventArgs e)
         {
+            opcion = 0;
             this.Close();
         }
 

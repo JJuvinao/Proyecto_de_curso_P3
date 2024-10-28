@@ -1,10 +1,11 @@
 ﻿namespace Entity
 {
-    public class Mago : Plantilla, PersoAcciones
+    public class Mago : Plantilla
     {
         public Mago(int id, string clase, string nombre, int vida, int mana, int fuerza, int defensa, int armaid) : base(id, clase, nombre, vida, mana, fuerza, defensa, armaid)
         {
         }
+        public Mago() { }
 
         public string Basico(int def)
         {

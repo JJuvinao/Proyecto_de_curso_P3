@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entity
 {
-    public class Npc : NpcAcciones 
+    public class Npc
     {
         public int id { get; set; }
         public string clase { get; set; }
@@ -32,15 +32,9 @@ namespace Entity
             return this.vida > 0;
         }
 
-        public int Danio(int def)
-        {
-            int o = Math.Abs(this.fuerza - def);
-            return o;
-        }
-
         public void RecibirDanio(int danio)
         {
-            this.vida = -danio;
+            this.vida -=danio;
         }
 
         public void Defender(bool turno)
