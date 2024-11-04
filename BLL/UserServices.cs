@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using DAL;
 using Entity;
 
@@ -22,7 +23,7 @@ namespace BLL
 
         private void RefrescarLista()
         {
-            users = UserRepository.GetAll();
+            users = UserRepository.GetList();
         }
 
         public DataTable getall()
@@ -39,6 +40,11 @@ namespace BLL
             User user = UserRepository.GetById(id);
             return user;
         }
+        public User GetName(string name)
+        {
+            User user = UserRepository.GetByName(name);
+            return user;
+        }
 
         public string SaveData(User entity)
         {
@@ -47,10 +53,11 @@ namespace BLL
             {
                 return "No pueden repetir el id del usuario";
             }
-            var msg = UserRepository.SaveData(entity);
+            var msg = UserRepository.RegistrarUsuario(entity);
             RefrescarLista();
             return msg;
         }
+
         public string Delete(int id)
         {
             User user = UserRepository.GetById(id);
@@ -67,7 +74,7 @@ namespace BLL
             User user = GetId(entity.Id);
             if (user == null)
             {
-                return "Preguntas y repuestas no existentes";
+                return "ususario no existe";
             }
             var mgs = UserRepository.Update(entity);
             RefrescarLista();

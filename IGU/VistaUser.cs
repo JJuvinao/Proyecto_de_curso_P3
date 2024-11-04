@@ -2,6 +2,7 @@
 using Entity;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 
 namespace IGU
@@ -66,12 +67,12 @@ namespace IGU
             }
         }
 
-        private void Uptade(string userid)
+        private void Uptade(string username)
         {
-            var use = UserServices.GetId(int.Parse(userid));
+            var use = UserServices.GetName(username);
             if (use != null)
             {
-                use.Id = int.Parse(userid);
+                use.Id = use.Id;
                 use.Contra = Txtcontra.Text;
                 use.Name = Txtnom.Text;
                 use.Rol = Boxrol.Text;
@@ -84,9 +85,9 @@ namespace IGU
             }
         }
 
-        private void Buscar(string userid)
+        private void Buscar(string username)
         {
-            var user = UserServices.GetId(int.Parse(userid));
+            var user = UserServices.GetName(username);
             if (user != null)
             {
                 Veruser(user);
@@ -136,44 +137,28 @@ namespace IGU
 
         private void Btver_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    string userid = Listauser.SelectedValue.ToString();
-            //    if (string.IsNullOrEmpty(userid))
-            //    {
-            //        MessageBox.Show("campos vacios");
-            //    }
-            //    else
-            //    {
-            //        Buscar(userid);
-            //    }
-            //}
-            //catch (NullReferenceException)
-            //{
-            //    MessageBox.Show("No hay elementos en la lista");
-            //}
+            Buscar(txtbuscar.Text);
         }
         private void Btupdate_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    string userid = Listauser.SelectedValue.ToString();
-            //    if (string.IsNullOrEmpty(userid))
-            //    {
-            //        MessageBox.Show("campos vacios");
-            //    }
-            //    else
-            //    {
-            //        Buscar(userid);
-            //        Uptade(userid);
-            //        CargarLista();
-            //        Limpiar();
-            //    }
-            //}
-            //catch (NullReferenceException)
-            //{
-            //    MessageBox.Show("No hay elementos en la lista");
-            //}
+            try
+            {
+                string username = Txtnom.Text;
+                if (string.IsNullOrEmpty(username))
+                {
+                    MessageBox.Show("campos vacios");
+                }
+                else
+                {
+                    Uptade(username);
+                    CargarLista();
+                    Limpiar();
+                }
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("No hay elementos en la lista");
+            }
         }
         private void Listauser_SelectedIndexChanged(object sender, EventArgs e)
         {

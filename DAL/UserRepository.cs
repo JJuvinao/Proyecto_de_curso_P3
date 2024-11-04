@@ -1,19 +1,17 @@
 ﻿using Entity;
 using Oracle.ManagedDataAccess.Client;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace DAL
 {
     public class UserRepository : BaseRepository<User>
     {
-        public UserRepository(string filename) : base(filename){}
+        public UserRepository(string filename) : base(filename) { }
 
         public DataTable Listado_User()
         {
@@ -30,17 +28,72 @@ namespace DAL
                 tabla.Load(dataReader);
                 return tabla;
             }
-            catch (Exception e) 
+            catch (Exception e)
             {
                 throw e;
             }
             finally
             {
-                if(sqlconnec.State == ConnectionState.Open)
+                if (sqlconnec.State == ConnectionState.Open)
                 {
                     sqlconnec.Close();
                 }
             }
+        }
+
+        public string RegistrarUsuario(User usuario)
+        {
+            OracleConnection connection = new OracleConnection();
+            try
+            {
+                connection = DBConnection.Getinstancia().GetConnection();
+                connection.Open();
+                string query = "INSERT INTO usuarios (id_user, nombre_user, contra_user, Rol) " +
+                               "VALUES (:Id, :Nombre, :Contra, :Rol)";
+
+                using (OracleCommand command = new OracleCommand(query, connection))
+                {
+                    command.Parameters.Add(":Id", usuario.Id);
+                    command.Parameters.Add(":Nombre", usuario.Name);
+                    command.Parameters.Add(":Contra", usuario.Contra);
+                    command.Parameters.Add(":Rol", usuario.Rol);
+
+                    command.ExecuteNonQuery();
+                }
+
+                return "Registro exitoso";
+            }
+            catch (Exception ex)
+            {
+                return "Error al registrar el usuario: " + ex.Message;
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        public List<User> GetList()
+        {
+            DataTable tableuser = Listado_User();
+            List<User> usuarios = new List<User>();
+
+            foreach (DataRow row in tableuser.Rows)
+            {
+                User elemento = new User
+                {
+                    Id = Convert.ToInt32(row["id_user"]),
+                    Name = row["nombre_user"].ToString(),
+                    Contra = row["contra_user"].ToString(),
+                    Rol = row["rol"].ToString()
+                };
+                usuarios.Add(elemento);
+            }
+
+            return usuarios;
         }
 
         public override List<User> GetAll()
@@ -54,7 +107,7 @@ namespace DAL
                     string line;
                     while ((line = reader.ReadLine()) != null)
                     {
-                       user.Add(Map(line));
+                        user.Add(Map(line));
                     }
                 }
             }
@@ -66,8 +119,8 @@ namespace DAL
         {
             string[] columns = line.Split(';');
             int Id = int.Parse(columns[0]);
-            string Name = columns[1],Contra = columns[2],rol = columns[3];
-            return new User (Id,Name,Contra,rol);
+            string Name = columns[1], Contra = columns[2], rol = columns[3];
+            return new User(Id, Name, Contra, rol);
         }
 
         private void SaveAll(List<User> pregs)
@@ -108,39 +161,48 @@ namespace DAL
             }
         }
 
-        public string Update(User entity)
+        public string Update(User usuario)
         {
+            OracleConnection connection = new OracleConnection();
             try
             {
-                List<User> user = GetAll();
+                connection = DBConnection.Getinstancia().GetConnection();
+                connection.Open();
+                string query = "UPDATE usuarios SET NOMBRE_USER = :Nane, ROL = :Rol, CONTRA_USER = :Contra " +
+                               "WHERE ID_USER = :Id";
 
-                User updauser = user.Find(g => g.Id == entity.Id);
-
-                if (updauser != null)
+                using (OracleCommand command = new OracleCommand(query, connection))
                 {
-                    updauser.Id = entity.Id;
-                    updauser.Name = entity.Name;
-                    updauser.Contra = entity.Contra;
-                    updauser.Rol = entity.Rol;
-
-                    SaveAll(user);
-
-                    return "informacion actualizada";
+                    command.Parameters.Add(":Nombre", usuario.Name);
+                    command.Parameters.Add(":Contra", usuario.Contra);
+                    command.Parameters.Add(":Rol", usuario.Rol);
+                    command.Parameters.Add(":Id", usuario.Id);
+                    command.ExecuteNonQuery();
                 }
-                else
-                {
-                    return "Usuario no emcontrado";
-                }
+
+                return "Registro exitoso";
             }
             catch (Exception ex)
             {
-                return $"Error al actuarilzar usuario:  {ex.Message}";
+                return "Error al actualizar el usuario: " + ex.Message;
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
             }
         }
 
         public User GetById(int id)
         {
             return GetAll().FirstOrDefault<User>(x => x.Id == id);
+        }
+
+        public User GetByName(string name)
+        {
+            return GetList().FirstOrDefault<User>(x => x.Name == name);
         }
     }
 }

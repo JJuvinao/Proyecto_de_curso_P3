@@ -31,9 +31,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtopcion = new System.Windows.Forms.TextBox();
             this.Btataque = new System.Windows.Forms.Button();
-            this.Btsalir = new System.Windows.Forms.Button();
+            this.Btrendirse = new System.Windows.Forms.Button();
             this.Btbeffer = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtdanio = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -57,12 +61,20 @@
             this.lbnpcfuerza = new System.Windows.Forms.Label();
             this.lbnpcvida = new System.Windows.Forms.Label();
             this.lbnpcnom = new System.Windows.Forms.Label();
-            this.txtdanio = new System.Windows.Forms.TextBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.Btvolver = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.Btpruebasig = new System.Windows.Forms.Button();
+            this.Btpruebaant = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -84,7 +96,7 @@
             // Btataque
             // 
             this.Btataque.Enabled = false;
-            this.Btataque.Location = new System.Drawing.Point(3, 107);
+            this.Btataque.Location = new System.Drawing.Point(16, 107);
             this.Btataque.Name = "Btataque";
             this.Btataque.Size = new System.Drawing.Size(122, 55);
             this.Btataque.TabIndex = 2;
@@ -92,19 +104,19 @@
             this.Btataque.UseVisualStyleBackColor = true;
             this.Btataque.Click += new System.EventHandler(this.Btataque_Click);
             // 
-            // Btsalir
+            // Btrendirse
             // 
-            this.Btsalir.Location = new System.Drawing.Point(3, 229);
-            this.Btsalir.Name = "Btsalir";
-            this.Btsalir.Size = new System.Drawing.Size(121, 55);
-            this.Btsalir.TabIndex = 3;
-            this.Btsalir.Text = "Salir";
-            this.Btsalir.UseVisualStyleBackColor = true;
-            this.Btsalir.Click += new System.EventHandler(this.Btsalir_Click);
+            this.Btrendirse.Location = new System.Drawing.Point(17, 229);
+            this.Btrendirse.Name = "Btrendirse";
+            this.Btrendirse.Size = new System.Drawing.Size(121, 55);
+            this.Btrendirse.TabIndex = 3;
+            this.Btrendirse.Text = "RENDIRSE";
+            this.Btrendirse.UseVisualStyleBackColor = true;
+            this.Btrendirse.Click += new System.EventHandler(this.Btsalir_Click);
             // 
             // Btbeffer
             // 
-            this.Btbeffer.Location = new System.Drawing.Point(2, 168);
+            this.Btbeffer.Location = new System.Drawing.Point(16, 168);
             this.Btbeffer.Name = "Btbeffer";
             this.Btbeffer.Size = new System.Drawing.Size(122, 55);
             this.Btbeffer.TabIndex = 4;
@@ -114,23 +126,60 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.txtdanio);
-            this.panel1.Location = new System.Drawing.Point(143, 5);
+            this.panel1.Controls.Add(this.pictureBox3);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Location = new System.Drawing.Point(173, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(379, 296);
+            this.panel1.Size = new System.Drawing.Size(600, 296);
             this.panel1.TabIndex = 5;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(327, 169);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(130, 124);
+            this.pictureBox3.TabIndex = 5;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox2.Location = new System.Drawing.Point(23, 157);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(127, 137);
+            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(483, 9);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(106, 28);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "MOSTRAR";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtdanio
+            // 
+            this.txtdanio.Location = new System.Drawing.Point(483, 43);
+            this.txtdanio.Name = "txtdanio";
+            this.txtdanio.Size = new System.Drawing.Size(105, 20);
+            this.txtdanio.TabIndex = 0;
             // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.Btsalir);
+            this.panel3.Controls.Add(this.Btrendirse);
             this.panel3.Controls.Add(this.Btbeffer);
             this.panel3.Controls.Add(this.Btataque);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.txtopcion);
             this.panel3.Location = new System.Drawing.Point(7, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(130, 296);
+            this.panel3.Size = new System.Drawing.Size(160, 296);
             this.panel3.TabIndex = 7;
             // 
             // panel4
@@ -146,9 +195,9 @@
             this.panel4.Controls.Add(this.labelmana);
             this.panel4.Controls.Add(this.labelvida);
             this.panel4.Controls.Add(this.labelperso);
-            this.panel4.Location = new System.Drawing.Point(528, 42);
+            this.panel4.Location = new System.Drawing.Point(3, 56);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(201, 126);
+            this.panel4.Size = new System.Drawing.Size(154, 142);
             this.panel4.TabIndex = 7;
             // 
             // label7
@@ -245,9 +294,9 @@
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.label2);
-            this.panel5.Location = new System.Drawing.Point(528, 5);
+            this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(201, 28);
+            this.panel5.Size = new System.Drawing.Size(160, 28);
             this.panel5.TabIndex = 7;
             // 
             // label2
@@ -270,9 +319,9 @@
             this.panel2.Controls.Add(this.lbnpcfuerza);
             this.panel2.Controls.Add(this.lbnpcvida);
             this.panel2.Controls.Add(this.lbnpcnom);
-            this.panel2.Location = new System.Drawing.Point(528, 174);
+            this.panel2.Location = new System.Drawing.Point(187, 56);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(201, 126);
+            this.panel2.Size = new System.Drawing.Size(170, 142);
             this.panel2.TabIndex = 10;
             // 
             // label8
@@ -347,27 +396,74 @@
             this.lbnpcnom.TabIndex = 0;
             this.lbnpcnom.Text = "-";
             // 
-            // txtdanio
+            // panel6
             // 
-            this.txtdanio.Location = new System.Drawing.Point(78, 55);
-            this.txtdanio.Name = "txtdanio";
-            this.txtdanio.Size = new System.Drawing.Size(118, 20);
-            this.txtdanio.TabIndex = 0;
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.Btvolver);
+            this.panel6.Location = new System.Drawing.Point(615, 307);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(157, 208);
+            this.panel6.TabIndex = 11;
+            // 
+            // Btvolver
+            // 
+            this.Btvolver.Location = new System.Drawing.Point(3, 21);
+            this.Btvolver.Name = "Btvolver";
+            this.Btvolver.Size = new System.Drawing.Size(151, 40);
+            this.Btvolver.TabIndex = 0;
+            this.Btvolver.Text = "VOLVER";
+            this.Btvolver.UseVisualStyleBackColor = true;
+            this.Btvolver.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // panel7
+            // 
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel7.Controls.Add(this.Btpruebaant);
+            this.panel7.Controls.Add(this.Btpruebasig);
+            this.panel7.Controls.Add(this.panel5);
+            this.panel7.Controls.Add(this.panel2);
+            this.panel7.Controls.Add(this.txtdanio);
+            this.panel7.Controls.Add(this.button1);
+            this.panel7.Controls.Add(this.panel4);
+            this.panel7.Location = new System.Drawing.Point(9, 307);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(594, 208);
+            this.panel7.TabIndex = 12;
+            // 
+            // Btpruebasig
+            // 
+            this.Btpruebasig.Location = new System.Drawing.Point(419, 78);
+            this.Btpruebasig.Name = "Btpruebasig";
+            this.Btpruebasig.Size = new System.Drawing.Size(168, 22);
+            this.Btpruebasig.TabIndex = 11;
+            this.Btpruebasig.Text = "Siguiente mundo";
+            this.Btpruebasig.UseVisualStyleBackColor = true;
+            this.Btpruebasig.Click += new System.EventHandler(this.Btpruebasig_Click);
+            // 
+            // Btpruebaant
+            // 
+            this.Btpruebaant.Location = new System.Drawing.Point(421, 115);
+            this.Btpruebaant.Name = "Btpruebaant";
+            this.Btpruebaant.Size = new System.Drawing.Size(165, 21);
+            this.Btpruebaant.TabIndex = 12;
+            this.Btpruebaant.Text = "Anterior mundo";
+            this.Btpruebaant.UseVisualStyleBackColor = true;
+            this.Btpruebaant.Click += new System.EventHandler(this.Btpruebaant_Click);
             // 
             // AccionesPerso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(739, 302);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel4);
+            this.ClientSize = new System.Drawing.Size(790, 518);
+            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Name = "AccionesPerso";
             this.Text = "AccionesPerso";
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -376,6 +472,9 @@
             this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -385,7 +484,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtopcion;
         private System.Windows.Forms.Button Btataque;
-        private System.Windows.Forms.Button Btsalir;
+        private System.Windows.Forms.Button Btrendirse;
         private System.Windows.Forms.Button Btbeffer;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
@@ -412,5 +511,15 @@
         private System.Windows.Forms.Label lbnpcvida;
         private System.Windows.Forms.Label lbnpcnom;
         private System.Windows.Forms.TextBox txtdanio;
+        private System.Windows.Forms.PictureBox PictPerso;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Button Btvolver;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button Btpruebaant;
+        private System.Windows.Forms.Button Btpruebasig;
     }
 }
