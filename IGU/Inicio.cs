@@ -47,8 +47,15 @@ namespace IGU
 
         private void Btacciones_Click(object sender, EventArgs e)
         {
+            //this.Hide();
+            //new AccionesPerso().ShowDialog();
+            //this.Close();
+        }
+
+        private void Btempezar_Click(object sender, EventArgs e)
+        {
             this.Hide();
-            new AccionesPerso().ShowDialog();
+            new Login().ShowDialog();
             this.Close();
         }
     }

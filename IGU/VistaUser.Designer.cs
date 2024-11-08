@@ -39,6 +39,8 @@
             this.Btsave = new System.Windows.Forms.Button();
             this.Btupdate = new System.Windows.Forms.Button();
             this.Tablauser = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtbuscar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Tablauser)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,11 +56,11 @@
             // 
             // Btver
             // 
-            this.Btver.Location = new System.Drawing.Point(468, 202);
+            this.Btver.Location = new System.Drawing.Point(623, 73);
             this.Btver.Name = "Btver";
             this.Btver.Size = new System.Drawing.Size(112, 40);
             this.Btver.TabIndex = 3;
-            this.Btver.Text = "Ver user";
+            this.Btver.Text = "Buscar";
             this.Btver.UseVisualStyleBackColor = true;
             this.Btver.Click += new System.EventHandler(this.Btver_Click);
             // 
@@ -139,17 +141,35 @@
             this.Tablauser.AllowUserToAddRows = false;
             this.Tablauser.AllowUserToDeleteRows = false;
             this.Tablauser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Tablauser.Location = new System.Drawing.Point(173, 26);
+            this.Tablauser.Location = new System.Drawing.Point(174, -2);
             this.Tablauser.Name = "Tablauser";
             this.Tablauser.ReadOnly = true;
-            this.Tablauser.Size = new System.Drawing.Size(586, 161);
+            this.Tablauser.Size = new System.Drawing.Size(443, 161);
             this.Tablauser.TabIndex = 18;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(620, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(136, 13);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Buscar usuario por nombre:";
+            // 
+            // txtbuscar
+            // 
+            this.txtbuscar.Location = new System.Drawing.Point(623, 32);
+            this.txtbuscar.Name = "txtbuscar";
+            this.txtbuscar.Size = new System.Drawing.Size(130, 20);
+            this.txtbuscar.TabIndex = 20;
             // 
             // VistaUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(771, 249);
+            this.ClientSize = new System.Drawing.Size(761, 249);
+            this.Controls.Add(this.txtbuscar);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.Tablauser);
             this.Controls.Add(this.Btupdate);
             this.Controls.Add(this.Btsave);
@@ -181,5 +201,7 @@
         private System.Windows.Forms.Button Btsave;
         private System.Windows.Forms.Button Btupdate;
         private System.Windows.Forms.DataGridView Tablauser;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtbuscar;
     }
 }

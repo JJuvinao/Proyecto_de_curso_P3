@@ -14,7 +14,7 @@ namespace BLL
         MundoRepository MundoRepository;
         public MundoService() 
         {
-            MundoRepository = new MundoRepository(Config.FILENAME_Mundo);
+            MundoRepository = new MundoRepository();
             Resfrescarlista();
         }
 
@@ -25,7 +25,7 @@ namespace BLL
 
         public List<Mundo> Getid()
         {
-            return mundos = MundoRepository.GetAll();
+            return mundos = MundoRepository.GetList();
         }
 
         public Mundo GetId(int id)

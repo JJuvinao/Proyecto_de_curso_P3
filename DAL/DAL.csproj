@@ -85,6 +85,7 @@
     <Compile Include="PersoRepository.cs" />
     <Compile Include="PRE_Y_RESRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserPersonajeRepository.cs" />
     <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>

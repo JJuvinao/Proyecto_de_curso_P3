@@ -1,6 +1,8 @@
 ﻿using Entity;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -8,39 +10,70 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class PersoRepository : BaseRepository<SavePersonaje>
+    public class PersoRepository : BaseRepository<Plantilla>
     {
-        public PersoRepository(string filename) : base(filename)
-        {
-        }
+        public PersoRepository(){}
 
-        public override List<SavePersonaje> GetAll()
+        public DataTable Listado_User()
         {
-            List<SavePersonaje> Perso = new List<SavePersonaje>();
-
-            if (File.Exists(_fileName))
+            OracleDataReader dataReader;
+            DataTable tabla = new DataTable();
+            OracleConnection sqlconnec = new OracleConnection();
+            try
             {
-                using (StreamReader reader = new StreamReader(_fileName))
+                sqlconnec = DBConnection.Getinstancia().GetConnection();
+                OracleCommand command = new OracleCommand("SELECT ID_PERSONAJE,NOMBRE,CLASE,VIDA,MANA,FUERZA,DEFENSA,ID_ARMA FROM PERSONAJES", sqlconnec);
+                command.CommandType = CommandType.Text;
+                sqlconnec.Open();
+                dataReader = command.ExecuteReader();
+                tabla.Load(dataReader);
+                return tabla;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                if (sqlconnec.State == ConnectionState.Open)
                 {
-                    string line;
-                    while ((line = reader.ReadLine()) != null)
-                    {
-                        Perso.Add(Map(line));
-                    }
+                    sqlconnec.Close();
                 }
             }
-
-            return Perso;
         }
 
-        private SavePersonaje Map(string line)
+        public override List<Plantilla> GetList()
         {
-            string[] columns = line.Split(';');
-            int Id = int.Parse(columns[0]), vida = int.Parse(columns[3]),
-                mana = int.Parse(columns[4]), fuerza = int.Parse(columns[5]),
-                defensa = int.Parse(columns[6]), arma = int.Parse(columns[7]);
-            string clase = columns[1],Name = columns[2];
-            return new SavePersonaje(Id,clase,Name,vida,mana,fuerza,defensa,arma);
+            DataTable tableperso = Listado_User();
+            List<Plantilla> personajes = new List<Plantilla>();
+
+            foreach (DataRow row in tableperso.Rows)
+            {
+                Plantilla elemento = new Plantilla
+                {
+                    id = Convert.ToInt32(row["ID_PERSONAJE"]),
+                    clase = row["CLASE"].ToString(),
+                    nombre = row["NOMBRE"].ToString(),
+                    vida = Convert.ToInt32(row["VIDA"]),
+                    mana = Convert.ToInt32(row["MANA"]),
+                    fuerza = Convert.ToInt32(row["FUERZA"]),
+                    defensa = Convert.ToInt32(row["DEFENSA"]),
+                    armaid = Convert.ToInt32(row["ID_ARMA"])
+                };
+                personajes.Add(elemento);
+            }
+
+            return personajes;
+        }
+
+        public Plantilla GetById(int id)
+        {
+            return GetList().FirstOrDefault<Plantilla>(x => x.id == id);
+        }
+
+        public Plantilla GetByName(string clase)
+        {
+            return GetList().FirstOrDefault<Plantilla>(x => x.clase == clase);
         }
     }
 }

@@ -9,29 +9,11 @@ namespace DAL
 {
     public abstract class BaseRepository<T>
     {
-        protected string _fileName;
 
-        protected BaseRepository(string filename)
+        protected BaseRepository()
         {
-            _fileName = filename;
         }
 
-        public abstract List<T> GetAll();
-
-        public string SaveData(T entity)
-        {
-            try
-            {
-                using (StreamWriter writer = new StreamWriter(_fileName, true))
-                {
-                    writer.WriteLine(entity.ToString());
-                }
-                return "Información Guardada Correctamente";
-            }
-            catch (Exception ex)
-            {
-                return $"Error: {ex.Message}";
-            }
-        }
+        public abstract List<T> GetList();
     }
 }

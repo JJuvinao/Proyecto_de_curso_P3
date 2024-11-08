@@ -46,6 +46,7 @@
     <Compile Include="NPCservice.cs" />
     <Compile Include="PersonajeService.cs" />
     <Compile Include="Preg_Y_RespService.cs" />
+    <Compile Include="UserPersonajeService.cs" />
     <Compile Include="UserServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

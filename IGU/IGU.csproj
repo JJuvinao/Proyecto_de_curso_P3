@@ -55,11 +55,22 @@
     <Compile Include="Inicio.Designer.cs">
       <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="OpcionesPerso.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="OpcionesPerso.Designer.cs">
       <DependentUpon>OpcionesPerso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="VistaMundo.cs">
       <SubType>Form</SubType>
@@ -74,11 +85,23 @@
       <DependentUpon>VistaPreg_Y_Resp.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VistaRegistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaRegistrar.Designer.cs">
+      <DependentUpon>VistaRegistrar.cs</DependentUpon>
+    </Compile>
     <Compile Include="VistaUser.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="VistaUser.Designer.cs">
       <DependentUpon>VistaUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistaUserPersonajes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaUserPersonajes.Designer.cs">
+      <DependentUpon>VistaUserPersonajes.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -88,8 +111,15 @@
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OpcionesPerso.resx">
       <DependentUpon>OpcionesPerso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="VistaMundo.resx">
       <DependentUpon>VistaMundo.cs</DependentUpon>
@@ -97,8 +127,14 @@
     <EmbeddedResource Include="VistaPreg_Y_Resp.resx">
       <DependentUpon>VistaPreg_Y_Resp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VistaRegistrar.resx">
+      <DependentUpon>VistaRegistrar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VistaUser.resx">
       <DependentUpon>VistaUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaUserPersonajes.resx">
+      <DependentUpon>VistaUserPersonajes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

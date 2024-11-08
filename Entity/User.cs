@@ -13,6 +13,8 @@ namespace Entity
         public string Contra { get; set; }
         public string Rol { get; set; }
 
+        public User() { }
+
         public User(int id, string name, string contra, string rol)
         {
             Id = id;
