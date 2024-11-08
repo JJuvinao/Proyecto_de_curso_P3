@@ -17,7 +17,7 @@ namespace BLL
 
         public UserServices()
         {
-            UserRepository = new UserRepository(Config.FILENAME_User);
+            UserRepository = new UserRepository();
             RefrescarLista();
         }
 

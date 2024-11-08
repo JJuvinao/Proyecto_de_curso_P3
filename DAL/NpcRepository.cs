@@ -10,38 +10,13 @@ namespace DAL
 {
     public class NpcRepository : BaseRepository<Npc>
     {
-        public NpcRepository(string filename) : base(filename)
+        public NpcRepository()
         {
         }
 
-        public override List<Npc> GetAll()
+        public override List<Npc> GetList()
         {
-            List<Npc> npc = new List<Npc>();
-
-            if (File.Exists(_fileName))
-            {
-                using (StreamReader reader = new StreamReader(_fileName))
-                {
-                    string line;
-                    while ((line = reader.ReadLine()) != null)
-                    {
-                        npc.Add(Map(line));
-                    }
-                }
-            }
-
-            return npc;
-        }
-
-        private Npc Map(string line)
-        {
-            string[] columns = line.Split(';');
-            int Id = int.Parse(columns[0]), vida = int.Parse(columns[3]),
-                fuerza = int.Parse(columns[4]),defensa = int.Parse(columns[5]), 
-                arma = int.Parse(columns[6]);
-            string clase = columns[1], Name = columns[2];
-
-            return new Npc(Id,clase,Name,vida,fuerza,defensa,arma);
+            return null;
         }
     }
 }

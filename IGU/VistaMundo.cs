@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,11 +14,17 @@ namespace IGU
 {
     public partial class VistaMundo : Form
     {
+        User user;
+         AccionesPerso accionesPerso = new AccionesPerso();
         public VistaMundo()
         {
             InitializeComponent();
         }
 
+        public void RecibirUser(User usuario)
+        {
+            user = usuario;
+        }
         private void Btfondo1_Click(object sender, EventArgs e)
         {
             //string imagePath = Path.Combine(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName, "imagenes", "fondo1.jfif");
@@ -56,6 +63,7 @@ namespace IGU
         {
             this.Hide();
             new AccionesPerso("D:\\Users\\lpove\\Desktop\\P3proyect\\Carpeta Diseños\\fondo03.png", "D:\\Users\\lpove\\Desktop\\P3proyect\\Carpeta Diseños\\piso02.png").ShowDialog();
+            accionesPerso.RecibirUser(user);
             this.Close();
         }
     }

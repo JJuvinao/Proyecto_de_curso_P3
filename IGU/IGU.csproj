@@ -85,6 +85,12 @@
       <DependentUpon>VistaPreg_Y_Resp.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VistaRegistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaRegistrar.Designer.cs">
+      <DependentUpon>VistaRegistrar.cs</DependentUpon>
+    </Compile>
     <Compile Include="VistaUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VistaPreg_Y_Resp.resx">
       <DependentUpon>VistaPreg_Y_Resp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaRegistrar.resx">
+      <DependentUpon>VistaRegistrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistaUser.resx">
       <DependentUpon>VistaUser.cs</DependentUpon>

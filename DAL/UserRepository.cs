@@ -11,7 +11,7 @@ namespace DAL
 {
     public class UserRepository : BaseRepository<User>
     {
-        public UserRepository(string filename) : base(filename) { }
+        public UserRepository(){ }
 
         public DataTable Listado_User()
         {
@@ -76,7 +76,7 @@ namespace DAL
             }
         }
 
-        public List<User> GetList()
+        public override List<User> GetList()
         {
             DataTable tableuser = Listado_User();
             List<User> usuarios = new List<User>();
@@ -96,69 +96,9 @@ namespace DAL
             return usuarios;
         }
 
-        public override List<User> GetAll()
-        {
-            List<User> user = new List<User>();
-
-            if (File.Exists(_fileName))
-            {
-                using (StreamReader reader = new StreamReader(_fileName))
-                {
-                    string line;
-                    while ((line = reader.ReadLine()) != null)
-                    {
-                        user.Add(Map(line));
-                    }
-                }
-            }
-
-            return user;
-        }
-
-        private User Map(string line)
-        {
-            string[] columns = line.Split(';');
-            int Id = int.Parse(columns[0]);
-            string Name = columns[1], Contra = columns[2], rol = columns[3];
-            return new User(Id, Name, Contra, rol);
-        }
-
-        private void SaveAll(List<User> pregs)
-        {
-            using (StreamWriter writer = new StreamWriter(_fileName, false))
-            {
-                foreach (var users in pregs)
-                {
-                    writer.WriteLine(users.ToString());
-                }
-            }
-        }
-
         public string Delete(int id)
         {
-            try
-            {
-                List<User> users = GetAll();
-
-                User usuarioToDelete = users.Find(g => g.Id == id);
-
-                if (usuarioToDelete != null)
-                {
-                    users.Remove(usuarioToDelete);
-
-                    SaveAll(users);
-
-                    return "usuario eliminado correctamente.";
-                }
-                else
-                {
-                    return "usuario no encontrado.";
-                }
-            }
-            catch (Exception ex)
-            {
-                return $"Error al eliminar al usuario: {ex.Message}";
-            }
+            return null;
         }
 
         public string Update(User usuario)
@@ -197,12 +137,13 @@ namespace DAL
 
         public User GetById(int id)
         {
-            return GetAll().FirstOrDefault<User>(x => x.Id == id);
+            return GetList().FirstOrDefault<User>(x => x.Id == id);
         }
 
         public User GetByName(string name)
         {
             return GetList().FirstOrDefault<User>(x => x.Name == name);
         }
+
     }
 }

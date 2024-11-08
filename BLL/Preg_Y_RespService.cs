@@ -15,13 +15,13 @@ namespace BLL
 
         public Preg_Y_RespService()
         {
-            PRE_Y_RESRepository = new PRE_Y_RESRepository(Config.FILENAME_Preg_Y_Resp);
+            PRE_Y_RESRepository = new PRE_Y_RESRepository();
             RefrescarLista();
         }
 
         private void RefrescarLista()
         {
-            listaPreYRes = PRE_Y_RESRepository.GetAll();
+            listaPreYRes = PRE_Y_RESRepository.GetList();
         }
 
         public List<Preg_Y_Resp> GetAll()
@@ -42,7 +42,7 @@ namespace BLL
             {
                 return "No pueden repetir las preguntas o cambiar el id";
             }
-            var msg = PRE_Y_RESRepository.SaveData(entity);
+            var msg = "";
             RefrescarLista();
             return msg;
         }

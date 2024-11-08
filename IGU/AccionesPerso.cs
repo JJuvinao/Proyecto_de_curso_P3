@@ -9,11 +9,13 @@ namespace IGU
     public partial class AccionesPerso : Form
     {
         OpcionesPerso opcion;
+        User user;
         Plantilla gerrero = new Plantilla(1, "gerrero", "hola", 2000, 5, 250, 100, 12);
         Npc npc = new Npc(2, "mago", "npc", 2000, 250, 70, 5);
         GestorAcciones gestorAcciones;
         string Rutafondo,Rutapiso;
 
+        public AccionesPerso() { }
         public AccionesPerso(string fondo,string piso)
         {
             InitializeComponent();
@@ -49,6 +51,11 @@ namespace IGU
             lbnpcvida.Text = npc.vida.ToString();
             lbnpcfuerza.Text = npc.fuerza.ToString();
             lbnpcdefensa.Text = npc.defensa.ToString();
+        }
+
+        public void RecibirUser(User usuario)
+        {
+            user = usuario;
         }
         private void Btataque_Click(object sender, EventArgs e)
         {
@@ -107,7 +114,7 @@ namespace IGU
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new VistaUserPersonajes().ShowDialog();
+            new VistaUserPersonajes(user).ShowDialog();
             this.Close();
         }
 
