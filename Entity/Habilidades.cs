@@ -10,17 +10,17 @@ namespace Entity
     {
         public int Basico(int Fuerza, int defe)
         {
-            return Fuerza - defe;
+            return Math.Abs(Fuerza - defe);
         }
 
         public int Hab1(int Fuerza, int defe)
         {
-            return (int)((Fuerza * 1.5) - defe);
+            return Math.Abs((int)((Fuerza * 1.5) - defe));
         }
 
         public int Hab2(int Fuerza, int defe)
         {
-            return (int)((Fuerza * 2) - defe);
+            return Math.Abs((int)((Fuerza * 2) - defe));
         }
     }
 }

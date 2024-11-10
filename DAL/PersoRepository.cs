@@ -14,7 +14,7 @@ namespace DAL
     {
         public PersoRepository(){}
 
-        public DataTable Listado_User()
+        public DataTable Listado_Personaje()
         {
             OracleDataReader dataReader;
             DataTable tabla = new DataTable();
@@ -44,7 +44,7 @@ namespace DAL
 
         public override List<Plantilla> GetList()
         {
-            DataTable tableperso = Listado_User();
+            DataTable tableperso = Listado_Personaje();
             List<Plantilla> personajes = new List<Plantilla>();
 
             foreach (DataRow row in tableperso.Rows)

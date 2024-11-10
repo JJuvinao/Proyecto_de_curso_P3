@@ -1,6 +1,6 @@
 ﻿namespace IGU
 {
-    partial class OpcionesPerso
+    partial class OpcionesDeAtacarPersonaje
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OpcionesPerso));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OpcionesDeAtacarPersonaje));
             this.Bthabilidad02 = new System.Windows.Forms.Button();
             this.Bthabilidad01 = new System.Windows.Forms.Button();
             this.Btbasico = new System.Windows.Forms.Button();

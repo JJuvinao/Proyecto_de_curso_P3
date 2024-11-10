@@ -46,6 +46,12 @@ namespace BLL
             return user;
         }
 
+        public string EscojerPersonaje(int id_user,int id_perso)
+        {
+            var mgs = UserRepository.SaveSeleccion(id_user,id_perso);
+            return mgs;
+        }
+
         public string SaveData(User entity)
         {
             User user = UserRepository.GetById(entity.Id);

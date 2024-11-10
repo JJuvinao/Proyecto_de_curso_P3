@@ -48,11 +48,11 @@
     <Compile Include="Mago.cs" />
     <Compile Include="Mundo.cs" />
     <Compile Include="Npc.cs" />
-    <Compile Include="Personaje.cs" />
     <Compile Include="Plantilla.cs" />
     <Compile Include="Preg_Y_Resp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SavePersonaje.cs" />
+    <Compile Include="Puntajes.cs" />
+    <Compile Include="Arquero.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,11 +1,18 @@
-﻿namespace Entity
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Entity
 {
-    public class Gerrero : Plantilla
+    public class Arquero : Plantilla
     {
-        public Gerrero(int id, string clase, string nombre, int vida, int mana, int fuerza, int defensa, int armaid) : base(id, clase, nombre, vida, mana, fuerza, defensa, armaid)
+        public Arquero(int id, string clase, string nombre, int vida, int mana, int fuerza, int defensa, int armaid) : base(id, clase, nombre, vida, mana, fuerza, defensa, armaid)
         {
         }
-        public Gerrero() { }
+
+        public Arquero() { }
 
         public new string Basico(int def)
         {
@@ -17,7 +24,7 @@
 
         public new string Hab1(int def)
         {
-            string habi1 = "Un golpe fuerte que" + "\n"
+            string habi1 = "Una flecha perforante que" + "\n"
                           + $"hace {(int)((fuerza * 1.5) - def)} de daño," + "\n"
                           + "consumira 15 de mana";
             return habi1;

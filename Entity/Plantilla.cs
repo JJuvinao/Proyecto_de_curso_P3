@@ -45,7 +45,7 @@ namespace Entity
 
         public void RecargarMana()
         {
-            this.mana += 50;
+            this.mana += 100;
         }
 
         public void ReducionMana(int mana)

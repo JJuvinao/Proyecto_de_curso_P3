@@ -26,7 +26,7 @@
         public string Hab2(int def)
         {
             string habi2 = "Probabilidad de congelar y que" + "\n"
-                          + $"hace {(int)((fuerza * 2) - def)} de daño," + "\n"
+                          + $"hace {(int)((fuerza * 2) - def)} de daño,"
                           + "\n" + "consumira 25 de mana";
             return habi2;
         }
