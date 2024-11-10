@@ -65,7 +65,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                return "Error al registrar el usuario: " + ex.Message;
+                return "Error al registrar el la seleccion de personaje: " + ex.Message;
             }
             finally
             {
@@ -94,6 +94,36 @@ namespace DAL
             }
 
             return usuarios;
+        }
+
+        public string SaveSeleccion(int id_user,int id_perso)
+        {
+            OracleDataReader dataReader;
+            OracleConnection sqlconnec = new OracleConnection();
+            try
+            {
+                sqlconnec = DBConnection.Getinstancia().GetConnection();
+                sqlconnec.Open();
+                using (OracleCommand command = new OracleCommand("PR_ASIGNARPERSONAJE", sqlconnec))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("id_user", OracleDbType.Int32).Value = id_user;
+                    command.Parameters.Add("id_personaje", OracleDbType.Int32).Value = id_perso;
+                    dataReader = command.ExecuteReader();
+                }
+                return "Registro exitoso";
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                if (sqlconnec.State == ConnectionState.Open)
+                {
+                    sqlconnec.Close();
+                }
+            }
         }
 
         public string Delete(int id)

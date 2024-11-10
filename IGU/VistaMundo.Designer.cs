@@ -31,9 +31,9 @@
             this.Btfondo1 = new System.Windows.Forms.Button();
             this.Btfondo2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Picture = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Picture)).BeginInit();
@@ -64,29 +64,10 @@
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.Btfondo2);
             this.panel2.Controls.Add(this.Btfondo1);
-            this.panel2.Location = new System.Drawing.Point(3, 372);
+            this.panel2.Location = new System.Drawing.Point(6, 221);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(640, 76);
             this.panel2.TabIndex = 1;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.Picture);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(646, 451);
-            this.panel1.TabIndex = 0;
-            // 
-            // Picture
-            // 
-            this.Picture.Location = new System.Drawing.Point(3, 3);
-            this.Picture.Name = "Picture";
-            this.Picture.Size = new System.Drawing.Size(640, 268);
-            this.Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Picture.TabIndex = 0;
-            this.Picture.TabStop = false;
             // 
             // button1
             // 
@@ -98,11 +79,30 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.Picture);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(646, 306);
+            this.panel1.TabIndex = 0;
+            // 
+            // Picture
+            // 
+            this.Picture.Location = new System.Drawing.Point(3, 3);
+            this.Picture.Name = "Picture";
+            this.Picture.Size = new System.Drawing.Size(640, 212);
+            this.Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Picture.TabIndex = 0;
+            this.Picture.TabStop = false;
+            // 
             // VistaMundo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(646, 451);
+            this.ClientSize = new System.Drawing.Size(646, 306);
             this.Controls.Add(this.panel1);
             this.Name = "VistaMundo";
             this.Text = "VistaMundo";

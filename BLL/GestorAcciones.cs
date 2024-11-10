@@ -22,6 +22,7 @@ namespace BLL
                 case 2: { danio = habilidades.Hab1(personaje.fuerza, npc.defensa); } break;
                 case 3: { danio = habilidades.Hab2(personaje.fuerza, npc.defensa); } break;
             }
+            ReducirMana(opcion);
             return danio;
         }
 
@@ -31,19 +32,39 @@ namespace BLL
             return "Daño recibido";
         }
 
-        public void Beffer(int opcion,bool turno)
+        public string Beffer(int opcion)
         {
+            string msg="";
             switch (opcion)
             {
-                case 1: { personaje.Defender(turno); } break;
-                case 2: { personaje.AumentarDanio(); } break;
-                case 3: { personaje.RecargarMana(); } break;
+                case 1: { personaje.AumentarDanio();
+                          msg = "Dañio aumentado";
+                    } break;
+                case 2: { personaje.RecargarMana();
+                        msg = "Mana recuperado";
+                    } break;
+            }
+            return msg;
+        }
+
+        private void ReducirMana(int opc)
+        {
+            switch(opc)
+            {
+                case 1: { personaje.ReducionMana(5); } break;
+                case 2: { personaje.ReducionMana(15); } break;
+                case 3: { personaje.ReducionMana(25); } break;
             }
         }
 
         public bool ValidarMana()
         {
             return personaje.TieneMana();
+        }
+
+        public bool ValidarVida()
+        {
+            return personaje.SigueVivo();
         }
     }
 }

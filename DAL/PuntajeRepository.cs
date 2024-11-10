@@ -1,7 +1,5 @@
-﻿using Entity;
-using Oracle.ManagedDataAccess.Client;
+﻿using Oracle.ManagedDataAccess.Client;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -10,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class UserPersonajeRepository
+    public class PuntajeRepository
     {
 
-        public UserPersonajeRepository() { }
+        public PuntajeRepository() { }
 
-        public DataTable Listado_User_Personaje(int ID)
+        public DataTable Listado_Puntaje(int ID)
         {
             OracleDataReader dataReader;
             DataTable tabla = new DataTable();
@@ -24,7 +22,7 @@ namespace DAL
             {
                 sqlconnec = DBConnection.Getinstancia().GetConnection();
                 sqlconnec.Open();
-                using (OracleCommand command = new OracleCommand("FX_CONSULTARPERSONAJE_USER", sqlconnec))
+                using (OracleCommand command = new OracleCommand("FX_CONSULTARPUNTAJES", sqlconnec))
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add("resultadoCursor", OracleDbType.RefCursor).Direction = ParameterDirection.ReturnValue;
@@ -46,20 +44,5 @@ namespace DAL
                 }
             }
         }
-
-        public List<int> GetList(int Id)
-        {
-            DataTable tableperso = Listado_User_Personaje(Id);
-            List<int> personajes = new List<int>();
-
-            foreach (DataRow row in tableperso.Rows)
-            {
-                int elemento = Convert.ToInt32(row["ID_PERSONAJE"]);
-                personajes.Add(elemento);
-            }
-
-            return personajes;
-        }
-
     }
 }

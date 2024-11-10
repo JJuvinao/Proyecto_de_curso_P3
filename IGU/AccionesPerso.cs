@@ -8,44 +8,60 @@ namespace IGU
 {
     public partial class AccionesPerso : Form
     {
-        OpcionesPerso opcion;
+        OpcionesDeAtacarPersonaje opcion;
+        OpcionDeBuffer opcionBuffer;
         User user;
-        Plantilla gerrero = new Plantilla(1, "gerrero", "hola", 2000, 5, 250, 100, 12);
-        Npc npc = new Npc(2, "mago", "npc", 2000, 250, 70, 5);
+        Plantilla personaje_actual;
+        Npc npc = new Npc(2, "mago", "npc", 2000, 250, 40, 5);
         GestorAcciones gestorAcciones;
-        string Rutafondo,Rutapiso;
+        string Rutafondo, Rutapiso;
 
         public AccionesPerso() { }
-        public AccionesPerso(string fondo,string piso)
+        public AccionesPerso(string fondo, string piso, User usser, Plantilla plantilla)
         {
             InitializeComponent();
+            personaje_actual = plantilla;
             Estadisticas();
-            gestorAcciones = new GestorAcciones(gerrero, npc);
-            ValidarSitieneMana();
+            gestorAcciones = new GestorAcciones(personaje_actual, npc);
             Rutafondo = fondo;
             Rutapiso = piso;
+            user = usser;
         }
 
-        private void ValidarSitieneMana()
+        private void ValidarVidaPersonaje()
         {
-            if(gestorAcciones.ValidarMana())
+            if (personaje_actual.SigueVivo())
             {
                 Btataque.Enabled = true;
             }
             else
             {
                 Btataque.Enabled = false;
+                personaje_actual.Morir();
+            }
+        }
+
+        private void ValidarVidaNpc()
+        {
+            if (npc.SigueVivo())
+            {
+                Btataque.Enabled = true;
+            }
+            else
+            {
+                Btataque.Enabled = false;
+                npc.Morir();
             }
         }
 
         private void Estadisticas()
         {
             //personaje
-            labelperso.Text = gerrero.nombre;
-            labelvida.Text = gerrero.vida.ToString();
-            labelmana.Text = gerrero.mana.ToString();
-            labelfuerza.Text = gerrero.fuerza.ToString();
-            labeldefensa.Text = gerrero.defensa.ToString();
+            labelperso.Text = personaje_actual.nombre;
+            labelvida.Text = personaje_actual.vida.ToString();
+            labelmana.Text = personaje_actual.mana.ToString();
+            labelfuerza.Text = personaje_actual.fuerza.ToString();
+            labeldefensa.Text = personaje_actual.defensa.ToString();
             //npc
             lbnpcnom.Text = npc.nombre;
             lbnpcvida.Text = npc.vida.ToString();
@@ -53,22 +69,27 @@ namespace IGU
             lbnpcdefensa.Text = npc.defensa.ToString();
         }
 
-        public void RecibirUser(User usuario)
-        {
-            user = usuario;
-        }
         private void Btataque_Click(object sender, EventArgs e)
         {
-            int opc,danio=0;
-            opcion = new OpcionesPerso(gerrero, npc);
-            opcion.ShowDialog();
-            opc = opcion.Prueba();
-            txtopcion.Text = opc.ToString();
-            if (opc != 0) 
+            if (personaje_actual.mana >= 5)
             {
-                danio = gestorAcciones.Atacar(opc);
-                txtdanio.Text = gestorAcciones.RecibirDanio(danio);
-                Estadisticas();
+                int opc, danio = 0;
+                opcion = new OpcionesDeAtacarPersonaje(personaje_actual, npc);
+                opcion.ShowDialog();
+                opc = opcion.Prueba();
+                txtopcion.Text = opc.ToString();
+                if (opc != 0)
+                {
+                    danio = gestorAcciones.Atacar(opc);
+                    txtdanio.Text = gestorAcciones.RecibirDanio(danio);
+                    Estadisticas();
+                    ValidarVidaPersonaje();
+                    ValidarVidaNpc();
+                }
+            }
+            else
+            {
+                labelMensaje.Text = "NO TIENE SUFICIENTE MANA PARA ATACAR";
             }
         }
 
@@ -108,7 +129,7 @@ namespace IGU
                 g.DrawImage(fondo, 0, 0);
                 g.DrawImage(frente, 0, 0);
             }
-            e.Graphics.DrawImage(combinado, new Rectangle(0,0,panel1.Width,panel1.Height));
+            e.Graphics.DrawImage(combinado, new Rectangle(0, 0, panel1.Width, panel1.Height));
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -123,6 +144,20 @@ namespace IGU
             Rutafondo = "D:\\Users\\lpove\\Desktop\\P3proyect\\Carpeta Diseños\\fondo2.jfif";
             Rutafondo = "D:\\Users\\lpove\\Desktop\\P3proyect\\Carpeta Diseños\\piso02.png";
             panel1.Paint += new PaintEventHandler(panel1_Paint);
+        }
+
+        private void Btbeffer_Click(object sender, EventArgs e)
+        {
+            int opc;
+            opcionBuffer = new OpcionDeBuffer();
+            opcionBuffer.ShowDialog();
+            opc = opcionBuffer.Ocpcion();
+            if (opc != 0)
+            {
+                string msg = gestorAcciones.Beffer(opc);
+                labelMensaje.Text = msg;
+                Estadisticas();
+            }
         }
 
         private void Btpruebasig_Click(object sender, EventArgs e)

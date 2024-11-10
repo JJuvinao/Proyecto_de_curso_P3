@@ -43,6 +43,7 @@
             this.Btpersonaje1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.listperso = new System.Windows.Forms.ListBox();
+            this.BtCONFIGURACION = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablapuntaje)).BeginInit();
             this.panel2.SuspendLayout();
@@ -51,6 +52,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.BtCONFIGURACION);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.tablapuntaje);
             this.panel1.Controls.Add(this.txtnombre);
@@ -76,10 +78,13 @@
             // 
             // tablapuntaje
             // 
+            this.tablapuntaje.AllowUserToOrderColumns = true;
+            this.tablapuntaje.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tablapuntaje.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.tablapuntaje.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tablapuntaje.Location = new System.Drawing.Point(18, 191);
             this.tablapuntaje.Name = "tablapuntaje";
-            this.tablapuntaje.Size = new System.Drawing.Size(294, 101);
+            this.tablapuntaje.Size = new System.Drawing.Size(323, 101);
             this.tablapuntaje.TabIndex = 7;
             // 
             // txtnombre
@@ -118,11 +123,11 @@
             // 
             // Btvolver
             // 
-            this.Btvolver.Location = new System.Drawing.Point(379, 13);
+            this.Btvolver.Location = new System.Drawing.Point(349, 47);
             this.Btvolver.Name = "Btvolver";
-            this.Btvolver.Size = new System.Drawing.Size(51, 25);
+            this.Btvolver.Size = new System.Drawing.Size(81, 25);
             this.Btvolver.TabIndex = 1;
-            this.Btvolver.Text = "volver";
+            this.Btvolver.Text = "SALIR";
             this.Btvolver.UseVisualStyleBackColor = true;
             this.Btvolver.Click += new System.EventHandler(this.BtVolver_Click);
             // 
@@ -191,6 +196,16 @@
             this.listperso.Size = new System.Drawing.Size(299, 108);
             this.listperso.TabIndex = 2;
             // 
+            // BtCONFIGURACION
+            // 
+            this.BtCONFIGURACION.Location = new System.Drawing.Point(313, 13);
+            this.BtCONFIGURACION.Name = "BtCONFIGURACION";
+            this.BtCONFIGURACION.Size = new System.Drawing.Size(117, 21);
+            this.BtCONFIGURACION.TabIndex = 9;
+            this.BtCONFIGURACION.Text = "CONFIGURACIÓN";
+            this.BtCONFIGURACION.UseVisualStyleBackColor = true;
+            this.BtCONFIGURACION.Click += new System.EventHandler(this.BtCONFIGURACION_Click);
+            // 
             // VistaUserPersonajes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -227,5 +242,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView tablapuntaje;
         private System.Windows.Forms.ListBox listperso;
+        private System.Windows.Forms.Button BtCONFIGURACION;
     }
 }

@@ -4,15 +4,16 @@ using System.Windows.Forms;
 
 namespace IGU
 {
-    public partial class OpcionesPerso : Form
+    public partial class OpcionesDeAtacarPersonaje : Form
     {
-        public int opcion = 0;
+        int opcion = 0;
         Gerrero gerrero;
         Mago mago;
         Npc npc;
+        Arquero arquero;
         Plantilla personaje;
 
-        public OpcionesPerso(Plantilla plantilla, Npc npc1)
+        public OpcionesDeAtacarPersonaje(Plantilla plantilla, Npc npc1)
         {
             InitializeComponent();
             Cargar(plantilla);
@@ -28,8 +29,9 @@ namespace IGU
         {
             switch (plantilla.clase)
             {
-                case "gerrero": { gerrero = new Gerrero(plantilla.id, plantilla.clase, plantilla.nombre, plantilla.vida, plantilla.mana, plantilla.fuerza, plantilla.defensa, plantilla.armaid); } break;
-                case "mago": { mago = new Mago(plantilla.id, plantilla.clase, plantilla.nombre, plantilla.vida, plantilla.mana, plantilla.fuerza, plantilla.defensa, plantilla.armaid); } break;
+                case "GERRERO": { gerrero = new Gerrero(plantilla.id, plantilla.clase, plantilla.nombre, plantilla.vida, plantilla.mana, plantilla.fuerza, plantilla.defensa, plantilla.armaid); } break;
+                case "MAGO": { mago = new Mago(plantilla.id, plantilla.clase, plantilla.nombre, plantilla.vida, plantilla.mana, plantilla.fuerza, plantilla.defensa, plantilla.armaid); } break;
+                case "ARQUERO": { arquero = new Arquero(plantilla.id, plantilla.clase, plantilla.nombre, plantilla.vida, plantilla.mana, plantilla.fuerza, plantilla.defensa, plantilla.armaid); } break;
             }
         }
 
@@ -41,8 +43,9 @@ namespace IGU
         {
             switch (clase)
             {
-                case "gerrero": { MostrarInfoGerrero(); } break;
-                case "mago": { MostrarInfoMago(); } break;
+                case "GERRERO": { MostrarInfoGerrero(); } break;
+                case "MAGO": { MostrarInfoMago(); } break;
+                case "ARQUERO": { MostrarInfoArquero(); } break;
             }
         }
 
@@ -62,8 +65,34 @@ namespace IGU
             labelcancelar.Text = "Cancelar el ataque";
         }
 
+        private void MostrarInfoArquero()
+        {
+            labelbasico.Text = arquero.Basico(npc.defensa);
+            labelhab1.Text = arquero.Hab1(npc.defensa);
+            labelhab2.Text = arquero.Hab2(npc.defensa);
+            labelcancelar.Text = "Cancelar el ataque";
+        }
+
         private void ValidarElMana()
         {
+            if (personaje.mana >= 25)
+            {
+                Bthabilidad02.Enabled = true;
+            }
+            else
+            {
+                Bthabilidad02.Enabled = false;
+            }
+
+            if (personaje.mana >= 15)
+            {
+                Bthabilidad01.Enabled = true;
+            }
+            else
+            {
+                Bthabilidad01.Enabled = false;
+            }
+
             if (personaje.mana >= 5)
             {
                 Btbasico.Enabled = true;
@@ -71,22 +100,6 @@ namespace IGU
             else
             {
                 Btbasico.Enabled = false;
-                if(personaje.mana >= 15)
-                {
-                    Bthabilidad01.Enabled = true;
-                }
-                else
-                {
-                    Bthabilidad01.Enabled = false;
-                    if( personaje.mana >= 25)
-                    {
-                        Bthabilidad02.Enabled = true;
-                    }
-                    else
-                    {
-                        Bthabilidad02.Enabled = false;
-                    }
-                }
             }
         }
 

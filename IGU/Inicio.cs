@@ -40,9 +40,9 @@ namespace IGU
 
         private void Btmundos_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            new VistaMundo().ShowDialog();
-            this.Close();
+            //this.Hide();
+            //new VistaMundo().ShowDialog();
+            //this.Close();
         }
 
         private void Btacciones_Click(object sender, EventArgs e)

@@ -39,6 +39,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.txtdanio = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.Btdefender = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -64,8 +65,10 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.Btvolver = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.Btpruebasig = new System.Windows.Forms.Button();
             this.Btpruebaant = new System.Windows.Forms.Button();
+            this.Btpruebasig = new System.Windows.Forms.Button();
+            this.labelMensaje = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -80,7 +83,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(-1, 36);
+            this.label1.Location = new System.Drawing.Point(0, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 13);
             this.label1.TabIndex = 0;
@@ -88,19 +91,18 @@
             // 
             // txtopcion
             // 
-            this.txtopcion.Location = new System.Drawing.Point(4, 52);
+            this.txtopcion.Location = new System.Drawing.Point(5, 23);
             this.txtopcion.Name = "txtopcion";
             this.txtopcion.Size = new System.Drawing.Size(80, 20);
             this.txtopcion.TabIndex = 1;
             // 
             // Btataque
             // 
-            this.Btataque.Enabled = false;
-            this.Btataque.Location = new System.Drawing.Point(16, 107);
+            this.Btataque.Location = new System.Drawing.Point(16, 49);
             this.Btataque.Name = "Btataque";
             this.Btataque.Size = new System.Drawing.Size(122, 55);
             this.Btataque.TabIndex = 2;
-            this.Btataque.Text = "Atacar";
+            this.Btataque.Text = "ATACAR";
             this.Btataque.UseVisualStyleBackColor = true;
             this.Btataque.Click += new System.EventHandler(this.Btataque_Click);
             // 
@@ -120,8 +122,9 @@
             this.Btbeffer.Name = "Btbeffer";
             this.Btbeffer.Size = new System.Drawing.Size(122, 55);
             this.Btbeffer.TabIndex = 4;
-            this.Btbeffer.Text = "Beffers";
+            this.Btbeffer.Text = "BUFFERS";
             this.Btbeffer.UseVisualStyleBackColor = true;
+            this.Btbeffer.Click += new System.EventHandler(this.Btbeffer_Click);
             // 
             // panel1
             // 
@@ -172,6 +175,7 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.Btdefender);
             this.panel3.Controls.Add(this.Btrendirse);
             this.panel3.Controls.Add(this.Btbeffer);
             this.panel3.Controls.Add(this.Btataque);
@@ -181,6 +185,15 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(160, 296);
             this.panel3.TabIndex = 7;
+            // 
+            // Btdefender
+            // 
+            this.Btdefender.Location = new System.Drawing.Point(16, 110);
+            this.Btdefender.Name = "Btdefender";
+            this.Btdefender.Size = new System.Drawing.Size(122, 52);
+            this.Btdefender.TabIndex = 5;
+            this.Btdefender.Text = "DEFENDER";
+            this.Btdefender.UseVisualStyleBackColor = true;
             // 
             // panel4
             // 
@@ -399,6 +412,8 @@
             // panel6
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.label10);
+            this.panel6.Controls.Add(this.labelMensaje);
             this.panel6.Controls.Add(this.Btvolver);
             this.panel6.Location = new System.Drawing.Point(615, 307);
             this.panel6.Name = "panel6";
@@ -407,7 +422,7 @@
             // 
             // Btvolver
             // 
-            this.Btvolver.Location = new System.Drawing.Point(3, 21);
+            this.Btvolver.Location = new System.Drawing.Point(1, 158);
             this.Btvolver.Name = "Btvolver";
             this.Btvolver.Size = new System.Drawing.Size(151, 40);
             this.Btvolver.TabIndex = 0;
@@ -430,6 +445,16 @@
             this.panel7.Size = new System.Drawing.Size(594, 208);
             this.panel7.TabIndex = 12;
             // 
+            // Btpruebaant
+            // 
+            this.Btpruebaant.Location = new System.Drawing.Point(421, 115);
+            this.Btpruebaant.Name = "Btpruebaant";
+            this.Btpruebaant.Size = new System.Drawing.Size(165, 21);
+            this.Btpruebaant.TabIndex = 12;
+            this.Btpruebaant.Text = "Anterior mundo";
+            this.Btpruebaant.UseVisualStyleBackColor = true;
+            this.Btpruebaant.Click += new System.EventHandler(this.Btpruebaant_Click);
+            // 
             // Btpruebasig
             // 
             this.Btpruebasig.Location = new System.Drawing.Point(419, 78);
@@ -440,15 +465,21 @@
             this.Btpruebasig.UseVisualStyleBackColor = true;
             this.Btpruebasig.Click += new System.EventHandler(this.Btpruebasig_Click);
             // 
-            // Btpruebaant
+            // labelMensaje
             // 
-            this.Btpruebaant.Location = new System.Drawing.Point(421, 115);
-            this.Btpruebaant.Name = "Btpruebaant";
-            this.Btpruebaant.Size = new System.Drawing.Size(165, 21);
-            this.Btpruebaant.TabIndex = 12;
-            this.Btpruebaant.Text = "Anterior mundo";
-            this.Btpruebaant.UseVisualStyleBackColor = true;
-            this.Btpruebaant.Click += new System.EventHandler(this.Btpruebaant_Click);
+            this.labelMensaje.Location = new System.Drawing.Point(3, 31);
+            this.labelMensaje.Name = "labelMensaje";
+            this.labelMensaje.Size = new System.Drawing.Size(149, 80);
+            this.labelMensaje.TabIndex = 1;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 7);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(50, 13);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Mensaje:";
             // 
             // AccionesPerso
             // 
@@ -473,6 +504,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.ResumeLayout(false);
@@ -521,5 +553,8 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button Btpruebaant;
         private System.Windows.Forms.Button Btpruebasig;
+        private System.Windows.Forms.Button Btdefender;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label labelMensaje;
     }
 }

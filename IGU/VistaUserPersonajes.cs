@@ -2,12 +2,6 @@
 using Entity;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IGU
@@ -18,6 +12,8 @@ namespace IGU
         User usuario;
         PersonajeService personajeService;
         UserPersonajeService userPersonajeservice;
+        PuntajeService puntajeService;
+        List<Plantilla> personajes = new List<Plantilla>();
         bool bt1validar, bt2validar, bt3validar;
 
 
@@ -28,29 +24,24 @@ namespace IGU
             usuario = user;
             MostrarUsuario(user);
             userPersonajeservice = new UserPersonajeService(user.Id);
-            //Mostralista();
             CargarPersonajes();
+            puntajeService = new PuntajeService(user.Id);
+            MostraPuntaje();
         }
 
         private void Btpersonaje1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            new VistaMundo().ShowDialog();
-            this.Close();
+            PasarVista(bt1validar, personajes[0]);
         }
 
         private void Btpersonaje2_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            new VistaMundo().ShowDialog();
-            this.Close();
+            PasarVista(bt2validar, personajes[1]);
         }
 
         private void Btpersonaje3_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            new VistaMundo().ShowDialog();
-            this.Close();
+            PasarVista(bt3validar, personajes[2]);
         }
 
         private void BtVolver_Click(object sender, EventArgs e)
@@ -65,9 +56,25 @@ namespace IGU
 
         }
 
+        private void PasarVista(bool Btvalidar, Plantilla plantilla)
+        {
+            if (Btvalidar == false)
+            {
+                this.Hide();
+                new VistaEscojerPersonaje(usuario).ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                this.Hide();
+                new VistaMundo(usuario,plantilla).ShowDialog();
+                this.Close();
+            }
+        }
+
         private void MostrarUsuario(User usuario)
         {
-            if(usuario==null)
+            if (usuario == null)
             {
                 MessageBox.Show("No hay un usuario");
             }
@@ -84,18 +91,27 @@ namespace IGU
             listperso.DisplayMember = "nombre";
         }
 
+        private void MostraPuntaje()
+        {
+            tablapuntaje.DataSource = puntajeService.GetTabla();
+        }
+
+        private void BtCONFIGURACION_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("FUNCIONES EN DASARROLLO");
+        }
+
         private void CargarPersonajes()
         {
             List<int> id_personajes = userPersonajeservice.Getlis();
-            List<Plantilla> personajes = new List<Plantilla>();
             listperso.DataSource = id_personajes;
             if (id_personajes.Count == 0)
             {
-                CargarBotonesPersonajes(0,0,0,personajes);
+                CargarBotonesPersonajes(0, 0, 0, personajes);
             }
             else
             {
-                for (int i = 0;i< id_personajes.Count;i++) 
+                for (int i = 0; i < id_personajes.Count; i++)
                 {
                     Plantilla perso = personajeService.GetId(id_personajes[i]);
                     if (perso != null)
@@ -120,7 +136,7 @@ namespace IGU
 
         private void CargarBotonesPersonajes(int indx1, int indx2, int indx3, List<Plantilla> personajes)
         {
-            if (indx1==0)
+            if (indx1 == 0)
             {
                 Btpersonaje1.Text = "NEW ...";
                 bt1validar = false;
