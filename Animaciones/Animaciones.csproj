@@ -41,8 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Escenarios.cs" />
-    <Compile Include="PersoAnimacion.cs" />
+    <Compile Include="IcrudAnimacion.cs" />
+    <Compile Include="AniGerreroEspada.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

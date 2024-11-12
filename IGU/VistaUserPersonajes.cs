@@ -85,12 +85,6 @@ namespace IGU
             }
         }
 
-        private void Mostralista()
-        {
-            listperso.DataSource = personajeService.GetAll();
-            listperso.DisplayMember = "nombre";
-        }
-
         private void MostraPuntaje()
         {
             tablapuntaje.DataSource = puntajeService.GetTabla();
@@ -104,7 +98,6 @@ namespace IGU
         private void CargarPersonajes()
         {
             List<int> id_personajes = userPersonajeservice.Getlis();
-            listperso.DataSource = id_personajes;
             if (id_personajes.Count == 0)
             {
                 CargarBotonesPersonajes(0, 0, 0, personajes);

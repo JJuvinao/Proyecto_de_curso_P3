@@ -90,6 +90,12 @@
     <Compile Include="VistaMundo.Designer.cs">
       <DependentUpon>VistaMundo.cs</DependentUpon>
     </Compile>
+    <Compile Include="VistaPreguntasYRespestas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaPreguntasYRespestas.Designer.cs">
+      <DependentUpon>VistaPreguntasYRespestas.cs</DependentUpon>
+    </Compile>
     <Compile Include="VistaPreg_Y_Resp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     <EmbeddedResource Include="VistaMundo.resx">
       <DependentUpon>VistaMundo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VistaPreguntasYRespestas.resx">
+      <DependentUpon>VistaPreguntasYRespestas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VistaPreg_Y_Resp.resx">
       <DependentUpon>VistaPreg_Y_Resp.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,6 +165,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Animaciones\Animaciones.csproj">
+      <Project>{be683cb5-45fb-4b9e-b221-8914d2b8946d}</Project>
+      <Name>Animaciones</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{9d1f703b-577c-459b-b6be-7462a9e1d22e}</Project>
       <Name>BLL</Name>

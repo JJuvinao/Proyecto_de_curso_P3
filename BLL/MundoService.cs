@@ -1,10 +1,6 @@
 ﻿using DAL;
 using Entity;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BLL
 {
@@ -12,7 +8,7 @@ namespace BLL
     {
         List<Mundo> mundos;
         MundoRepository MundoRepository;
-        public MundoService() 
+        public MundoService()
         {
             MundoRepository = new MundoRepository();
             Resfrescarlista();
@@ -20,12 +16,12 @@ namespace BLL
 
         private void Resfrescarlista()
         {
-            throw new NotImplementedException();
+            mundos = MundoRepository.GetList();
         }
 
-        public List<Mundo> Getid()
+        public List<Mundo> GetAll()
         {
-            return mundos = MundoRepository.GetList();
+            return mundos;
         }
 
         public Mundo GetId(int id)
