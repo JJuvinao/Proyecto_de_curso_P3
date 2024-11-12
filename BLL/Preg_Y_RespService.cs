@@ -2,6 +2,7 @@
 using Entity;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,11 @@ namespace BLL
         private void RefrescarLista()
         {
             listaPreYRes = PRE_Y_RESRepository.GetList();
+        }
+
+        public DataTable Gettabla()
+        {
+            return PRE_Y_RESRepository.Listado_User();
         }
 
         public List<Preg_Y_Resp> GetAll()

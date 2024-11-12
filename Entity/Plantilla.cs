@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Entity
 {
@@ -36,7 +32,7 @@ namespace Entity
 
         public void RecibirDanio(int danio)
         {
-            this.vida = -danio;
+            this.vida -= danio;
         }
         public bool TieneMana()
         {
@@ -53,7 +49,7 @@ namespace Entity
             this.mana -= mana;
         }
 
-        public void AumentarDanio() 
+        public void AumentarDanio()
         {
             this.fuerza += 10;
         }

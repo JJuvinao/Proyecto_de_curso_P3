@@ -18,44 +18,28 @@ namespace IGU
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new VistaPreg_Y_Resp().ShowDialog();
-            this.Close();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new VistaUser().ShowDialog();
-            this.Close();
-        }
-
         private void Btsalir_Click(object sender, EventArgs e)
         {
             this.Hide();
             this.Close();
         }
 
-        private void Btmundos_Click(object sender, EventArgs e)
-        {
-            //this.Hide();
-            //new VistaMundo().ShowDialog();
-            //this.Close();
-        }
-
-        private void Btacciones_Click(object sender, EventArgs e)
-        {
-            //this.Hide();
-            //new AccionesPerso().ShowDialog();
-            //this.Close();
-        }
-
         private void Btempezar_Click(object sender, EventArgs e)
         {
             this.Hide();
             new Login().ShowDialog();
+            this.Close();
+        }
+
+        private void Btopcion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btpreguntas_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new VistaPreguntasYRespestas().ShowDialog();
             this.Close();
         }
     }

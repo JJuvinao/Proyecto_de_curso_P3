@@ -33,14 +33,16 @@
             this.Btataque = new System.Windows.Forms.Button();
             this.Btrendirse = new System.Windows.Forms.Button();
             this.Btbeffer = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.PanelFondo = new System.Windows.Forms.Panel();
+            this.PictureNpc = new System.Windows.Forms.PictureBox();
+            this.PicturePersonaje = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.txtdanio = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.Btdefender = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label = new System.Windows.Forms.Label();
+            this.labelclase = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -63,21 +65,23 @@
             this.lbnpcvida = new System.Windows.Forms.Label();
             this.lbnpcnom = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.labelMensaje = new System.Windows.Forms.Label();
             this.Btvolver = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.Btpruebaant = new System.Windows.Forms.Button();
-            this.Btpruebasig = new System.Windows.Forms.Button();
-            this.labelMensaje = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.PicturePersonaje2 = new System.Windows.Forms.PictureBox();
+            this.PanelFondo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureNpc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicturePersonaje)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicturePersonaje2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -126,34 +130,36 @@
             this.Btbeffer.UseVisualStyleBackColor = true;
             this.Btbeffer.Click += new System.EventHandler(this.Btbeffer_Click);
             // 
-            // panel1
+            // PanelFondo
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Location = new System.Drawing.Point(173, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(600, 296);
-            this.panel1.TabIndex = 5;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.PanelFondo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanelFondo.Controls.Add(this.PicturePersonaje2);
+            this.PanelFondo.Controls.Add(this.PictureNpc);
+            this.PanelFondo.Controls.Add(this.PicturePersonaje);
+            this.PanelFondo.Location = new System.Drawing.Point(9, 5);
+            this.PanelFondo.Name = "PanelFondo";
+            this.PanelFondo.Size = new System.Drawing.Size(600, 296);
+            this.PanelFondo.TabIndex = 5;
+            this.PanelFondo.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // pictureBox3
+            // PictureNpc
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(327, 169);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(130, 124);
-            this.pictureBox3.TabIndex = 5;
-            this.pictureBox3.TabStop = false;
+            this.PictureNpc.Location = new System.Drawing.Point(327, 169);
+            this.PictureNpc.Name = "PictureNpc";
+            this.PictureNpc.Size = new System.Drawing.Size(130, 124);
+            this.PictureNpc.TabIndex = 5;
+            this.PictureNpc.TabStop = false;
             // 
-            // pictureBox2
+            // PicturePersonaje
             // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox2.Location = new System.Drawing.Point(23, 157);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(127, 137);
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
+            this.PicturePersonaje.BackColor = System.Drawing.SystemColors.Control;
+            this.PicturePersonaje.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.PicturePersonaje.Location = new System.Drawing.Point(35, 50);
+            this.PicturePersonaje.Name = "PicturePersonaje";
+            this.PicturePersonaje.Size = new System.Drawing.Size(206, 206);
+            this.PicturePersonaje.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PicturePersonaje.TabIndex = 4;
+            this.PicturePersonaje.TabStop = false;
             // 
             // button1
             // 
@@ -181,9 +187,9 @@
             this.panel3.Controls.Add(this.Btataque);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.txtopcion);
-            this.panel3.Location = new System.Drawing.Point(7, 5);
+            this.panel3.Location = new System.Drawing.Point(615, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(160, 296);
+            this.panel3.Size = new System.Drawing.Size(157, 296);
             this.panel3.TabIndex = 7;
             // 
             // Btdefender
@@ -198,6 +204,8 @@
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.label);
+            this.panel4.Controls.Add(this.labelclase);
             this.panel4.Controls.Add(this.label7);
             this.panel4.Controls.Add(this.label6);
             this.panel4.Controls.Add(this.label5);
@@ -208,15 +216,33 @@
             this.panel4.Controls.Add(this.labelmana);
             this.panel4.Controls.Add(this.labelvida);
             this.panel4.Controls.Add(this.labelperso);
-            this.panel4.Location = new System.Drawing.Point(3, 56);
+            this.panel4.Location = new System.Drawing.Point(3, 65);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(154, 142);
             this.panel4.TabIndex = 7;
             // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Location = new System.Drawing.Point(8, 30);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(36, 13);
+            this.label.TabIndex = 11;
+            this.label.Text = "Clase:";
+            // 
+            // labelclase
+            // 
+            this.labelclase.AutoSize = true;
+            this.labelclase.Location = new System.Drawing.Point(81, 30);
+            this.labelclase.Name = "labelclase";
+            this.labelclase.Size = new System.Drawing.Size(10, 13);
+            this.labelclase.TabIndex = 10;
+            this.labelclase.Text = "-";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 101);
+            this.label7.Location = new System.Drawing.Point(7, 125);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(50, 13);
             this.label7.TabIndex = 9;
@@ -225,7 +251,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 79);
+            this.label6.Location = new System.Drawing.Point(8, 103);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 13);
             this.label6.TabIndex = 8;
@@ -234,7 +260,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 55);
+            this.label5.Location = new System.Drawing.Point(8, 79);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 13);
             this.label5.TabIndex = 7;
@@ -243,7 +269,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 31);
+            this.label4.Location = new System.Drawing.Point(8, 55);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(31, 13);
             this.label4.TabIndex = 6;
@@ -261,7 +287,7 @@
             // labeldefensa
             // 
             this.labeldefensa.AutoSize = true;
-            this.labeldefensa.Location = new System.Drawing.Point(81, 101);
+            this.labeldefensa.Location = new System.Drawing.Point(81, 125);
             this.labeldefensa.Name = "labeldefensa";
             this.labeldefensa.Size = new System.Drawing.Size(10, 13);
             this.labeldefensa.TabIndex = 4;
@@ -270,7 +296,7 @@
             // labelfuerza
             // 
             this.labelfuerza.AutoSize = true;
-            this.labelfuerza.Location = new System.Drawing.Point(81, 79);
+            this.labelfuerza.Location = new System.Drawing.Point(81, 103);
             this.labelfuerza.Name = "labelfuerza";
             this.labelfuerza.Size = new System.Drawing.Size(10, 13);
             this.labelfuerza.TabIndex = 3;
@@ -279,7 +305,7 @@
             // labelmana
             // 
             this.labelmana.AutoSize = true;
-            this.labelmana.Location = new System.Drawing.Point(81, 55);
+            this.labelmana.Location = new System.Drawing.Point(81, 79);
             this.labelmana.Name = "labelmana";
             this.labelmana.Size = new System.Drawing.Size(10, 13);
             this.labelmana.TabIndex = 2;
@@ -288,7 +314,7 @@
             // labelvida
             // 
             this.labelvida.AutoSize = true;
-            this.labelvida.Location = new System.Drawing.Point(81, 31);
+            this.labelvida.Location = new System.Drawing.Point(81, 55);
             this.labelvida.Name = "labelvida";
             this.labelvida.Size = new System.Drawing.Size(10, 13);
             this.labelvida.TabIndex = 1;
@@ -332,7 +358,7 @@
             this.panel2.Controls.Add(this.lbnpcfuerza);
             this.panel2.Controls.Add(this.lbnpcvida);
             this.panel2.Controls.Add(this.lbnpcnom);
-            this.panel2.Location = new System.Drawing.Point(187, 56);
+            this.panel2.Location = new System.Drawing.Point(199, 65);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(170, 142);
             this.panel2.TabIndex = 10;
@@ -420,6 +446,22 @@
             this.panel6.Size = new System.Drawing.Size(157, 208);
             this.panel6.TabIndex = 11;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 7);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(50, 13);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Mensaje:";
+            // 
+            // labelMensaje
+            // 
+            this.labelMensaje.Location = new System.Drawing.Point(3, 31);
+            this.labelMensaje.Name = "labelMensaje";
+            this.labelMensaje.Size = new System.Drawing.Size(149, 80);
+            this.labelMensaje.TabIndex = 1;
+            // 
             // Btvolver
             // 
             this.Btvolver.Location = new System.Drawing.Point(1, 158);
@@ -433,8 +475,8 @@
             // panel7
             // 
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel7.Controls.Add(this.Btpruebaant);
-            this.panel7.Controls.Add(this.Btpruebasig);
+            this.panel7.Controls.Add(this.label15);
+            this.panel7.Controls.Add(this.label13);
             this.panel7.Controls.Add(this.panel5);
             this.panel7.Controls.Add(this.panel2);
             this.panel7.Controls.Add(this.txtdanio);
@@ -445,41 +487,33 @@
             this.panel7.Size = new System.Drawing.Size(594, 208);
             this.panel7.TabIndex = 12;
             // 
-            // Btpruebaant
+            // label15
             // 
-            this.Btpruebaant.Location = new System.Drawing.Point(421, 115);
-            this.Btpruebaant.Name = "Btpruebaant";
-            this.Btpruebaant.Size = new System.Drawing.Size(165, 21);
-            this.Btpruebaant.TabIndex = 12;
-            this.Btpruebaant.Text = "Anterior mundo";
-            this.Btpruebaant.UseVisualStyleBackColor = true;
-            this.Btpruebaant.Click += new System.EventHandler(this.Btpruebaant_Click);
+            this.label15.Location = new System.Drawing.Point(208, 41);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(127, 22);
+            this.label15.TabIndex = 14;
+            this.label15.Text = "Npc";
             // 
-            // Btpruebasig
+            // label13
             // 
-            this.Btpruebasig.Location = new System.Drawing.Point(419, 78);
-            this.Btpruebasig.Name = "Btpruebasig";
-            this.Btpruebasig.Size = new System.Drawing.Size(168, 22);
-            this.Btpruebasig.TabIndex = 11;
-            this.Btpruebasig.Text = "Siguiente mundo";
-            this.Btpruebasig.UseVisualStyleBackColor = true;
-            this.Btpruebasig.Click += new System.EventHandler(this.Btpruebasig_Click);
+            this.label13.Location = new System.Drawing.Point(8, 40);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(127, 22);
+            this.label13.TabIndex = 13;
+            this.label13.Text = "Personaje";
             // 
-            // labelMensaje
+            // PicturePersonaje2
             // 
-            this.labelMensaje.Location = new System.Drawing.Point(3, 31);
-            this.labelMensaje.Name = "labelMensaje";
-            this.labelMensaje.Size = new System.Drawing.Size(149, 80);
-            this.labelMensaje.TabIndex = 1;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 7);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(50, 13);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "Mensaje:";
+            this.PicturePersonaje2.BackColor = System.Drawing.SystemColors.Control;
+            this.PicturePersonaje2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.PicturePersonaje2.Location = new System.Drawing.Point(185, 50);
+            this.PicturePersonaje2.Name = "PicturePersonaje2";
+            this.PicturePersonaje2.Size = new System.Drawing.Size(206, 206);
+            this.PicturePersonaje2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PicturePersonaje2.TabIndex = 6;
+            this.PicturePersonaje2.TabStop = false;
+            this.PicturePersonaje2.Visible = false;
             // 
             // AccionesPerso
             // 
@@ -489,12 +523,14 @@
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.PanelFondo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AccionesPerso";
             this.Text = "AccionesPerso";
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.PanelFondo.ResumeLayout(false);
+            this.PanelFondo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureNpc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PicturePersonaje)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -507,6 +543,7 @@
             this.panel6.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicturePersonaje2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -518,7 +555,7 @@
         private System.Windows.Forms.Button Btataque;
         private System.Windows.Forms.Button Btrendirse;
         private System.Windows.Forms.Button Btbeffer;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel PanelFondo;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
@@ -545,16 +582,19 @@
         private System.Windows.Forms.TextBox txtdanio;
         private System.Windows.Forms.PictureBox PictPerso;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox PicturePersonaje;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox PictureNpc;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button Btvolver;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button Btpruebaant;
-        private System.Windows.Forms.Button Btpruebasig;
         private System.Windows.Forms.Button Btdefender;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label labelMensaje;
+        private System.Windows.Forms.Label label;
+        private System.Windows.Forms.Label labelclase;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.PictureBox PicturePersonaje2;
     }
 }

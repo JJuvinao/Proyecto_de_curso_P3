@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtCONFIGURACION = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.tablapuntaje = new System.Windows.Forms.DataGridView();
             this.txtnombre = new System.Windows.Forms.TextBox();
@@ -42,8 +43,6 @@
             this.Btpersonaje2 = new System.Windows.Forms.Button();
             this.Btpersonaje1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.listperso = new System.Windows.Forms.ListBox();
-            this.BtCONFIGURACION = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablapuntaje)).BeginInit();
             this.panel2.SuspendLayout();
@@ -66,6 +65,16 @@
             this.panel1.Size = new System.Drawing.Size(435, 297);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // BtCONFIGURACION
+            // 
+            this.BtCONFIGURACION.Location = new System.Drawing.Point(313, 13);
+            this.BtCONFIGURACION.Name = "BtCONFIGURACION";
+            this.BtCONFIGURACION.Size = new System.Drawing.Size(117, 21);
+            this.BtCONFIGURACION.TabIndex = 9;
+            this.BtCONFIGURACION.Text = "CONFIGURACIÓN";
+            this.BtCONFIGURACION.UseVisualStyleBackColor = true;
+            this.BtCONFIGURACION.Click += new System.EventHandler(this.BtCONFIGURACION_Click);
             // 
             // label5
             // 
@@ -188,30 +197,11 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Personajes";
             // 
-            // listperso
-            // 
-            this.listperso.FormattingEnabled = true;
-            this.listperso.Location = new System.Drawing.Point(34, 335);
-            this.listperso.Name = "listperso";
-            this.listperso.Size = new System.Drawing.Size(299, 108);
-            this.listperso.TabIndex = 2;
-            // 
-            // BtCONFIGURACION
-            // 
-            this.BtCONFIGURACION.Location = new System.Drawing.Point(313, 13);
-            this.BtCONFIGURACION.Name = "BtCONFIGURACION";
-            this.BtCONFIGURACION.Size = new System.Drawing.Size(117, 21);
-            this.BtCONFIGURACION.TabIndex = 9;
-            this.BtCONFIGURACION.Text = "CONFIGURACIÓN";
-            this.BtCONFIGURACION.UseVisualStyleBackColor = true;
-            this.BtCONFIGURACION.Click += new System.EventHandler(this.BtCONFIGURACION_Click);
-            // 
             // VistaUserPersonajes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(683, 459);
-            this.Controls.Add(this.listperso);
+            this.ClientSize = new System.Drawing.Size(683, 321);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "VistaUserPersonajes";
@@ -241,7 +231,6 @@
         private System.Windows.Forms.TextBox txtnombre;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView tablapuntaje;
-        private System.Windows.Forms.ListBox listperso;
         private System.Windows.Forms.Button BtCONFIGURACION;
     }
 }
