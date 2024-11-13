@@ -14,6 +14,7 @@ namespace IGU
         UserPersonajeService userPersonajeservice;
         PuntajeService puntajeService;
         List<Plantilla> personajes = new List<Plantilla>();
+        Plantilla persocontrol = new Plantilla();
         bool bt1validar, bt2validar, bt3validar;
 
 
@@ -31,17 +32,38 @@ namespace IGU
 
         private void Btpersonaje1_Click(object sender, EventArgs e)
         {
-            PasarVista(bt1validar, personajes[0]);
+            if (personajes.Count >= 1)
+            {
+                PasarVista(bt1validar, personajes[0]);
+            }
+            else
+            {
+                PasarVista(bt2validar, persocontrol);
+            }
         }
 
         private void Btpersonaje2_Click(object sender, EventArgs e)
         {
-            PasarVista(bt2validar, personajes[1]);
+            if (personajes.Count >= 2)
+            {
+                PasarVista(bt2validar, personajes[1]);
+            }
+            else
+            {
+                PasarVista(bt2validar, persocontrol);
+            }
         }
 
         private void Btpersonaje3_Click(object sender, EventArgs e)
         {
-            PasarVista(bt3validar, personajes[2]);
+            if (personajes.Count >= 3)
+            {
+                PasarVista(bt3validar, personajes[2]);
+            }
+            else
+            {
+                PasarVista(bt3validar, persocontrol);
+            }
         }
 
         private void BtVolver_Click(object sender, EventArgs e)
@@ -62,12 +84,11 @@ namespace IGU
             {
                 this.Hide();
                 new VistaEscojerPersonaje(usuario).ShowDialog();
-                this.Close();
             }
             else
             {
                 this.Hide();
-                new VistaMundo(usuario,plantilla).ShowDialog();
+                new VistaMundo(usuario, plantilla).ShowDialog();
                 this.Close();
             }
         }

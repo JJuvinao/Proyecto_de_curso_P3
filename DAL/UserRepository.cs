@@ -21,11 +21,14 @@ namespace DAL
             try
             {
                 sqlconnec = DBConnection.Getinstancia().GetConnection();
-                OracleCommand command = new OracleCommand("select id_user,nombre_user,contra_user,rol from usuarios", sqlconnec);
-                command.CommandType = CommandType.Text;
                 sqlconnec.Open();
-                dataReader = command.ExecuteReader();
-                tabla.Load(dataReader);
+                using (OracleCommand command = new OracleCommand("FX_CONSULTAR_USUARIOS", sqlconnec))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("resultadoCursor", OracleDbType.RefCursor).Direction = ParameterDirection.ReturnValue;
+                    dataReader = command.ExecuteReader();
+                    tabla.Load(dataReader);
+                }
                 return tabla;
             }
             catch (Exception e)
@@ -48,15 +51,13 @@ namespace DAL
             {
                 connection = DBConnection.Getinstancia().GetConnection();
                 connection.Open();
-                string query = "INSERT INTO usuarios (id_user, nombre_user, contra_user, Rol) " +
-                               "VALUES (:Id, :Nombre, :Contra, :Rol)";
-
-                using (OracleCommand command = new OracleCommand(query, connection))
+                using (OracleCommand command = new OracleCommand("PR_INSERT_USUARIO", connection))
                 {
-                    command.Parameters.Add(":Id", usuario.Id);
-                    command.Parameters.Add(":Nombre", usuario.Name);
-                    command.Parameters.Add(":Contra", usuario.Contra);
-                    command.Parameters.Add(":Rol", usuario.Rol);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("id_user", OracleDbType.Int32).Value = usuario.Id;
+                    command.Parameters.Add(":nombre", OracleDbType.Varchar2).Value = usuario.Name;
+                    command.Parameters.Add(":contra", OracleDbType.Varchar2).Value = usuario.Contra; 
+                    command.Parameters.Add(":rol", OracleDbType.Varchar2).Value = usuario.Rol; 
 
                     command.ExecuteNonQuery();
                 }
