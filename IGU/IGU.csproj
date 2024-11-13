@@ -90,11 +90,11 @@
     <Compile Include="VistaMundo.Designer.cs">
       <DependentUpon>VistaMundo.cs</DependentUpon>
     </Compile>
-    <Compile Include="VistaPreguntasYRespestas.cs">
+    <Compile Include="VistaConsultaPreguntasYRespestas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VistaPreguntasYRespestas.Designer.cs">
-      <DependentUpon>VistaPreguntasYRespestas.cs</DependentUpon>
+    <Compile Include="VistaConsultaPreguntasYRespestas.Designer.cs">
+      <DependentUpon>VistaConsultaPreguntasYRespestas.cs</DependentUpon>
     </Compile>
     <Compile Include="VistaPreg_Y_Resp.cs">
       <SubType>Form</SubType>
@@ -108,6 +108,12 @@
     </Compile>
     <Compile Include="VistaRegistrar.Designer.cs">
       <DependentUpon>VistaRegistrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistaRegistroPreYRes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaRegistroPreYRes.Designer.cs">
+      <DependentUpon>VistaRegistroPreYRes.cs</DependentUpon>
     </Compile>
     <Compile Include="VistaUser.cs">
       <SubType>Form</SubType>
@@ -148,14 +154,17 @@
     <EmbeddedResource Include="VistaMundo.resx">
       <DependentUpon>VistaMundo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VistaPreguntasYRespestas.resx">
-      <DependentUpon>VistaPreguntasYRespestas.cs</DependentUpon>
+    <EmbeddedResource Include="VistaConsultaPreguntasYRespestas.resx">
+      <DependentUpon>VistaConsultaPreguntasYRespestas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistaPreg_Y_Resp.resx">
       <DependentUpon>VistaPreg_Y_Resp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistaRegistrar.resx">
       <DependentUpon>VistaRegistrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaRegistroPreYRes.resx">
+      <DependentUpon>VistaRegistroPreYRes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistaUser.resx">
       <DependentUpon>VistaUser.cs</DependentUpon>

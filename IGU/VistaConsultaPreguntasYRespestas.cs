@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace IGU
 {
-    public partial class VistaPreguntasYRespestas : Form
+    public partial class VistaConsultaPreguntasYRespestas : Form
     {
         Preg_Y_RespService respService;
-        public VistaPreguntasYRespestas()
+        public VistaConsultaPreguntasYRespestas()
         {
             InitializeComponent();
             respService = new Preg_Y_RespService();
@@ -23,6 +23,13 @@ namespace IGU
         private void Btver_Click(object sender, EventArgs e)
         {
             tablapreyres.DataSource = respService.Gettabla();
+        }
+
+        private void Btagregar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new VistaRegistroPreYRes().ShowDialog();
+            this.Close();
         }
     }
 }

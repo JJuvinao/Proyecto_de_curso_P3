@@ -39,7 +39,7 @@ namespace IGU
         private void Btpreguntas_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new VistaPreguntasYRespestas().ShowDialog();
+            new VistaConsultaPreguntasYRespestas().ShowDialog();
             this.Close();
         }
     }

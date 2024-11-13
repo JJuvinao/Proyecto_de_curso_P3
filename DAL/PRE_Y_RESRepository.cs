@@ -18,10 +18,24 @@ namespace DAL
 
         public override List<Preg_Y_Resp> GetList()
         {
-            return null;
+            DataTable tablepreyres = Listado_PreYRes();
+            List<Preg_Y_Resp> presyresps = new List<Preg_Y_Resp>();
+
+            foreach (DataRow row in tablepreyres.Rows)
+            {
+                Preg_Y_Resp elemento = new Preg_Y_Resp
+                {
+                    Id = Convert.ToInt32(row["ID_PREYRES"]),
+                    Pregunta = row["PREGUNTAS"].ToString(),
+                    Repuesta = row["RESPUESTAS"].ToString()
+                };
+                presyresps.Add(elemento);
+            }
+
+            return presyresps;
         }
 
-        public DataTable Listado_User()
+        public DataTable Listado_PreYRes()
         {
             OracleDataReader dataReader;
             DataTable tabla = new DataTable();
@@ -29,11 +43,14 @@ namespace DAL
             try
             {
                 sqlconnec = DBConnection.Getinstancia().GetConnection();
-                OracleCommand command = new OracleCommand("SELECT preguntas,respuestas FROM preguntas_y_respuestas", sqlconnec);
-                command.CommandType = CommandType.Text;
                 sqlconnec.Open();
-                dataReader = command.ExecuteReader();
-                tabla.Load(dataReader);
+                using (OracleCommand command = new OracleCommand("FX_CONSULTAR_PREGUNTASYRESPUESTAS", sqlconnec))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("resultadoCursor", OracleDbType.RefCursor).Direction = ParameterDirection.ReturnValue;
+                    dataReader = command.ExecuteReader();
+                    tabla.Load(dataReader);
+                }
                 return tabla;
             }
             catch (Exception e)
@@ -49,21 +66,19 @@ namespace DAL
             }
         }
 
-        public string RegistrarUsuario(Preg_Y_Resp preg_Y_Resp)
+        public string RegistrarPresYResp(Preg_Y_Resp preg_Y_Resp)
         {
             OracleConnection connection = new OracleConnection();
             try
             {
                 connection = DBConnection.Getinstancia().GetConnection();
                 connection.Open();
-                string query = "INSERT INTO preguntas_y_respuestas(id_preyres,preguntas,respuestas) " +
-                    "VALUES(:id_preyres,:pregunta,:repuesta)";
-
-                using (OracleCommand command = new OracleCommand(query, connection))
+                using (OracleCommand command = new OracleCommand("PR_INSERT_PREGUNTA_Y_RESPUESTA", connection))
                 {
-                    command.Parameters.Add(":id_preyres", preg_Y_Resp.Id);
-                    command.Parameters.Add(":pregunta", preg_Y_Resp.Pregunta);
-                    command.Parameters.Add(":repuesta", preg_Y_Resp.Repuesta);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("id_pyr", OracleDbType.Int32).Value = preg_Y_Resp.Id;
+                    command.Parameters.Add(":pregunta", OracleDbType.Varchar2).Value = preg_Y_Resp.Pregunta;
+                    command.Parameters.Add(":repuesta", OracleDbType.Varchar2).Value = preg_Y_Resp.Repuesta;
 
                     command.ExecuteNonQuery();
                 }
