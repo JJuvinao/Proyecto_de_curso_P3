@@ -21,12 +21,16 @@ namespace DAL
             OracleConnection sqlconnec = new OracleConnection();
             try
             {
+
                 sqlconnec = DBConnection.Getinstancia().GetConnection();
-                OracleCommand command = new OracleCommand("SELECT ID_PERSONAJE,NOMBRE,CLASE,VIDA,MANA,FUERZA,DEFENSA,ID_ARMA FROM PERSONAJES", sqlconnec);
-                command.CommandType = CommandType.Text;
                 sqlconnec.Open();
-                dataReader = command.ExecuteReader();
-                tabla.Load(dataReader);
+                using (OracleCommand command = new OracleCommand("FX_CONSULTAR_PERSONAJES", sqlconnec))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("resultadoCursor", OracleDbType.RefCursor).Direction = ParameterDirection.ReturnValue;
+                    dataReader = command.ExecuteReader();
+                    tabla.Load(dataReader);
+                }
                 return tabla;
             }
             catch (Exception e)
