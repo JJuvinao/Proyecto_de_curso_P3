@@ -1,11 +1,8 @@
 ﻿using DAL;
 using Entity;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BLL
 {
@@ -27,7 +24,7 @@ namespace BLL
 
         public DataTable Gettabla()
         {
-            return PRE_Y_RESRepository.Listado_User();
+            return PRE_Y_RESRepository.Listado_PreYRes();
         }
 
         public List<Preg_Y_Resp> GetAll()
@@ -44,11 +41,11 @@ namespace BLL
         public string SaveData(Preg_Y_Resp entity)
         {
             Preg_Y_Resp pre = PRE_Y_RESRepository.GetById(entity.Id);
-            if(pre != null)
+            if (pre != null)
             {
                 return "No pueden repetir las preguntas o cambiar el id";
             }
-            var msg = "";
+            var msg = PRE_Y_RESRepository.RegistrarPresYResp(entity);
             RefrescarLista();
             return msg;
         }
@@ -68,7 +65,7 @@ namespace BLL
         public string Update(Preg_Y_Resp entity)
         {
             Preg_Y_Resp PreYRes = GetId(entity.Id);
-            if (PreYRes == null) 
+            if (PreYRes == null)
             {
                 return "Preguntas y repuestas no existentes";
             }
@@ -78,11 +75,12 @@ namespace BLL
         }
         public int Number()
         {
-            if(listaPreYRes.Count != 0) 
+            if (listaPreYRes.Count != 0)
             {
                 var last = listaPreYRes.Last<Preg_Y_Resp>();
-                return last.Id + 1; 
-            }else { return 0;}
+                return last.Id + 1;
+            }
+            else { return 0; }
         }
 
     }
