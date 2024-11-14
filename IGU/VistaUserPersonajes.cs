@@ -28,6 +28,7 @@ namespace IGU
             CargarPersonajes();
             puntajeService = new PuntajeService(user.Id);
             MostraPuntaje();
+            ValidarRol();
         }
 
         private void Btpersonaje1_Click(object sender, EventArgs e)
@@ -93,6 +94,15 @@ namespace IGU
             }
         }
 
+        private void ValidarRol()
+        {
+            if (usuario.Rol == "Profesor")
+            {
+                BtPreguntas.Enabled = true;
+                BtPreguntas.Visible = true;
+            }
+        }
+
         private void MostrarUsuario(User usuario)
         {
             if (usuario == null)
@@ -114,6 +124,13 @@ namespace IGU
         private void BtCONFIGURACION_Click(object sender, EventArgs e)
         {
             MessageBox.Show("FUNCIONES EN DASARROLLO");
+        }
+
+        private void BtPreguntas_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new VistaConsultaPreguntasYRespestas(usuario).ShowDialog();
+            this.Close();
         }
 
         private void CargarPersonajes()

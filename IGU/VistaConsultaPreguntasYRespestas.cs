@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,10 +15,12 @@ namespace IGU
     public partial class VistaConsultaPreguntasYRespestas : Form
     {
         Preg_Y_RespService respService;
-        public VistaConsultaPreguntasYRespestas()
+        User usuario;
+        public VistaConsultaPreguntasYRespestas(User user)
         {
             InitializeComponent();
             respService = new Preg_Y_RespService();
+            usuario = user;
         }
 
         private void Btver_Click(object sender, EventArgs e)
@@ -28,8 +31,14 @@ namespace IGU
         private void Btagregar_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new VistaRegistroPreYRes().ShowDialog();
+            new VistaRegistroPreYRes(usuario).ShowDialog();
             this.Close();
+        }
+
+        private void Btsalir_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new VistaUserPersonajes(usuario).ShowDialog();
         }
     }
 }

@@ -35,12 +35,5 @@ namespace IGU
         {
 
         }
-
-        private void Btpreguntas_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new VistaConsultaPreguntasYRespestas().ShowDialog();
-            this.Close();
-        }
     }
 }

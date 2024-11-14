@@ -31,6 +31,10 @@ namespace IGU
             user = usser;
             AsignacionAnimacion(plantilla.clase);
             GestionarBotones();
+            PicturePersonaje2.BackColor = Color.Transparent;
+            PicturePersonaje.BackColor = Color.Transparent;
+            PictureNpc.BackColor = Color.Transparent;
+            MostrarIncial();
         }
 
         private void ValidarVidaPersonaje()
@@ -43,6 +47,7 @@ namespace IGU
                 personaje_actual.Morir();
                 Estadisticas();
                 MessageBox.Show("murio el personaje");
+                AnimacionMorir();
             }
         }
 
@@ -95,9 +100,9 @@ namespace IGU
         {
             switch (clase)
             {
-                case "GERRERO": { animacion = new AniGerreroEspada(); } break;
-                case "MAGO": { animacion = new AniGerreroEspada(); } break;
-                case "ARQUERO": { animacion = new AniGerreroEspada(); } break;
+                case "GERRERO": { animacion = new AniSamurai(); } break;
+                case "MAGO": { animacion = new AniMago(); } break;
+                case "ARQUERO": { animacion = new AniKnight(); } break;
             }
         }
 
@@ -126,22 +131,19 @@ namespace IGU
                 txtopcion.Text = opc.ToString();
                 if (opc != 0)
                 {
+                    GestionarBotones();
                     switch (opc)
                     {
-                        case 1: { AnimacionAtaque1(); }; break;
-                        case 2: { AnimacionAtaque2(); }; break;
-                        case 3: { AnimacionAtaque3(); }; break;
+                        case 1: { AnimacionAtaque1(personaje_actual.clase); }; break;
+                        case 2: { AnimacionAtaque2(personaje_actual.clase); }; break;
+                        case 3: { AnimacionAtaque3(personaje_actual.clase); }; break;
                     }
                     Atacar(opc, turno);
                     Estadisticas();
                     ValidarVidaPersonaje();
                     ValidarVidaNpc();
-                    if (Btataque.Enabled != false)
-                    {
-                        turno = false;
-                        //GestionarBotones();
-                        AccionNpc();
-                    }
+                    turno = false;
+                    AccionNpc();
                 }
             }
             else
@@ -162,19 +164,16 @@ namespace IGU
             Estadisticas();
             ValidarVidaPersonaje();
             ValidarVidaNpc();
-            if (Btataque.Enabled != false)
-            {
-                turno = true;
-                //GestionarBotones();
-            }
+            turno = true;
+            GestionarBotones();
         }
 
-        private async void MostraPerso(string posicion1, string posicion2)
+        private async void MostraPerso(string posicion1, string[] posicion2)
         {
             PicturePersonaje.Visible = false;
+            await Task.Delay(300);
             PicturePersonaje2.Visible = true;
-            PicturePersonaje2.BackColor = Color.Transparent;
-            PicturePersonaje2.Image = Image.FromFile(posicion2);
+            PicturePersonaje2.Image = Image.FromFile(posicion2[0]);
             PicturePersonaje2.SizeMode = PictureBoxSizeMode.StretchImage;
             PicturePersonaje2.Location = new Point(190, 50);
             await Task.Delay(2000);
@@ -186,33 +185,89 @@ namespace IGU
             await Task.Delay(2000);
         }
 
-        private void AnimacionAtaque1()
+
+        private async void MostraPersoMago(string posicion1, string[] posicion2)
         {
-            MostraPerso(animacion.GetPosicionInicial(), animacion.GetAtacar1());
+            PicturePersonaje.Image = Image.FromFile(posicion2[0]);
+            PicturePersonaje.SizeMode = PictureBoxSizeMode.StretchImage;
+            PicturePersonaje.Location = new Point(35, 50);
+            await Task.Delay(800);
+            PicturePersonaje2.Visible = true;
+            PicturePersonaje2.Image = Image.FromFile(posicion2[1]);
+            PicturePersonaje2.SizeMode = PictureBoxSizeMode.StretchImage;
+            PicturePersonaje2.BringToFront();
+            PicturePersonaje2.Location = new Point(245, 50);
+            await Task.Delay(1500);
+            PicturePersonaje2.Visible = false;
+            await Task.Delay(700);
+            PicturePersonaje.Image = Image.FromFile(animacion.GetPosicionInicial());
+            PicturePersonaje.SizeMode = PictureBoxSizeMode.StretchImage;
+            PicturePersonaje.Location = new Point(35, 50);
+            await Task.Delay(2000);
         }
 
-        private void AnimacionAtaque2()
+        private void AnimacionAtaque1(string clase)
         {
-            MostraPerso(animacion.GetPosicionInicial(), animacion.GetAtacar2());
+            if (clase == "MAGO")
+            {
+                MostraPersoMago(animacion.GetPosicionInicial(), animacion.GetAtacar1());
+            }
+            else
+            {
+                MostraPerso(animacion.GetPosicionInicial(), animacion.GetAtacar1());
+            }
         }
 
-        private void AnimacionAtaque3()
+        private void AnimacionAtaque2(string clase)
         {
-            MostraPerso(animacion.GetPosicionInicial(), animacion.GetAtacar3());
+            if (clase == "MAGO")
+            {
+                MostraPersoMago(animacion.GetPosicionInicial(), animacion.GetAtacar2());
+            }
+            else
+            {
+                MostraPerso(animacion.GetPosicionInicial(), animacion.GetAtacar2());
+            }
         }
 
-        private void AnimacionCaminar()
+        private void AnimacionAtaque3(string clase)
         {
-            PicturePersonaje.BackColor = Color.Transparent;
-            PicturePersonaje.Image = Image.FromFile(animacion.GetCaminar());
+            if (clase == "MAGO")
+            {
+                MostraPersoMago(animacion.GetPosicionInicial(), animacion.GetAtacar3());
+            }
+            else
+            {
+                MostraPerso(animacion.GetPosicionInicial(), animacion.GetAtacar3());
+            }
+        }
+
+        private void AnimacionMorir()
+        {
+            PicturePersonaje.Image = Image.FromFile(animacion.GetMorir());
             PicturePersonaje.SizeMode = PictureBoxSizeMode.StretchImage;
             PicturePersonaje.Location = new Point(35, 50);
         }
 
         private void AnimacionInicial()
         {
-            PicturePersonaje.BackColor = Color.Transparent;
             PicturePersonaje.Image = Image.FromFile(animacion.GetPosicionInicial());
+            PicturePersonaje.SizeMode = PictureBoxSizeMode.StretchImage;
+            PicturePersonaje.BringToFront();
+            PicturePersonaje.Location = new Point(35, 50);
+        }
+
+        private void AnimacionDefender()
+        {
+            PicturePersonaje.Image = Image.FromFile(animacion.GetPosicionDefender());
+            PicturePersonaje.SizeMode = PictureBoxSizeMode.StretchImage;
+            PicturePersonaje.BringToFront();
+            PicturePersonaje.Location = new Point(35, 50);
+        }
+
+        private void AnimacionBuffer()
+        {
+            PicturePersonaje.Image = Image.FromFile(animacion.GetAccionMejora());
             PicturePersonaje.SizeMode = PictureBoxSizeMode.StretchImage;
             PicturePersonaje.BringToFront();
             PicturePersonaje.Location = new Point(35, 50);
@@ -225,11 +280,10 @@ namespace IGU
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void MostrarIncial()
         {
             PanelFondo.Paint += new PaintEventHandler(panel1_Paint);
             AnimacionInicial();
-            PictureNpc.BackColor = Color.Transparent;
             PictureNpc.Image = Image.FromFile("D:\\Users\\lpove\\Desktop\\P3proyect\\Carpeta Diseños\\Personajes\\smile.gif");
             PictureNpc.SizeMode = PictureBoxSizeMode.StretchImage;
             PictureNpc.BringToFront();
@@ -260,7 +314,7 @@ namespace IGU
             this.Close();
         }
 
-        private void Btbeffer_Click(object sender, EventArgs e)
+        private async void Btbeffer_Click(object sender, EventArgs e)
         {
             int opc;
             opcionBuffer = new OpcionDeBuffer();
@@ -268,10 +322,29 @@ namespace IGU
             opc = opcionBuffer.Ocpcion();
             if (opc != 0)
             {
+                AnimacionBuffer();
+                await Task.Delay(1500);
                 string msg = gestorAcciones.Beffer(opc);
                 labelMensaje.Text = msg;
                 Estadisticas();
             }
+        }
+
+        private async void Btdefender_Click(object sender, EventArgs e)
+        {
+            AnimacionDefender();
+            personaje_actual.Defender(turno);
+            Estadisticas();
+            ValidarVidaPersonaje();
+            ValidarVidaNpc();
+            if (Btataque.Enabled != false)
+            {
+                turno = false;
+                GestionarBotones();
+                AccionNpc();
+            }
+            await Task.Delay(1500);
+            AnimacionInicial();
         }
     }
 }

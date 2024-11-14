@@ -43,6 +43,7 @@
             this.Btpersonaje2 = new System.Windows.Forms.Button();
             this.Btpersonaje1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.BtPreguntas = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablapuntaje)).BeginInit();
             this.panel2.SuspendLayout();
@@ -51,6 +52,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.BtPreguntas);
             this.panel1.Controls.Add(this.BtCONFIGURACION);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.tablapuntaje);
@@ -132,9 +134,9 @@
             // 
             // Btvolver
             // 
-            this.Btvolver.Location = new System.Drawing.Point(349, 47);
+            this.Btvolver.Location = new System.Drawing.Point(313, 47);
             this.Btvolver.Name = "Btvolver";
-            this.Btvolver.Size = new System.Drawing.Size(81, 25);
+            this.Btvolver.Size = new System.Drawing.Size(117, 25);
             this.Btvolver.TabIndex = 1;
             this.Btvolver.Text = "SALIR";
             this.Btvolver.UseVisualStyleBackColor = true;
@@ -197,6 +199,18 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Personajes";
             // 
+            // BtPreguntas
+            // 
+            this.BtPreguntas.Enabled = false;
+            this.BtPreguntas.Location = new System.Drawing.Point(313, 81);
+            this.BtPreguntas.Name = "BtPreguntas";
+            this.BtPreguntas.Size = new System.Drawing.Size(116, 40);
+            this.BtPreguntas.TabIndex = 10;
+            this.BtPreguntas.Text = "Preguntas y respuestas";
+            this.BtPreguntas.UseVisualStyleBackColor = true;
+            this.BtPreguntas.Visible = false;
+            this.BtPreguntas.Click += new System.EventHandler(this.BtPreguntas_Click);
+            // 
             // VistaUserPersonajes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,5 +246,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView tablapuntaje;
         private System.Windows.Forms.Button BtCONFIGURACION;
+        private System.Windows.Forms.Button BtPreguntas;
     }
 }

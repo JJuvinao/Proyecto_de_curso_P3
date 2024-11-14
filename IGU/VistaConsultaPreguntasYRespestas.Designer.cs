@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             this.tablapreyres = new System.Windows.Forms.DataGridView();
-            this.Btver = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Btcategoria = new System.Windows.Forms.Button();
-            this.Btordenar = new System.Windows.Forms.Button();
             this.Btagregar = new System.Windows.Forms.Button();
+            this.Btcategoria = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Btsalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tablapreyres)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -46,73 +45,64 @@
             this.tablapreyres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tablapreyres.Location = new System.Drawing.Point(12, 46);
             this.tablapreyres.Name = "tablapreyres";
-            this.tablapreyres.Size = new System.Drawing.Size(572, 208);
+            this.tablapreyres.Size = new System.Drawing.Size(580, 208);
             this.tablapreyres.TabIndex = 0;
-            // 
-            // Btver
-            // 
-            this.Btver.Location = new System.Drawing.Point(3, 12);
-            this.Btver.Name = "Btver";
-            this.Btver.Size = new System.Drawing.Size(135, 50);
-            this.Btver.TabIndex = 1;
-            this.Btver.Text = "mostrar";
-            this.Btver.UseVisualStyleBackColor = true;
-            this.Btver.Click += new System.EventHandler(this.Btver_Click);
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.Btsalir);
             this.panel1.Controls.Add(this.Btagregar);
-            this.panel1.Controls.Add(this.Btordenar);
             this.panel1.Controls.Add(this.Btcategoria);
-            this.panel1.Controls.Add(this.Btver);
             this.panel1.Location = new System.Drawing.Point(12, 260);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(571, 74);
+            this.panel1.Size = new System.Drawing.Size(580, 74);
             this.panel1.TabIndex = 2;
+            // 
+            // Btagregar
+            // 
+            this.Btagregar.Location = new System.Drawing.Point(200, 12);
+            this.Btagregar.Name = "Btagregar";
+            this.Btagregar.Size = new System.Drawing.Size(180, 50);
+            this.Btagregar.TabIndex = 4;
+            this.Btagregar.Text = "AGREGAR";
+            this.Btagregar.UseVisualStyleBackColor = true;
+            this.Btagregar.Click += new System.EventHandler(this.Btagregar_Click);
+            // 
+            // Btcategoria
+            // 
+            this.Btcategoria.Location = new System.Drawing.Point(3, 12);
+            this.Btcategoria.Name = "Btcategoria";
+            this.Btcategoria.Size = new System.Drawing.Size(180, 50);
+            this.Btcategoria.TabIndex = 2;
+            this.Btcategoria.Text = "MOSTRAR POR CATEGORIA";
+            this.Btcategoria.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(572, 30);
+            this.label1.Size = new System.Drawing.Size(580, 30);
             this.label1.TabIndex = 3;
             this.label1.Text = "CONSULTA DE PREGUNTAS YRESPUESTAS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Btcategoria
+            // Btsalir
             // 
-            this.Btcategoria.Location = new System.Drawing.Point(162, 13);
-            this.Btcategoria.Name = "Btcategoria";
-            this.Btcategoria.Size = new System.Drawing.Size(120, 49);
-            this.Btcategoria.TabIndex = 2;
-            this.Btcategoria.Text = "MOSTRAR POR CATEGORIA";
-            this.Btcategoria.UseVisualStyleBackColor = true;
-            // 
-            // Btordenar
-            // 
-            this.Btordenar.Location = new System.Drawing.Point(301, 14);
-            this.Btordenar.Name = "Btordenar";
-            this.Btordenar.Size = new System.Drawing.Size(112, 48);
-            this.Btordenar.TabIndex = 3;
-            this.Btordenar.Text = "ORDENAR";
-            this.Btordenar.UseVisualStyleBackColor = true;
-            // 
-            // Btagregar
-            // 
-            this.Btagregar.Location = new System.Drawing.Point(444, 14);
-            this.Btagregar.Name = "Btagregar";
-            this.Btagregar.Size = new System.Drawing.Size(113, 47);
-            this.Btagregar.TabIndex = 4;
-            this.Btagregar.Text = "AGREGAR";
-            this.Btagregar.UseVisualStyleBackColor = true;
-            this.Btagregar.Click += new System.EventHandler(this.Btagregar_Click);
+            this.Btsalir.Location = new System.Drawing.Point(395, 12);
+            this.Btsalir.Name = "Btsalir";
+            this.Btsalir.Size = new System.Drawing.Size(180, 50);
+            this.Btsalir.TabIndex = 5;
+            this.Btsalir.Text = "VOLVER";
+            this.Btsalir.UseVisualStyleBackColor = true;
+            this.Btsalir.Click += new System.EventHandler(this.Btsalir_Click);
             // 
             // VistaConsultaPreguntasYRespestas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(596, 346);
+            this.ClientSize = new System.Drawing.Size(602, 346);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tablapreyres);
@@ -127,11 +117,10 @@
         #endregion
 
         private System.Windows.Forms.DataGridView tablapreyres;
-        private System.Windows.Forms.Button Btver;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button Btordenar;
         private System.Windows.Forms.Button Btcategoria;
         private System.Windows.Forms.Button Btagregar;
+        private System.Windows.Forms.Button Btsalir;
     }
 }

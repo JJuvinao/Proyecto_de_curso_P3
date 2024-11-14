@@ -9,16 +9,18 @@ namespace IGU
     public partial class VistaRegistroPreYRes : Form
     {
         Preg_Y_RespService respService;
-        public VistaRegistroPreYRes()
+        User User;
+        public VistaRegistroPreYRes(User user)
         {
             InitializeComponent();
             respService = new Preg_Y_RespService();
+            User = user;
         }
 
         private void Btcancelar_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new VistaConsultaPreguntasYRespestas().ShowDialog();
+            new VistaConsultaPreguntasYRespestas(User).ShowDialog();
             this.Close();
         }
 
@@ -28,7 +30,7 @@ namespace IGU
             {
                 Guardar(new Preg_Y_Resp(respService.Number(), txtpregunta.Text, txtrespuesta.Text, boxcategoria.Text));
                 this.Hide();
-                new VistaConsultaPreguntasYRespestas().ShowDialog();
+                new VistaConsultaPreguntasYRespestas(User).ShowDialog();
                 this.Close();
             }
             else
