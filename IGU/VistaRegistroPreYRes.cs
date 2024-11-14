@@ -24,9 +24,9 @@ namespace IGU
 
         private void Btregistrar_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtpregunta.Text) && !string.IsNullOrEmpty(txtrespuesta.Text)/* && ValidarBox()*/)
+            if (!string.IsNullOrEmpty(txtpregunta.Text) && !string.IsNullOrEmpty(txtrespuesta.Text) && ValidarBox())
             {
-                Guardar(new Preg_Y_Resp(respService.Number(), txtpregunta.Text, txtrespuesta.Text));
+                Guardar(new Preg_Y_Resp(respService.Number(), txtpregunta.Text, txtrespuesta.Text, boxcategoria.Text));
                 this.Hide();
                 new VistaConsultaPreguntasYRespestas().ShowDialog();
                 this.Close();

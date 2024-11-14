@@ -27,12 +27,32 @@ namespace DAL
                 {
                     Id = Convert.ToInt32(row["ID_PREYRES"]),
                     Pregunta = row["PREGUNTAS"].ToString(),
-                    Repuesta = row["RESPUESTAS"].ToString()
+                    Repuesta = row["RESPUESTAS"].ToString(),
+                    Id_Categoria = row["ID_CATEGORIA"].ToString()
                 };
                 presyresps.Add(elemento);
             }
 
             return presyresps;
+        }
+
+        public List<Respuestas_falsas> GetList_falsas()
+        {
+            DataTable tablepreyres = Listado_Respuesta_falsas();
+            List<Respuestas_falsas> resps_falsas = new List<Respuestas_falsas>();
+
+            foreach (DataRow row in tablepreyres.Rows)
+            {
+                Respuestas_falsas elemento = new Respuestas_falsas
+                {
+                    Respesta_f = row["RESPUESTA_FALSA"].ToString(),
+                    Respesta_id = row["ID_FALSA"].ToString(),
+                    Id_Categoria = row["ID_CATEGORIA"].ToString()
+                };
+                resps_falsas.Add(elemento);
+            }
+
+            return resps_falsas;
         }
 
         public DataTable Listado_PreYRes()
@@ -45,6 +65,37 @@ namespace DAL
                 sqlconnec = DBConnection.Getinstancia().GetConnection();
                 sqlconnec.Open();
                 using (OracleCommand command = new OracleCommand("FX_CONSULTAR_PREGUNTASYRESPUESTAS", sqlconnec))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("resultadoCursor", OracleDbType.RefCursor).Direction = ParameterDirection.ReturnValue;
+                    dataReader = command.ExecuteReader();
+                    tabla.Load(dataReader);
+                }
+                return tabla;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                if (sqlconnec.State == ConnectionState.Open)
+                {
+                    sqlconnec.Close();
+                }
+            }
+        }
+
+        public DataTable Listado_Respuesta_falsas()
+        {
+            OracleDataReader dataReader;
+            DataTable tabla = new DataTable();
+            OracleConnection sqlconnec = new OracleConnection();
+            try
+            {
+                sqlconnec = DBConnection.Getinstancia().GetConnection();
+                sqlconnec.Open();
+                using (OracleCommand command = new OracleCommand("FX_CONSULTAR_RESPUESTAS_FALSAS", sqlconnec))
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add("resultadoCursor", OracleDbType.RefCursor).Direction = ParameterDirection.ReturnValue;
@@ -79,6 +130,7 @@ namespace DAL
                     command.Parameters.Add("id_pyr", OracleDbType.Int32).Value = preg_Y_Resp.Id;
                     command.Parameters.Add(":pregunta", OracleDbType.Varchar2).Value = preg_Y_Resp.Pregunta;
                     command.Parameters.Add(":repuesta", OracleDbType.Varchar2).Value = preg_Y_Resp.Repuesta;
+                    command.Parameters.Add(":categoria", OracleDbType.Varchar2).Value = preg_Y_Resp.Id_Categoria;
 
                     command.ExecuteNonQuery();
                 }
@@ -144,6 +196,7 @@ namespace DAL
                     updaP_Y_R.Id = entity.Id;
                     updaP_Y_R.Pregunta = entity.Pregunta;
                     updaP_Y_R.Repuesta = entity.Repuesta;
+                    updaP_Y_R.Id_Categoria = entity.Id_Categoria;
 
                     SaveAll(pres);
 

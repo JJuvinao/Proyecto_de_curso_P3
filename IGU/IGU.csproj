@@ -78,6 +78,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SeleccionPrreyRes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeleccionPrreyRes.Designer.cs">
+      <DependentUpon>SeleccionPrreyRes.cs</DependentUpon>
+    </Compile>
     <Compile Include="VistaEscojerPersonaje.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SeleccionPrreyRes.resx">
+      <DependentUpon>SeleccionPrreyRes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistaEscojerPersonaje.resx">
       <DependentUpon>VistaEscojerPersonaje.cs</DependentUpon>

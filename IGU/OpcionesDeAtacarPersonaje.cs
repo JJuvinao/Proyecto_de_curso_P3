@@ -1,5 +1,6 @@
 ﻿using Entity;
 using System;
+using System.Drawing.Printing;
 using System.Windows.Forms;
 
 namespace IGU
@@ -12,6 +13,7 @@ namespace IGU
         Npc npc;
         Arquero arquero;
         Plantilla personaje;
+        SeleccionPrreyRes seleccionpreyres;
 
         public OpcionesDeAtacarPersonaje(Plantilla plantilla, Npc npc1)
         {
@@ -103,6 +105,18 @@ namespace IGU
             }
         }
 
+        private void Abrirvista()
+        {
+            seleccionpreyres = new SeleccionPrreyRes();
+            seleccionpreyres.ShowDialog();
+        }
+
+        private void Mostrarmsg()
+        {
+            MessageBox.Show("REPUESTA INCORECTA" + "\n"
+                                + "RESPUESTA CORRECTA: " + seleccionpreyres.RepuestaCorrecto());
+        }
+
         #endregion
         private void button4_Click(object sender, EventArgs e)
         {
@@ -112,19 +126,43 @@ namespace IGU
 
         private void Btbasico_Click(object sender, EventArgs e)
         {
-            opcion = 1;
+            Abrirvista();
+            if (seleccionpreyres.Responder())
+            {
+                opcion = 1;
+            }
+            else
+            {
+                Mostrarmsg();
+            }
             this.Close();
         }
 
         private void Bthabilidad01_Click(object sender, EventArgs e)
         {
-            opcion = 2;
+            Abrirvista();
+            if (seleccionpreyres.Responder())
+            {
+                opcion = 2;
+            }
+            else
+            {
+                Mostrarmsg();
+            }
             this.Close();
         }
 
         private void Bthabilidad02_Click(object sender, EventArgs e)
         {
-            opcion = 3;
+            Abrirvista();
+            if (seleccionpreyres.Responder())
+            {
+                opcion = 3;
+            }
+            else
+            {
+                Mostrarmsg();
+            }
             this.Close();
         }
     }

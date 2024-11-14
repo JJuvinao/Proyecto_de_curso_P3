@@ -33,7 +33,7 @@ namespace IGU
         {
             if (!Validar(txtpreg.Text, txtresp.Text))
             {
-                Guardar(new Preg_Y_Resp(Preg_Y_RespService.Number(), txtpreg.Text, txtresp.Text));
+                Guardar(new Preg_Y_Resp(Preg_Y_RespService.Number(), txtpreg.Text, txtresp.Text, "BIO"));
                 Cargarlista();
                 Limpiar();
             }
@@ -128,7 +128,7 @@ namespace IGU
                 }
                 else
                 {
-                    Update(pre, txtpreg.Text, txtresp.Text);
+                    Update(pre, txtpreg.Text, txtresp.Text,"BIO");
                     Cargarlista();
                     Limpiar();
                 }
@@ -139,9 +139,9 @@ namespace IGU
             }
         }
 
-        private void Update(string id, string pre, string res)
+        private void Update(string id, string pre, string res,string cate)
         {
-            var Uppreg = Preg_Y_RespService.Update(new Preg_Y_Resp(int.Parse(id), pre, res));
+            var Uppreg = Preg_Y_RespService.Update(new Preg_Y_Resp(int.Parse(id), pre, res,cate));
             MessageBox.Show(Uppreg);
         }
     }

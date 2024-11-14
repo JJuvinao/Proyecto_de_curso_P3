@@ -9,6 +9,7 @@ namespace BLL
     public class Preg_Y_RespService
     {
         List<Preg_Y_Resp> listaPreYRes;
+        List<Respuestas_falsas> respuestas_Falsas;
         PRE_Y_RESRepository PRE_Y_RESRepository;
 
         public Preg_Y_RespService()
@@ -30,6 +31,11 @@ namespace BLL
         public List<Preg_Y_Resp> GetAll()
         {
             return listaPreYRes;
+        }
+
+        public List<Respuestas_falsas> Getlis_falsas()
+        {
+            return respuestas_Falsas = PRE_Y_RESRepository.GetList_falsas();
         }
 
         public Preg_Y_Resp GetId(int id)

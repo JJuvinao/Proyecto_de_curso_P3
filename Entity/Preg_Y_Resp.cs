@@ -11,13 +11,15 @@ namespace Entity
         public int Id { get; set; }
         public string Pregunta { get; set; }
         public string Repuesta { get; set; }
+        public string Id_Categoria { get; set; }
 
         public Preg_Y_Resp() { }
-        public Preg_Y_Resp(int id,string pregu,string respu)
+        public Preg_Y_Resp(int id,string pregu,string respu, string id_Categoria)
         {
             Id = id;
-            this.Pregunta = pregu;
-            this.Repuesta = respu;
+            Pregunta = pregu;
+            Repuesta = respu;
+            Id_Categoria = id_Categoria;
         }
 
         public override string ToString()
