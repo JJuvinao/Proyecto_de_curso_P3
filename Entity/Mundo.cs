@@ -9,24 +9,24 @@ namespace Entity
     public class Mundo
     {
         public int Id {  get; set; }
-        public bool Estado { get; set; }
         public string Nombre { get; set; }
         public string Fondo { get; set; }
         public string Piso { get; set; }
+        public string Id_Categoria { get; set; }
 
         public Mundo() { }
-        public Mundo(int id,bool estado, string fondo, string piso, string nombre)
+        public Mundo(int id, string fondo, string piso, string nombre, string id_Categoria)
         {
             Id = id;
-            Estado = estado;
             Fondo = fondo;
             Piso = piso;
             Nombre = nombre;
+            Id_Categoria = id_Categoria;
         }
 
         public override string ToString()
         {
-            return $"{Id};{Estado};{Fondo};{Piso}";
+            return $"{Id};{Nombre};{Fondo};{Piso};{Id_Categoria}";
         }
     }
 }
