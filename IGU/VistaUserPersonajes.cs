@@ -3,6 +3,7 @@ using Entity;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using static IGU.CustomUI;
 
 namespace IGU
 {
@@ -27,6 +28,7 @@ namespace IGU
             CargarPersonajes();
             puntajeService = new PuntajeService(user.Id);
             MostraPuntaje();
+            LoadDefaultStyle(this);
         }
 
         private void Btpersonaje1_Click(object sender, EventArgs e)

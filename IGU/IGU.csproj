@@ -49,6 +49,7 @@
     <Compile Include="AccionesPerso.Designer.cs">
       <DependentUpon>AccionesPerso.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomUI.cs" />
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +168,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static IGU.CustomUI;
 
 namespace IGU
 {
@@ -16,6 +17,7 @@ namespace IGU
         public Inicio()
         {
             InitializeComponent();
+            LoadDefaultStyle(this);
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -3,6 +3,7 @@ using Entity;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using static IGU.CustomUI;
 
 namespace IGU
 {
@@ -22,6 +23,7 @@ namespace IGU
         public VistaEscojerPersonaje(User user)
         {
             InitializeComponent();
+            LoadDefaultStyle(this);
             Usser = user;
             personajeService = new PersonajeService();
             userServices = new UserServices();

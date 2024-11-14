@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
+using static IGU.CustomUI;
 
 namespace IGU
 {
@@ -14,6 +15,7 @@ namespace IGU
         {
             InitializeComponent();
             CargarLista();
+            LoadDefaultStyle(this);
         }
 
         //private void Btvisi_Click(object sender, EventArgs e)

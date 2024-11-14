@@ -1,6 +1,7 @@
 ﻿using Entity;
 using System;
 using System.Windows.Forms;
+using static IGU.CustomUI;
 
 namespace IGU
 {
@@ -12,6 +13,7 @@ namespace IGU
         public VistaMundo(User usuario, Plantilla plantilla)
         {
             InitializeComponent();
+            LoadDefaultStyle(this);
             user = usuario;
             personaje = plantilla;
         }

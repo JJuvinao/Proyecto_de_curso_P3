@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static IGU.CustomUI;
 
 namespace IGU
 {
@@ -18,6 +19,7 @@ namespace IGU
         {
             InitializeComponent();
             MostrarInfo();
+            LoadDefaultStyle(this);
         }
 
         private void MostrarInfo()

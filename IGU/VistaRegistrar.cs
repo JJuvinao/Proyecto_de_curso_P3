@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static IGU.CustomUI;
 
 namespace IGU
 {
@@ -18,6 +19,7 @@ namespace IGU
         public VistaRegistrar()
         {
             InitializeComponent();
+            LoadDefaultStyle(this);
         }
 
         private void BtRegistar_Click(object sender, EventArgs e)

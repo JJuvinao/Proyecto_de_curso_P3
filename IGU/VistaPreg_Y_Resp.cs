@@ -2,6 +2,7 @@
 using Entity;
 using System;
 using System.Windows.Forms;
+using static IGU.CustomUI;
 
 namespace IGU
 {
@@ -11,6 +12,7 @@ namespace IGU
         public VistaPreg_Y_Resp()
         {
             InitializeComponent();
+            LoadDefaultStyle(this);
         }
 
         private void Btver_Click(object sender, EventArgs e)
