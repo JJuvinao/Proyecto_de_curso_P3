@@ -67,7 +67,7 @@ namespace IGU
 
         private void Limpiar()
         {
-            txtpreg.Text = "";
+            txtpreg.Clear();
             txtresp.Text = "";
         }
 
