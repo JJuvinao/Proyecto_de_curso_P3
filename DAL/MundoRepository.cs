@@ -57,7 +57,8 @@ namespace DAL
                     Id = Convert.ToInt32(row["id_mundo"]),
                     Nombre = row["nombre"].ToString(),
                     Fondo = row["fondo"].ToString(),
-                    Piso = row["piso"].ToString()
+                    Piso = row["piso"].ToString(),
+                    Id_Categoria = row["categoria"].ToString()
                 };
                 mundos.Add(elemento);
             }

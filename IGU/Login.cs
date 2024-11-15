@@ -10,6 +10,7 @@ namespace IGU
         public Login()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         #region METODOS

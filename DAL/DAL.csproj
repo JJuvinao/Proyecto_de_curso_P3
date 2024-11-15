@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseRepository.cs" />
+    <Compile Include="CategoriaRepository.cs" />
     <Compile Include="DBConnection.cs" />
     <Compile Include="MundoRepository.cs" />
     <Compile Include="NpcRepository.cs" />

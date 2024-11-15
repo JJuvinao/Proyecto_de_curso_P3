@@ -22,6 +22,7 @@ namespace IGU
         public VistaEscojerPersonaje(User user)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             Usser = user;
             personajeService = new PersonajeService();
             userServices = new UserServices();

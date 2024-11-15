@@ -18,6 +18,7 @@ namespace IGU
         public VistaRegistrar()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void BtRegistar_Click(object sender, EventArgs e)

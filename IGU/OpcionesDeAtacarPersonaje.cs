@@ -18,6 +18,7 @@ namespace IGU
         public OpcionesDeAtacarPersonaje(Plantilla plantilla, Npc npc1)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             Cargar(plantilla);
             npc = npc1;
             personaje = plantilla;

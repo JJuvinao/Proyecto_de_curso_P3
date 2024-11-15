@@ -13,6 +13,7 @@ namespace IGU
         public VistaUser()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             CargarLista();
         }
 

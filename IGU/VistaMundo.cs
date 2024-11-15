@@ -20,6 +20,7 @@ namespace IGU
         public VistaMundo(User usuario, Plantilla plantilla)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             accionesPerso = new AccionesPerso();
             mundoService = new MundoService();
             mundos = mundoService.GetAll();
@@ -58,10 +59,13 @@ namespace IGU
             {
                 fondo01 = mundos[start].Fondo;
                 txtmundo1.Text = mundos[start].Nombre;
+                txtcategoria1.Text = mundos[start].Id_Categoria;
                 fondo02 = mundos[start + 1].Fondo;
                 txtmundo2.Text = mundos[start+1].Nombre;
+                txtcategoria2.Text = mundos[start+1].Id_Categoria;
                 fondo03 = mundos[start + 2].Fondo;
                 txtmundo3.Text = mundos[start+2].Nombre;
+                txtcategoria3.Text = mundos[start+2].Id_Categoria;
             }
             else
             {
@@ -71,30 +75,39 @@ namespace IGU
                         {
                             fondo01 = mundos[start].Fondo;
                             txtmundo1.Text = mundos[start].Nombre;
+                            txtcategoria1.Text = mundos[start].Id_Categoria;
                             fondo02 = mundos[start + 1].Fondo;
                             txtmundo2.Text = mundos[start + 1].Nombre;
+                            txtcategoria2.Text = mundos[start + 1].Id_Categoria;
                             fondo03 = predeterminado;
                             txtmundo3.Text = "";
+                            txtcategoria3.Text = "";
                         }
                         break;
                     case 2:
                         {
                             fondo01 = mundos[start].Fondo;
                             txtmundo1.Text = mundos[start].Nombre;
+                            txtcategoria1.Text = mundos[start].Id_Categoria;
                             fondo02 = predeterminado;
                             txtmundo2.Text = "";
+                            txtcategoria2.Text = "";
                             fondo03 = predeterminado;
                             txtmundo3.Text = "";
+                            txtcategoria3.Text = "";
                         }
                         break;
                     default:
                         {
                             fondo01 = predeterminado;
                             txtmundo1.Text = "";
+                            txtcategoria1.Text = "";
                             fondo02 = predeterminado;
                             txtmundo2.Text = "";
+                            txtcategoria2.Text = "";
                             fondo03 = predeterminado;
                             txtmundo3.Text = "";
+                            txtcategoria3.Text = "";
                         }
                         break;
                 }

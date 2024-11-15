@@ -20,6 +20,7 @@ namespace IGU
         public SeleccionPrreyRes()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             preg_Y_Respservice = new Preg_Y_RespService();
             Llenarpreguyresp();
             MostrarPrepyResp();

@@ -33,7 +33,6 @@
             this.Btopcion = new System.Windows.Forms.Button();
             this.Btempezar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.Btpreguntas = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,22 +88,11 @@
             this.label1.Text = "HEROES DEL APRENDIZAJE";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Btpreguntas
-            // 
-            this.Btpreguntas.Location = new System.Drawing.Point(271, 47);
-            this.Btpreguntas.Name = "Btpreguntas";
-            this.Btpreguntas.Size = new System.Drawing.Size(100, 64);
-            this.Btpreguntas.TabIndex = 6;
-            this.Btpreguntas.Text = "preguntas";
-            this.Btpreguntas.UseVisualStyleBackColor = true;
-            this.Btpreguntas.Click += new System.EventHandler(this.Btpreguntas_Click);
-            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(393, 333);
-            this.Controls.Add(this.Btpreguntas);
+            this.ClientSize = new System.Drawing.Size(266, 333);
             this.Controls.Add(this.panel1);
             this.Name = "Inicio";
             this.Text = "Inicio";
@@ -119,6 +107,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Btopcion;
         private System.Windows.Forms.Button Btempezar;
-        private System.Windows.Forms.Button Btpreguntas;
     }
 }
