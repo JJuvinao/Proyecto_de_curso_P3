@@ -9,12 +9,16 @@ namespace IGU
     public partial class VistaRegistroPreYRes : Form
     {
         Preg_Y_RespService respService;
+        CategoriaServives categoriaServives;
         User User;
         public VistaRegistroPreYRes(User user)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             respService = new Preg_Y_RespService();
+            categoriaServives = new CategoriaServives();
             User = user;
+            LLenarCombobox();
         }
 
         private void Btcancelar_Click(object sender, EventArgs e)
@@ -28,7 +32,7 @@ namespace IGU
         {
             if (!string.IsNullOrEmpty(txtpregunta.Text) && !string.IsNullOrEmpty(txtrespuesta.Text) && ValidarBox())
             {
-                Guardar(new Preg_Y_Resp(respService.Number(), txtpregunta.Text, txtrespuesta.Text, boxcategoria.Text));
+                Guardar(new Preg_Y_Resp(respService.Number(), txtpregunta.Text, txtrespuesta.Text, boxcategoria.SelectedValue.ToString()));
                 this.Hide();
                 new VistaConsultaPreguntasYRespestas(User).ShowDialog();
                 this.Close();
@@ -41,7 +45,7 @@ namespace IGU
 
         private bool ValidarBox()
         {
-            string[] categorias = { "Matematicas", "Español", "Biologia" };
+            string[] categorias = { "MATEMATICAS", "ESPAÑOL", "BIOLOGIA" };
             if (categorias.Contains(boxcategoria.Text))
             {
                 return true;
@@ -56,6 +60,13 @@ namespace IGU
         {
             var msg = respService.SaveData(preg_Y_Resp);
             MessageBox.Show(msg);
+        }
+
+        private void LLenarCombobox()
+        {
+            boxcategoria.DataSource = categoriaServives.GetAll();
+            boxcategoria.DisplayMember = "Nombre";
+            boxcategoria.ValueMember = "Id_Categoria";
         }
     }
 }

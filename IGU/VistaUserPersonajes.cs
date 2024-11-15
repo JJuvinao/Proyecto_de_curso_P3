@@ -21,6 +21,7 @@ namespace IGU
         public VistaUserPersonajes(User user)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             personajeService = new PersonajeService();
             usuario = user;
             MostrarUsuario(user);

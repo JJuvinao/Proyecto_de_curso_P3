@@ -20,6 +20,7 @@ namespace IGU
         public VistaMundo(User usuario, Plantilla plantilla)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             accionesPerso = new AccionesPerso();
             mundoService = new MundoService();
             mundos = mundoService.GetAll();

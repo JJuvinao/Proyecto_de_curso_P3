@@ -17,6 +17,7 @@ namespace IGU
         public OpcionDeBuffer()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             MostrarInfo();
         }
 

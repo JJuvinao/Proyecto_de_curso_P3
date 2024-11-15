@@ -19,8 +19,10 @@ namespace IGU
         public VistaConsultaPreguntasYRespestas(User user)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             respService = new Preg_Y_RespService();
             usuario = user;
+            Mostar();
         }
 
         private void Btver_Click(object sender, EventArgs e)
@@ -39,6 +41,11 @@ namespace IGU
         {
             this.Hide();
             new VistaUserPersonajes(usuario).ShowDialog();
+        }
+
+        private void Mostar()
+        {
+            tablapreyres.DataSource = respService.Gettabla();
         }
     }
 }

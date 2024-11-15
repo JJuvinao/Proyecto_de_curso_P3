@@ -35,7 +35,7 @@
             this.Btbeffer = new System.Windows.Forms.Button();
             this.PanelFondo = new System.Windows.Forms.Panel();
             this.PicturePersonaje2 = new System.Windows.Forms.PictureBox();
-            this.PictureNpc = new System.Windows.Forms.PictureBox();
+            this.PictureNpc1 = new System.Windows.Forms.PictureBox();
             this.PicturePersonaje = new System.Windows.Forms.PictureBox();
             this.txtdanio = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -71,9 +71,10 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.PictureNpc2 = new System.Windows.Forms.PictureBox();
             this.PanelFondo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicturePersonaje2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureNpc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureNpc1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicturePersonaje)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -81,6 +82,7 @@
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureNpc2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -132,8 +134,9 @@
             // PanelFondo
             // 
             this.PanelFondo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanelFondo.Controls.Add(this.PictureNpc2);
             this.PanelFondo.Controls.Add(this.PicturePersonaje2);
-            this.PanelFondo.Controls.Add(this.PictureNpc);
+            this.PanelFondo.Controls.Add(this.PictureNpc1);
             this.PanelFondo.Controls.Add(this.PicturePersonaje);
             this.PanelFondo.Location = new System.Drawing.Point(9, 5);
             this.PanelFondo.Name = "PanelFondo";
@@ -147,28 +150,26 @@
             this.PicturePersonaje2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.PicturePersonaje2.Location = new System.Drawing.Point(185, 50);
             this.PicturePersonaje2.Name = "PicturePersonaje2";
-            this.PicturePersonaje2.Size = new System.Drawing.Size(206, 206);
-            this.PicturePersonaje2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PicturePersonaje2.Size = new System.Drawing.Size(190, 206);
             this.PicturePersonaje2.TabIndex = 6;
             this.PicturePersonaje2.TabStop = false;
             this.PicturePersonaje2.Visible = false;
             // 
-            // PictureNpc
+            // PictureNpc1
             // 
-            this.PictureNpc.Location = new System.Drawing.Point(327, 169);
-            this.PictureNpc.Name = "PictureNpc";
-            this.PictureNpc.Size = new System.Drawing.Size(130, 124);
-            this.PictureNpc.TabIndex = 5;
-            this.PictureNpc.TabStop = false;
+            this.PictureNpc1.Location = new System.Drawing.Point(326, 68);
+            this.PictureNpc1.Name = "PictureNpc1";
+            this.PictureNpc1.Size = new System.Drawing.Size(165, 188);
+            this.PictureNpc1.TabIndex = 5;
+            this.PictureNpc1.TabStop = false;
             // 
             // PicturePersonaje
             // 
             this.PicturePersonaje.BackColor = System.Drawing.SystemColors.Control;
             this.PicturePersonaje.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.PicturePersonaje.Location = new System.Drawing.Point(35, 50);
+            this.PicturePersonaje.Location = new System.Drawing.Point(33, 50);
             this.PicturePersonaje.Name = "PicturePersonaje";
-            this.PicturePersonaje.Size = new System.Drawing.Size(206, 206);
-            this.PicturePersonaje.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PicturePersonaje.Size = new System.Drawing.Size(190, 206);
             this.PicturePersonaje.TabIndex = 4;
             this.PicturePersonaje.TabStop = false;
             // 
@@ -504,6 +505,15 @@
             this.label13.TabIndex = 13;
             this.label13.Text = "Personaje";
             // 
+            // PictureNpc2
+            // 
+            this.PictureNpc2.Location = new System.Drawing.Point(155, 68);
+            this.PictureNpc2.Name = "PictureNpc2";
+            this.PictureNpc2.Size = new System.Drawing.Size(165, 188);
+            this.PictureNpc2.TabIndex = 7;
+            this.PictureNpc2.TabStop = false;
+            this.PictureNpc2.Visible = false;
+            // 
             // AccionesPerso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -517,9 +527,8 @@
             this.Name = "AccionesPerso";
             this.Text = "AccionesPerso";
             this.PanelFondo.ResumeLayout(false);
-            this.PanelFondo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicturePersonaje2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureNpc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureNpc1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicturePersonaje)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -533,6 +542,7 @@
             this.panel6.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureNpc2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -572,7 +582,7 @@
         private System.Windows.Forms.PictureBox PictPerso;
         private System.Windows.Forms.PictureBox PicturePersonaje;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox PictureNpc;
+        private System.Windows.Forms.PictureBox PictureNpc1;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button Btvolver;
         private System.Windows.Forms.Panel panel7;
@@ -584,5 +594,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.PictureBox PicturePersonaje2;
+        private System.Windows.Forms.PictureBox PictureNpc2;
     }
 }

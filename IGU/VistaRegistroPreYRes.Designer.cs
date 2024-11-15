@@ -34,11 +34,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtrespuesta = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.Btregistrar = new System.Windows.Forms.Button();
-            this.Btcancelar = new System.Windows.Forms.Button();
-            this.boxcategoria = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.boxcategoria = new System.Windows.Forms.ComboBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.Btcancelar = new System.Windows.Forms.Button();
+            this.Btregistrar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -99,6 +99,23 @@
             this.panel1.Size = new System.Drawing.Size(529, 172);
             this.panel1.TabIndex = 5;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(0, 139);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Categoria:";
+            // 
+            // boxcategoria
+            // 
+            this.boxcategoria.FormattingEnabled = true;
+            this.boxcategoria.Location = new System.Drawing.Point(61, 136);
+            this.boxcategoria.Name = "boxcategoria";
+            this.boxcategoria.Size = new System.Drawing.Size(152, 21);
+            this.boxcategoria.TabIndex = 5;
+            // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -108,16 +125,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(528, 63);
             this.panel2.TabIndex = 6;
-            // 
-            // Btregistrar
-            // 
-            this.Btregistrar.Location = new System.Drawing.Point(3, 14);
-            this.Btregistrar.Name = "Btregistrar";
-            this.Btregistrar.Size = new System.Drawing.Size(254, 34);
-            this.Btregistrar.TabIndex = 0;
-            this.Btregistrar.Text = "REGISTRAR";
-            this.Btregistrar.UseVisualStyleBackColor = true;
-            this.Btregistrar.Click += new System.EventHandler(this.Btregistrar_Click);
             // 
             // Btcancelar
             // 
@@ -129,26 +136,15 @@
             this.Btcancelar.UseVisualStyleBackColor = true;
             this.Btcancelar.Click += new System.EventHandler(this.Btcancelar_Click);
             // 
-            // boxcategoria
+            // Btregistrar
             // 
-            this.boxcategoria.FormattingEnabled = true;
-            this.boxcategoria.Items.AddRange(new object[] {
-            "Matematicas",
-            "Español",
-            "Biologia"});
-            this.boxcategoria.Location = new System.Drawing.Point(61, 136);
-            this.boxcategoria.Name = "boxcategoria";
-            this.boxcategoria.Size = new System.Drawing.Size(152, 21);
-            this.boxcategoria.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(0, 139);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Categoria:";
+            this.Btregistrar.Location = new System.Drawing.Point(3, 14);
+            this.Btregistrar.Name = "Btregistrar";
+            this.Btregistrar.Size = new System.Drawing.Size(254, 34);
+            this.Btregistrar.TabIndex = 0;
+            this.Btregistrar.Text = "REGISTRAR";
+            this.Btregistrar.UseVisualStyleBackColor = true;
+            this.Btregistrar.Click += new System.EventHandler(this.Btregistrar_Click);
             // 
             // VistaRegistroPreYRes
             // 

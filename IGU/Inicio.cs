@@ -16,6 +16,7 @@ namespace IGU
         public Inicio()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void Btsalir_Click(object sender, EventArgs e)
