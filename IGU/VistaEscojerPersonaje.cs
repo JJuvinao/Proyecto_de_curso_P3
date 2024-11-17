@@ -9,7 +9,7 @@ namespace IGU
     public partial class VistaEscojerPersonaje : Form
     {
         User Usser;
-        Gerrero gerrero;
+        Guerrero gerrero;
         Mago mago;
         Arquero arquero;
         Plantilla perso;
@@ -54,7 +54,7 @@ namespace IGU
         {
             switch (plantilla.clase)
             {
-                case "GERRERO": { gerrero = new Gerrero(plantilla.id, plantilla.clase, plantilla.nombre, plantilla.vida, plantilla.mana, plantilla.fuerza, plantilla.defensa, plantilla.armaid); } break;
+                case "GERRERO": { gerrero = new Guerrero(plantilla.id, plantilla.clase, plantilla.nombre, plantilla.vida, plantilla.mana, plantilla.fuerza, plantilla.defensa, plantilla.armaid); } break;
                 case "MAGO": { mago = new Mago(plantilla.id, plantilla.clase, plantilla.nombre, plantilla.vida, plantilla.mana, plantilla.fuerza, plantilla.defensa, plantilla.armaid); } break;
                 case "ARQUERO": { arquero = new Arquero(plantilla.id, plantilla.clase, plantilla.nombre, plantilla.vida, plantilla.mana, plantilla.fuerza, plantilla.defensa, plantilla.armaid); } break;
             }

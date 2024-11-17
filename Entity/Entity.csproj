@@ -44,7 +44,7 @@
     <Compile Include="Arma.cs" />
     <Compile Include="Categorias.cs" />
     <Compile Include="Config.cs" />
-    <Compile Include="Gerrero.cs" />
+    <Compile Include="Guerrero.cs" />
     <Compile Include="Habilidades.cs" />
     <Compile Include="Mago.cs" />
     <Compile Include="Mundo.cs" />

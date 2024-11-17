@@ -3,7 +3,6 @@ using BLL;
 using Entity;
 using System;
 using System.Drawing;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,8 +11,11 @@ namespace IGU
     public partial class AccionesPerso : Form
     {
         OpcionesDeAtacarPersonaje opcion;
+        PuntajeService puntajeService;
         OpcionDeBuffer opcionBuffer;
         User user;
+        Mundo mundo;
+        Puntajes puntaje;
         Plantilla personaje_actual;
         Npc npc = new Npc(2, "mago", "npc", 2000, 250, 40, 5);
         GestorAcciones gestorAcciones;
@@ -21,6 +23,7 @@ namespace IGU
         AniNpcs aniNpcs;
         string Rutafondo;
         bool turno = true;
+        int puntajejugar = 0;
 
         public AccionesPerso() { }
         public AccionesPerso(string fondo, User usser, Plantilla plantilla)
@@ -35,6 +38,7 @@ namespace IGU
             user = usser;
             AsignacionAnimacion(plantilla.clase);
             GestionarBotones();
+            puntajeService = new PuntajeService(user.Id);
             PicturePersonaje2.BackColor = Color.Transparent;
             PicturePersonaje.BackColor = Color.Transparent;
             PictureNpc1.BackColor = Color.Transparent;
@@ -52,7 +56,7 @@ namespace IGU
                 personaje_actual.Morir();
                 Estadisticas();
                 MessageBox.Show("murio el personaje");
-                AnimacionMorir();
+                AnimacionMorirPersonaje();
             }
         }
 
@@ -66,6 +70,9 @@ namespace IGU
                 npc.Morir();
                 Estadisticas();
                 MessageBox.Show("murio el npc");
+                AnimacionMorirNpc();
+                puntaje = new Puntajes(user.Id,mundo.Id,puntajejugar);
+                RegistrarPuntaje();
             }
         }
 
@@ -101,13 +108,19 @@ namespace IGU
             lbnpcdefensa.Text = npc.defensa.ToString();
         }
 
+        private void RegistrarPuntaje()
+        {
+            var msg = puntajeService.Registrar(puntaje);
+            MessageBox.Show(msg);
+        }
+
         private void AsignacionAnimacion(string clase)
         {
             switch (clase)
             {
-                case "GERRERO": { animacion = new AniSamurai(); } break;
+                case "SAMURAI": { animacion = new AniSamurai(); } break;
                 case "MAGO": { animacion = new AniMago(); } break;
-                case "ARQUERO": { animacion = new AniKnight(); } break;
+                case "GUERRERO": { animacion = new AniKnight(); } break;
             }
         }
 
@@ -123,6 +136,9 @@ namespace IGU
                 int danio = 0;
                 danio = gestorAcciones.Atacar(opc, turno);
                 labelMensaje.Text = quienpega + "\n" + gestorAcciones.RecibirDanio(danio, turno) + "\n" + danio;
+                Estadisticas();
+                ValidarVidaPersonaje();
+                ValidarVidaNpc();
             }
         }
         private async void Btataque_Click(object sender, EventArgs e)
@@ -144,9 +160,6 @@ namespace IGU
                         case 3: { AnimacionAtaque3(personaje_actual.clase); }; break;
                     }
                     Atacar(opc, turno);
-                    Estadisticas();
-                    ValidarVidaPersonaje();
-                    ValidarVidaNpc();
                     turno = false;
                     await Task.Delay(2500);
                     AccionNpc();
@@ -163,9 +176,6 @@ namespace IGU
             int opcnpc = gestorAcciones.GeneradorOpcion();
             AnimacionesNpc(opcnpc);
             Atacar(opcnpc, turno);
-            Estadisticas();
-            ValidarVidaPersonaje();
-            ValidarVidaNpc();
             turno = true;
             GestionarBotones();
         }
@@ -244,11 +254,18 @@ namespace IGU
             }
         }
 
-        private void AnimacionMorir()
+        private void AnimacionMorirPersonaje()
         {
             PicturePersonaje.Image = Image.FromFile(animacion.GetMorir());
             PicturePersonaje.SizeMode = PictureBoxSizeMode.StretchImage;
             PicturePersonaje.Location = new Point(35, 50);
+        }
+
+        private void AnimacionMorirNpc()
+        {
+            PictureNpc1.Image = Image.FromFile(aniNpcs.GetMorir());
+            PictureNpc1.SizeMode = PictureBoxSizeMode.StretchImage;
+            PictureNpc1.BringToFront();
         }
 
         private void AnimacionInicial()
