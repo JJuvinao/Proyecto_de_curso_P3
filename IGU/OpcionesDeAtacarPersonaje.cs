@@ -8,7 +8,7 @@ namespace IGU
     public partial class OpcionesDeAtacarPersonaje : Form
     {
         int opcion = 0;
-        Gerrero gerrero;
+        Guerrero gerrero;
         Mago mago;
         Npc npc;
         Arquero arquero;
@@ -32,9 +32,9 @@ namespace IGU
         {
             switch (plantilla.clase)
             {
-                case "GERRERO": { gerrero = new Gerrero(plantilla.id, plantilla.clase, plantilla.nombre, plantilla.vida, plantilla.mana, plantilla.fuerza, plantilla.defensa, plantilla.armaid); } break;
+                case "SAMURAI": { gerrero = new Guerrero(plantilla.id, plantilla.clase, plantilla.nombre, plantilla.vida, plantilla.mana, plantilla.fuerza, plantilla.defensa, plantilla.armaid); } break;
                 case "MAGO": { mago = new Mago(plantilla.id, plantilla.clase, plantilla.nombre, plantilla.vida, plantilla.mana, plantilla.fuerza, plantilla.defensa, plantilla.armaid); } break;
-                case "ARQUERO": { arquero = new Arquero(plantilla.id, plantilla.clase, plantilla.nombre, plantilla.vida, plantilla.mana, plantilla.fuerza, plantilla.defensa, plantilla.armaid); } break;
+                case "GUERRERO": { arquero = new Arquero(plantilla.id, plantilla.clase, plantilla.nombre, plantilla.vida, plantilla.mana, plantilla.fuerza, plantilla.defensa, plantilla.armaid); } break;
             }
         }
 
@@ -46,9 +46,9 @@ namespace IGU
         {
             switch (clase)
             {
-                case "GERRERO": { MostrarInfoGerrero(); } break;
+                case "SAMURAI": { MostrarInfoGerrero(); } break;
                 case "MAGO": { MostrarInfoMago(); } break;
-                case "ARQUERO": { MostrarInfoArquero(); } break;
+                case "GUERRERO": { MostrarInfoArquero(); } break;
             }
         }
 

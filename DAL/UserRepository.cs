@@ -51,7 +51,7 @@ namespace DAL
             {
                 connection = DBConnection.Getinstancia().GetConnection();
                 connection.Open();
-                using (OracleCommand command = new OracleCommand("PR_INSERT_USUARIO", connection))
+                using (OracleCommand command = new OracleCommand("PKG_INSERT.PR_INSERT_USUARIO", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add("id_user", OracleDbType.Int32).Value = usuario.Id;

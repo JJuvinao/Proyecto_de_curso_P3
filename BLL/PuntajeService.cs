@@ -1,21 +1,21 @@
 ﻿using DAL;
-using System;
-using System.Collections.Generic;
+using Entity;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BLL
 {
     public class PuntajeService
     {
         PuntajeRepository puntajeRepository;
+        UserServices userPersonaje;
+        MundoService mundoservice;
         DataTable tablaPuntaje;
 
         public PuntajeService(int ID)
         {
             puntajeRepository = new PuntajeRepository();
+            userPersonaje = new UserServices();
+            mundoservice = new MundoService();
             CargarTabla(ID);
         }
 
@@ -28,5 +28,27 @@ namespace BLL
         {
             return tablaPuntaje;
         }
+
+        public string Registrar(Puntajes puntaje)
+        {
+            var user = userPersonaje.GetId(puntaje.Id_user);
+            if (user != null)
+            {
+                var mundo = mundoservice.GetId(puntaje.Id_mundo);
+                if (mundo != null)
+                {
+                    return puntajeRepository.RegistrarPuntaje(puntaje);
+                }
+                else
+                {
+                    return "MUNDO NO EXISTE";
+                }
+            }
+            else
+            {
+                return "USUARIO NO EXISTE";
+            }
+        }
+
     }
 }
