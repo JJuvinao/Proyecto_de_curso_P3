@@ -34,7 +34,7 @@ namespace IGU
 
         private void Btopcion_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("TRABAJANDO EN PROCESO"+"\n"+"PROXIMAMENTE UN TUTORIAL");
         }
     }
 }

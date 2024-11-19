@@ -54,7 +54,7 @@ namespace DAL
                 Categorias elemento = new Categorias
                 {
                     Id_Categoria = row["ID_CATEGORIA"].ToString(),
-                    Nombre = row["NOMBRE"].ToString()
+                    Nombre = row["NOMBRE_CATEGORIA"].ToString()
                 };
                 categorias.Add(elemento);
             }

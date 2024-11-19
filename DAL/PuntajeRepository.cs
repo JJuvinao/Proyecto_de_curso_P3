@@ -53,7 +53,7 @@ namespace DAL
             {
                 connection = DBConnection.Getinstancia().GetConnection();
                 connection.Open();
-                using (OracleCommand command = new OracleCommand("PR_INSERT_PUNTAJE", connection))
+                using (OracleCommand command = new OracleCommand("PKG_INSERT.PR_INSERT_PUNTAJE", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add("id_user", OracleDbType.Int32).Value = puntaje.Id_user;

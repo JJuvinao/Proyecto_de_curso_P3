@@ -17,32 +17,41 @@ namespace IGU
         Mundo mundo;
         Puntajes puntaje;
         Plantilla personaje_actual;
-        Npc npc = new Npc(2, "mago", "npc", 2000, 250, 40, 5);
+        Npc npc;
         GestorAcciones gestorAcciones;
         IcrudAnimacion animacion;
+        AnimacionVarias animacionVarias;
         AniNpcs aniNpcs;
+        NPCservice npcservise;
         string Rutafondo;
         bool turno = true;
         int puntajejugar = 0;
 
         public AccionesPerso() { }
-        public AccionesPerso(string fondo, User usser, Plantilla plantilla)
+        public AccionesPerso(string fondo, User usser, Mundo mund, Plantilla plantilla)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             personaje_actual = plantilla;
-            Estadisticas();
+            npcservise = new NPCservice();
+            AsignarNpc();
+            user = usser;
+            mundo = mund;
             gestorAcciones = new GestorAcciones(personaje_actual, npc);
             aniNpcs = new AniNpcs();
+            animacionVarias = new AnimacionVarias();
             Rutafondo = fondo;
-            user = usser;
             AsignacionAnimacion(plantilla.clase);
-            GestionarBotones();
+            GestionarBotones(1);
+            Estadisticas();
             puntajeService = new PuntajeService(user.Id);
             PicturePersonaje2.BackColor = Color.Transparent;
             PicturePersonaje.BackColor = Color.Transparent;
             PictureNpc1.BackColor = Color.Transparent;
+            PictureNpc1.BringToFront();
             PictureNpc2.BackColor = Color.Transparent;
+            sangrenpc.BackColor = Color.Transparent;
+            sangrepersonaje.BackColor = Color.Transparent;
             MostrarIncial();
         }
 
@@ -57,6 +66,9 @@ namespace IGU
                 Estadisticas();
                 MessageBox.Show("murio el personaje");
                 AnimacionMorirPersonaje();
+                puntajejugar = 0;
+                puntaje = new Puntajes(user.Id, mundo.Id, puntajejugar);
+                RegistrarPuntaje();
             }
         }
 
@@ -71,14 +83,14 @@ namespace IGU
                 Estadisticas();
                 MessageBox.Show("murio el npc");
                 AnimacionMorirNpc();
-                puntaje = new Puntajes(user.Id,mundo.Id,puntajejugar);
+                puntaje = new Puntajes(user.Id, mundo.Id, puntajejugar);
                 RegistrarPuntaje();
             }
         }
 
-        private void GestionarBotones()
+        private void GestionarBotones(int turno)
         {
-            if (turno)
+            if (turno == 1)
             {
                 Btataque.Enabled = true;
                 Btbeffer.Enabled = true;
@@ -112,6 +124,11 @@ namespace IGU
         {
             var msg = puntajeService.Registrar(puntaje);
             MessageBox.Show(msg);
+        }
+
+        private void AsignarNpc()
+        {
+            npc = npcservise.GetId("01_LOBO");
         }
 
         private void AsignacionAnimacion(string clase)
@@ -149,10 +166,10 @@ namespace IGU
                 opcion = new OpcionesDeAtacarPersonaje(personaje_actual, npc);
                 opcion.ShowDialog();
                 opc = opcion.Prueba();
-                txtopcion.Text = opc.ToString();
+                puntajejugar += 100;
                 if (opc != 0)
                 {
-                    GestionarBotones();
+                    GestionarBotones(2);
                     switch (opc)
                     {
                         case 1: { AnimacionAtaque1(personaje_actual.clase); }; break;
@@ -161,7 +178,7 @@ namespace IGU
                     }
                     Atacar(opc, turno);
                     turno = false;
-                    await Task.Delay(2500);
+                    await Task.Delay(2800);
                     AccionNpc();
                 }
             }
@@ -171,13 +188,23 @@ namespace IGU
             }
         }
 
-        private void AccionNpc()
+        private async void AccionNpc()
         {
             int opcnpc = gestorAcciones.GeneradorOpcion();
-            AnimacionesNpc(opcnpc);
-            Atacar(opcnpc, turno);
+            if (opcnpc == 4)
+            {
+                AnimaNpcDefender();
+                npc.Defender(turno);
+                await Task.Delay(1000);
+            }
+            else
+            {
+                AnimacionesNpc(opcnpc);
+                Atacar(opcnpc, turno);
+                await Task.Delay(2800);
+            }
             turno = true;
-            GestionarBotones();
+            GestionarBotones(1);
         }
 
         private async void MostraPerso(string posicion1, string[] posicion2)
@@ -187,13 +214,15 @@ namespace IGU
             PicturePersonaje2.Visible = true;
             PicturePersonaje2.Image = Image.FromFile(posicion2[0]);
             PicturePersonaje2.SizeMode = PictureBoxSizeMode.StretchImage;
-            PicturePersonaje2.Location = new Point(190, 50);
+            sangrenpc.Visible = true;
+            sangrenpc.Image = Image.FromFile(animacionVarias.Mostrarsangre());
+            sangrenpc.SizeMode = PictureBoxSizeMode.StretchImage;
             await Task.Delay(2000);
+            sangrenpc.Visible = false;
             PicturePersonaje2.Visible = false;
             PicturePersonaje.Visible = true;
             PicturePersonaje.Image = Image.FromFile(posicion1);
             PicturePersonaje.SizeMode = PictureBoxSizeMode.StretchImage;
-            PicturePersonaje.Location = new Point(35, 50);
             await Task.Delay(2000);
         }
 
@@ -202,19 +231,20 @@ namespace IGU
         {
             PicturePersonaje.Image = Image.FromFile(posicion2[0]);
             PicturePersonaje.SizeMode = PictureBoxSizeMode.StretchImage;
-            PicturePersonaje.Location = new Point(35, 50);
             await Task.Delay(800);
             PicturePersonaje2.Visible = true;
             PicturePersonaje2.Image = Image.FromFile(posicion2[1]);
             PicturePersonaje2.SizeMode = PictureBoxSizeMode.StretchImage;
             PicturePersonaje2.BringToFront();
-            PicturePersonaje2.Location = new Point(245, 50);
+            sangrenpc.Visible = true;
+            sangrenpc.Image = Image.FromFile(animacionVarias.Mostrarsangre());
+            sangrenpc.SizeMode = PictureBoxSizeMode.StretchImage;
             await Task.Delay(1500);
+            sangrenpc.Visible = false;
             PicturePersonaje2.Visible = false;
             await Task.Delay(700);
             PicturePersonaje.Image = Image.FromFile(animacion.GetPosicionInicial());
             PicturePersonaje.SizeMode = PictureBoxSizeMode.StretchImage;
-            PicturePersonaje.Location = new Point(35, 50);
             await Task.Delay(2000);
         }
 
@@ -254,11 +284,13 @@ namespace IGU
             }
         }
 
-        private void AnimacionMorirPersonaje()
+        private async void AnimacionMorirPersonaje()
         {
-            PicturePersonaje.Image = Image.FromFile(animacion.GetMorir());
+            PicturePersonaje.Image = Image.FromFile(animacion.GetMorir1());
             PicturePersonaje.SizeMode = PictureBoxSizeMode.StretchImage;
-            PicturePersonaje.Location = new Point(35, 50);
+            await Task.Delay(500);
+            PicturePersonaje.Image = Image.FromFile(animacion.GetMorir2());
+            PicturePersonaje.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void AnimacionMorirNpc()
@@ -273,7 +305,6 @@ namespace IGU
             PicturePersonaje.Image = Image.FromFile(animacion.GetPosicionInicial());
             PicturePersonaje.SizeMode = PictureBoxSizeMode.StretchImage;
             PicturePersonaje.BringToFront();
-            PicturePersonaje.Location = new Point(35, 50);
         }
 
         private void AnimacionDefender()
@@ -281,7 +312,6 @@ namespace IGU
             PicturePersonaje.Image = Image.FromFile(animacion.GetPosicionDefender());
             PicturePersonaje.SizeMode = PictureBoxSizeMode.StretchImage;
             PicturePersonaje.BringToFront();
-            PicturePersonaje.Location = new Point(35, 50);
         }
 
         private void AnimacionBuffer()
@@ -289,7 +319,6 @@ namespace IGU
             PicturePersonaje.Image = Image.FromFile(animacion.GetAccionMejora());
             PicturePersonaje.SizeMode = PictureBoxSizeMode.StretchImage;
             PicturePersonaje.BringToFront();
-            PicturePersonaje.Location = new Point(35, 50);
         }
 
         private void AnimacionesNpc(int opc)
@@ -299,7 +328,6 @@ namespace IGU
                 case 1: { MostrarAnimacionNpc(aniNpcs.GetAtacar1(), aniNpcs.GetPosicionInicial()); }; break;
                 case 2: { MostrarAnimacionNpc(aniNpcs.GetAtacar2(), aniNpcs.GetPosicionInicial()); }; break;
                 case 3: { MostrarAnimacionNpc(aniNpcs.GetAtacar3(), aniNpcs.GetPosicionInicial()); }; break;
-                case 4: { AnimaNpcDefender(); }; break;
             }
         }
 
@@ -311,14 +339,16 @@ namespace IGU
             PictureNpc2.Image = Image.FromFile(posicion1);
             PictureNpc2.SizeMode = PictureBoxSizeMode.StretchImage;
             PictureNpc2.BringToFront();
-            PictureNpc2.Location = new Point(155, 68);
+            sangrepersonaje.Visible = true;
+            sangrepersonaje.Image = Image.FromFile(animacionVarias.Mostrarsangre());
+            sangrepersonaje.SizeMode = PictureBoxSizeMode.StretchImage;
             await Task.Delay(2000);
+            sangrepersonaje.Visible = false;
             PictureNpc2.Visible = false;
             PictureNpc1.Visible = true;
             PictureNpc1.Image = Image.FromFile(posicion2);
             PictureNpc1.SizeMode = PictureBoxSizeMode.StretchImage;
             PictureNpc1.BringToFront();
-            PictureNpc1.Location = new Point(326, 68);
             await Task.Delay(2000);
         }
 
@@ -383,6 +413,8 @@ namespace IGU
                 string msg = gestorAcciones.Beffer(opc);
                 labelMensaje.Text = msg;
                 Estadisticas();
+                await Task.Delay(1500);
+                AnimacionInicial();
             }
         }
 
@@ -396,7 +428,7 @@ namespace IGU
             if (Btataque.Enabled != false)
             {
                 turno = false;
-                GestionarBotones();
+                GestionarBotones(2);
                 AccionNpc();
             }
             await Task.Delay(1500);

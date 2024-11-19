@@ -30,7 +30,7 @@
         {
             this.Btsalir = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Btopcion = new System.Windows.Forms.Button();
+            this.Bttutorial = new System.Windows.Forms.Button();
             this.Btempezar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -49,7 +49,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.Btopcion);
+            this.panel1.Controls.Add(this.Bttutorial);
             this.panel1.Controls.Add(this.Btempezar);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.Btsalir);
@@ -58,15 +58,15 @@
             this.panel1.Size = new System.Drawing.Size(243, 309);
             this.panel1.TabIndex = 5;
             // 
-            // Btopcion
+            // Bttutorial
             // 
-            this.Btopcion.Location = new System.Drawing.Point(13, 166);
-            this.Btopcion.Name = "Btopcion";
-            this.Btopcion.Size = new System.Drawing.Size(213, 49);
-            this.Btopcion.TabIndex = 5;
-            this.Btopcion.Text = "OPCIONES";
-            this.Btopcion.UseVisualStyleBackColor = true;
-            this.Btopcion.Click += new System.EventHandler(this.Btopcion_Click);
+            this.Bttutorial.Location = new System.Drawing.Point(13, 166);
+            this.Bttutorial.Name = "Bttutorial";
+            this.Bttutorial.Size = new System.Drawing.Size(213, 49);
+            this.Bttutorial.TabIndex = 5;
+            this.Bttutorial.Text = "TUTORIAL";
+            this.Bttutorial.UseVisualStyleBackColor = true;
+            this.Bttutorial.Click += new System.EventHandler(this.Btopcion_Click);
             // 
             // Btempezar
             // 
@@ -105,7 +105,7 @@
         private System.Windows.Forms.Button Btsalir;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button Btopcion;
+        private System.Windows.Forms.Button Bttutorial;
         private System.Windows.Forms.Button Btempezar;
     }
 }

@@ -16,7 +16,8 @@ namespace Animaciones
         string Atacar3 = "Attack_2.gif";
         string PosicionDefender = "Defend.gif";
         string AccionMejora = "Hurt.gif";
-        string morir = "Dead.gif";
+        string morir1 = "Dead1.gif";
+        string morir2 = "Dead2.png";
         string Rutadirec = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
         string Ruta1 = "imagenes";
         string Ruta2 = "PersonajesGerrero";
@@ -61,9 +62,14 @@ namespace Animaciones
             return atacar;
         }
 
-        public string GetMorir()
+        public string GetMorir1()
         {
-            return ValidarExistencia(morir);
+            return ValidarExistencia(morir1);
+        }
+
+        public string GetMorir2()
+        {
+            return ValidarExistencia(morir2);
         }
 
         public string GetPosicionDefender()

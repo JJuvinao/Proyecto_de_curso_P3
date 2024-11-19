@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class PRE_Y_RESRepository : BaseRepository<Preg_Y_Resp>
+    public class PRE_Y_RESRepository
     {
         public PRE_Y_RESRepository()
         {
         }
 
-        public override List<Preg_Y_Resp> GetList()
+        public List<Preg_Y_Resp> GetList()
         {
             DataTable tablepreyres = Listado_PreYRes();
             List<Preg_Y_Resp> presyresps = new List<Preg_Y_Resp>();
@@ -36,9 +36,9 @@ namespace DAL
             return presyresps;
         }
 
-        public List<Respuestas_falsas> GetList_falsas()
+        public List<Respuestas_falsas> GetList_falsas(int id_pregunta)
         {
-            DataTable tablepreyres = Listado_Respuesta_falsas();
+            DataTable tablepreyres = Listado_Respuesta_falsas(id_pregunta);
             List<Respuestas_falsas> resps_falsas = new List<Respuestas_falsas>();
 
             foreach (DataRow row in tablepreyres.Rows)
@@ -86,7 +86,7 @@ namespace DAL
             }
         }
 
-        public DataTable Listado_Respuesta_falsas()
+        public DataTable Listado_Respuesta_falsas(int id_pregunta)
         {
             OracleDataReader dataReader;
             DataTable tabla = new DataTable();
@@ -99,6 +99,7 @@ namespace DAL
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add("resultadoCursor", OracleDbType.RefCursor).Direction = ParameterDirection.ReturnValue;
+                    command.Parameters.Add("id_preg", OracleDbType.Int32).Value = id_pregunta;
                     dataReader = command.ExecuteReader();
                     tabla.Load(dataReader);
                 }
@@ -124,7 +125,7 @@ namespace DAL
             {
                 connection = DBConnection.Getinstancia().GetConnection();
                 connection.Open();
-                using (OracleCommand command = new OracleCommand("PR_INSERT_PREGUNTA_Y_RESPUESTA", connection))
+                using (OracleCommand command = new OracleCommand("PKG_INSERT.PR_INSERT_PREGUNTA_Y_RESPUESTA", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add("id_pyr", OracleDbType.Int32).Value = preg_Y_Resp.Id;

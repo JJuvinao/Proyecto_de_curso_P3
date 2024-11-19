@@ -11,7 +11,8 @@ namespace Animaciones
         string Atacar2 = "Attack_2.gif";
         string PosicionDefender = "SamuraiProtection.gif";
         string AccionMejora = "SamuraiHurt.gif";
-        string morir = "SamuraiDead.gif";
+        string morir1 = "SamuraiDead.gif";
+        string morir2 = "SamuraiDead.png";
         string Rutadirec = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
         string Ruta1 = "imagenes";
         string Ruta2 = "PersonajesSamurai";
@@ -66,10 +67,14 @@ namespace Animaciones
             return ValidarExistencia(AccionMejora);
         }
 
-
-        public string GetMorir()
+        public string GetMorir1()
         {
-            return ValidarExistencia(morir);
+            return ValidarExistencia(morir1);
+        }
+
+        public string GetMorir2()
+        {
+            return ValidarExistencia(morir2);
         }
     }
 }

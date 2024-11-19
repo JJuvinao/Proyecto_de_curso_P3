@@ -1,30 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entity
+﻿namespace Entity
 {
     public class Npc
     {
-        public int id { get; set; }
-        public string clase { get; set; }
+        public string id { get; set; }
         public string nombre { get; set; }
         public int vida { get; set; }
         public int fuerza { get; set; }
         public int defensa { get; set; }
-        public int armaid { get; set; }
 
-        public Npc(int id, string clase, string nombre, int vida, int fuerza, int defensa, int armaid)
+        public Npc() { }
+        public Npc(string id, string nombre, int vida, int fuerza, int defensa)
         {
             this.id = id;
-            this.clase = clase;
             this.nombre = nombre;
             this.vida = vida;
             this.fuerza = fuerza;
             this.defensa = defensa;
-            this.armaid = armaid;
         }
 
         public bool SigueVivo()
@@ -34,7 +25,7 @@ namespace Entity
 
         public void RecibirDanio(int danio)
         {
-            this.vida -=danio;
+            this.vida -= danio;
         }
 
         public void Defender(bool turno)
@@ -56,7 +47,7 @@ namespace Entity
 
         public override string ToString()
         {
-            return $"{id},{clase},{nombre},{vida},{fuerza},{defensa},{armaid}";
+            return $"{id},{nombre},{vida},{fuerza},{defensa}";
         }
     }
 }

@@ -8,6 +8,7 @@
         string[] GetAtacar3();
         string GetPosicionDefender();
         string GetAccionMejora();
-        string GetMorir();
+        string GetMorir1();
+        string GetMorir2();
     }
 }

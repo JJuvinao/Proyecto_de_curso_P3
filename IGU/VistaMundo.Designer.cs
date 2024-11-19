@@ -28,12 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Btfondo1 = new System.Windows.Forms.Button();
-            this.Btfondo2 = new System.Windows.Forms.Button();
+            this.BtEscoger1 = new System.Windows.Forms.Button();
+            this.BtEscoger2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtEscoger3 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.txtcategoria3 = new System.Windows.Forms.TextBox();
+            this.txtcategoria2 = new System.Windows.Forms.TextBox();
+            this.txtcategoria1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.txtmundo3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtmundo2 = new System.Windows.Forms.TextBox();
@@ -49,12 +55,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.Btsiguiente = new System.Windows.Forms.Button();
             this.Btanterior = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtcategoria1 = new System.Windows.Forms.TextBox();
-            this.txtcategoria2 = new System.Windows.Forms.TextBox();
-            this.txtcategoria3 = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -67,46 +67,46 @@
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // Btfondo1
+            // BtEscoger1
             // 
-            this.Btfondo1.Location = new System.Drawing.Point(10, 9);
-            this.Btfondo1.Name = "Btfondo1";
-            this.Btfondo1.Size = new System.Drawing.Size(164, 48);
-            this.Btfondo1.TabIndex = 0;
-            this.Btfondo1.Text = "Fondo1";
-            this.Btfondo1.UseVisualStyleBackColor = true;
-            this.Btfondo1.Click += new System.EventHandler(this.Btfondo1_Click);
+            this.BtEscoger1.Location = new System.Drawing.Point(10, 9);
+            this.BtEscoger1.Name = "BtEscoger1";
+            this.BtEscoger1.Size = new System.Drawing.Size(164, 48);
+            this.BtEscoger1.TabIndex = 0;
+            this.BtEscoger1.Text = "ESCOGER MUNDO";
+            this.BtEscoger1.UseVisualStyleBackColor = true;
+            this.BtEscoger1.Click += new System.EventHandler(this.Btfondo1_Click);
             // 
-            // Btfondo2
+            // BtEscoger2
             // 
-            this.Btfondo2.Location = new System.Drawing.Point(214, 9);
-            this.Btfondo2.Name = "Btfondo2";
-            this.Btfondo2.Size = new System.Drawing.Size(164, 47);
-            this.Btfondo2.TabIndex = 1;
-            this.Btfondo2.Text = "Fondo2";
-            this.Btfondo2.UseVisualStyleBackColor = true;
-            this.Btfondo2.Click += new System.EventHandler(this.Btfondo2_Click);
+            this.BtEscoger2.Location = new System.Drawing.Point(214, 9);
+            this.BtEscoger2.Name = "BtEscoger2";
+            this.BtEscoger2.Size = new System.Drawing.Size(164, 47);
+            this.BtEscoger2.TabIndex = 1;
+            this.BtEscoger2.Text = "ESCOGER MUNDO";
+            this.BtEscoger2.UseVisualStyleBackColor = true;
+            this.BtEscoger2.Click += new System.EventHandler(this.Btfondo2_Click);
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.Btfondo2);
-            this.panel2.Controls.Add(this.Btfondo1);
+            this.panel2.Controls.Add(this.BtEscoger3);
+            this.panel2.Controls.Add(this.BtEscoger2);
+            this.panel2.Controls.Add(this.BtEscoger1);
             this.panel2.Location = new System.Drawing.Point(12, 319);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(605, 62);
             this.panel2.TabIndex = 1;
             // 
-            // button1
+            // BtEscoger3
             // 
-            this.button1.Location = new System.Drawing.Point(417, 11);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(164, 46);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "ESCOGER MUNDO";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.BtEscoger3.Location = new System.Drawing.Point(417, 11);
+            this.BtEscoger3.Name = "BtEscoger3";
+            this.BtEscoger3.Size = new System.Drawing.Size(164, 46);
+            this.BtEscoger3.TabIndex = 2;
+            this.BtEscoger3.Text = "ESCOGER MUNDO";
+            this.BtEscoger3.UseVisualStyleBackColor = true;
+            this.BtEscoger3.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel1
             // 
@@ -141,6 +141,60 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(605, 262);
             this.panel4.TabIndex = 8;
+            // 
+            // txtcategoria3
+            // 
+            this.txtcategoria3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtcategoria3.Enabled = false;
+            this.txtcategoria3.Location = new System.Drawing.Point(421, 75);
+            this.txtcategoria3.Name = "txtcategoria3";
+            this.txtcategoria3.Size = new System.Drawing.Size(135, 20);
+            this.txtcategoria3.TabIndex = 18;
+            // 
+            // txtcategoria2
+            // 
+            this.txtcategoria2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtcategoria2.Enabled = false;
+            this.txtcategoria2.Location = new System.Drawing.Point(214, 75);
+            this.txtcategoria2.Name = "txtcategoria2";
+            this.txtcategoria2.Size = new System.Drawing.Size(135, 20);
+            this.txtcategoria2.TabIndex = 17;
+            // 
+            // txtcategoria1
+            // 
+            this.txtcategoria1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtcategoria1.Enabled = false;
+            this.txtcategoria1.Location = new System.Drawing.Point(10, 75);
+            this.txtcategoria1.Name = "txtcategoria1";
+            this.txtcategoria1.Size = new System.Drawing.Size(135, 20);
+            this.txtcategoria1.TabIndex = 16;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(425, 46);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 13);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Categoria:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(218, 46);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(55, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Categoria:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(11, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Categoria:";
             // 
             // txtmundo3
             // 
@@ -274,60 +328,6 @@
             this.Btanterior.UseVisualStyleBackColor = true;
             this.Btanterior.Click += new System.EventHandler(this.Btanterior_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 46);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 13);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Categoria:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(218, 46);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 13);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Categoria:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(425, 46);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 13);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Categoria:";
-            // 
-            // txtcategoria1
-            // 
-            this.txtcategoria1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtcategoria1.Enabled = false;
-            this.txtcategoria1.Location = new System.Drawing.Point(10, 75);
-            this.txtcategoria1.Name = "txtcategoria1";
-            this.txtcategoria1.Size = new System.Drawing.Size(135, 20);
-            this.txtcategoria1.TabIndex = 16;
-            // 
-            // txtcategoria2
-            // 
-            this.txtcategoria2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtcategoria2.Enabled = false;
-            this.txtcategoria2.Location = new System.Drawing.Point(214, 75);
-            this.txtcategoria2.Name = "txtcategoria2";
-            this.txtcategoria2.Size = new System.Drawing.Size(135, 20);
-            this.txtcategoria2.TabIndex = 17;
-            // 
-            // txtcategoria3
-            // 
-            this.txtcategoria3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtcategoria3.Enabled = false;
-            this.txtcategoria3.Location = new System.Drawing.Point(421, 75);
-            this.txtcategoria3.Name = "txtcategoria3";
-            this.txtcategoria3.Size = new System.Drawing.Size(135, 20);
-            this.txtcategoria3.TabIndex = 18;
-            // 
             // VistaMundo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -353,11 +353,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button Btfondo1;
-        private System.Windows.Forms.Button Btfondo2;
+        private System.Windows.Forms.Button BtEscoger1;
+        private System.Windows.Forms.Button BtEscoger2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtEscoger3;
         private System.Windows.Forms.PictureBox picture1;
         private System.Windows.Forms.Panel panel03;
         private System.Windows.Forms.Panel panel02;

@@ -33,9 +33,9 @@ namespace BLL
             return listaPreYRes;
         }
 
-        public List<Respuestas_falsas> Getlis_falsas()
+        public List<Respuestas_falsas> Getlis_falsas(int id_pregunta)
         {
-            return respuestas_Falsas = PRE_Y_RESRepository.GetList_falsas();
+            return respuestas_Falsas = PRE_Y_RESRepository.GetList_falsas(id_pregunta);
         }
 
         public Preg_Y_Resp GetId(int id)

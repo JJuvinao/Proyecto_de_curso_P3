@@ -34,6 +34,9 @@
             this.Btrendirse = new System.Windows.Forms.Button();
             this.Btbeffer = new System.Windows.Forms.Button();
             this.PanelFondo = new System.Windows.Forms.Panel();
+            this.sangrepersonaje = new System.Windows.Forms.PictureBox();
+            this.sangrenpc = new System.Windows.Forms.PictureBox();
+            this.PictureNpc2 = new System.Windows.Forms.PictureBox();
             this.PicturePersonaje2 = new System.Windows.Forms.PictureBox();
             this.PictureNpc1 = new System.Windows.Forms.PictureBox();
             this.PicturePersonaje = new System.Windows.Forms.PictureBox();
@@ -71,8 +74,10 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.PictureNpc2 = new System.Windows.Forms.PictureBox();
             this.PanelFondo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sangrepersonaje)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sangrenpc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureNpc2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicturePersonaje2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureNpc1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicturePersonaje)).BeginInit();
@@ -82,7 +87,6 @@
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureNpc2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -134,6 +138,8 @@
             // PanelFondo
             // 
             this.PanelFondo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanelFondo.Controls.Add(this.sangrepersonaje);
+            this.PanelFondo.Controls.Add(this.sangrenpc);
             this.PanelFondo.Controls.Add(this.PictureNpc2);
             this.PanelFondo.Controls.Add(this.PicturePersonaje2);
             this.PanelFondo.Controls.Add(this.PictureNpc1);
@@ -144,11 +150,40 @@
             this.PanelFondo.TabIndex = 5;
             this.PanelFondo.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // sangrepersonaje
+            // 
+            this.sangrepersonaje.Location = new System.Drawing.Point(-1, 23);
+            this.sangrepersonaje.Name = "sangrepersonaje";
+            this.sangrepersonaje.Size = new System.Drawing.Size(124, 96);
+            this.sangrepersonaje.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.sangrepersonaje.TabIndex = 9;
+            this.sangrepersonaje.TabStop = false;
+            this.sangrepersonaje.Visible = false;
+            // 
+            // sangrenpc
+            // 
+            this.sangrenpc.Location = new System.Drawing.Point(464, 23);
+            this.sangrenpc.Name = "sangrenpc";
+            this.sangrenpc.Size = new System.Drawing.Size(124, 96);
+            this.sangrenpc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.sangrenpc.TabIndex = 8;
+            this.sangrenpc.TabStop = false;
+            this.sangrenpc.Visible = false;
+            // 
+            // PictureNpc2
+            // 
+            this.PictureNpc2.Location = new System.Drawing.Point(154, 68);
+            this.PictureNpc2.Name = "PictureNpc2";
+            this.PictureNpc2.Size = new System.Drawing.Size(165, 188);
+            this.PictureNpc2.TabIndex = 7;
+            this.PictureNpc2.TabStop = false;
+            this.PictureNpc2.Visible = false;
+            // 
             // PicturePersonaje2
             // 
             this.PicturePersonaje2.BackColor = System.Drawing.SystemColors.Control;
             this.PicturePersonaje2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.PicturePersonaje2.Location = new System.Drawing.Point(185, 50);
+            this.PicturePersonaje2.Location = new System.Drawing.Point(215, 50);
             this.PicturePersonaje2.Name = "PicturePersonaje2";
             this.PicturePersonaje2.Size = new System.Drawing.Size(190, 206);
             this.PicturePersonaje2.TabIndex = 6;
@@ -157,7 +192,7 @@
             // 
             // PictureNpc1
             // 
-            this.PictureNpc1.Location = new System.Drawing.Point(326, 68);
+            this.PictureNpc1.Location = new System.Drawing.Point(364, 68);
             this.PictureNpc1.Name = "PictureNpc1";
             this.PictureNpc1.Size = new System.Drawing.Size(165, 188);
             this.PictureNpc1.TabIndex = 5;
@@ -167,7 +202,7 @@
             // 
             this.PicturePersonaje.BackColor = System.Drawing.SystemColors.Control;
             this.PicturePersonaje.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.PicturePersonaje.Location = new System.Drawing.Point(33, 50);
+            this.PicturePersonaje.Location = new System.Drawing.Point(53, 50);
             this.PicturePersonaje.Name = "PicturePersonaje";
             this.PicturePersonaje.Size = new System.Drawing.Size(190, 206);
             this.PicturePersonaje.TabIndex = 4;
@@ -505,15 +540,6 @@
             this.label13.TabIndex = 13;
             this.label13.Text = "Personaje";
             // 
-            // PictureNpc2
-            // 
-            this.PictureNpc2.Location = new System.Drawing.Point(155, 68);
-            this.PictureNpc2.Name = "PictureNpc2";
-            this.PictureNpc2.Size = new System.Drawing.Size(165, 188);
-            this.PictureNpc2.TabIndex = 7;
-            this.PictureNpc2.TabStop = false;
-            this.PictureNpc2.Visible = false;
-            // 
             // AccionesPerso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -527,6 +553,9 @@
             this.Name = "AccionesPerso";
             this.Text = "AccionesPerso";
             this.PanelFondo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.sangrepersonaje)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sangrenpc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureNpc2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicturePersonaje2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureNpc1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicturePersonaje)).EndInit();
@@ -542,7 +571,6 @@
             this.panel6.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureNpc2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -595,5 +623,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.PictureBox PicturePersonaje2;
         private System.Windows.Forms.PictureBox PictureNpc2;
+        private System.Windows.Forms.PictureBox sangrepersonaje;
+        private System.Windows.Forms.PictureBox sangrenpc;
     }
 }
