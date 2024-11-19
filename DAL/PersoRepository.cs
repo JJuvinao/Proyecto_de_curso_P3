@@ -56,8 +56,8 @@ namespace DAL
                 Plantilla elemento = new Plantilla
                 {
                     id = Convert.ToInt32(row["ID_PERSONAJE"]),
-                    clase = row["CLASE"].ToString(),
-                    nombre = row["NOMBRE"].ToString(),
+                    clase = row["NOMBRE_CLASE"].ToString(),
+                    nombre = row["NOMBRE_PERSONAJE"].ToString(),
                     vida = Convert.ToInt32(row["VIDA"]),
                     mana = Convert.ToInt32(row["MANA"]),
                     fuerza = Convert.ToInt32(row["FUERZA"]),

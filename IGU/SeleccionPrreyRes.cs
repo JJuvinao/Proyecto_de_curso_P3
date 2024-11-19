@@ -32,9 +32,9 @@ namespace IGU
             if (preg_Y_Resps.Count > 0)
             {
                 int opc = ramd.Next(0, preg_Y_Resps.Count() - 1);
-                pregunta = preg_Y_Resps[opc].Repuesta;
+                pregunta = preg_Y_Resps[opc].Pregunta;
                 repes1 = preg_Y_Resps[opc].Repuesta;
-                respuestas_Falsas = preg_Y_Respservice.Getlis_falsas();
+                respuestas_Falsas = preg_Y_Respservice.Getlis_falsas(preg_Y_Resps[opc].Id);
                 if (respuestas_Falsas.Count > 0)
                 {
                     repes2 = respuestas_Falsas[0].Respesta_f;
@@ -87,7 +87,7 @@ namespace IGU
 
         private void ValidarRepuesta(string preguntaselec)
         {
-            if (pregunta == preguntaselec)
+            if (repes1 == preguntaselec)
             {
                 Validar = true;
             }

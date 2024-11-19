@@ -14,9 +14,10 @@ namespace IGU
         Arquero arquero;
         Plantilla perso;
         List<Plantilla> personajes;
-        Npc npc = new Npc(2, "mago", "npc", 2000, 250, 40, 5);
+        Npc npc;
         PersonajeService personajeService;
         UserServices userServices;
+        NPCservice npcservice;
         int indice = 0;
 
         public VistaEscojerPersonaje(User user)
@@ -26,7 +27,9 @@ namespace IGU
             Usser = user;
             personajeService = new PersonajeService();
             userServices = new UserServices();
-            CargarPersajes();
+            npcservice = new NPCservice();
+            CargarPersonajes();
+            AsignarNpc();
             Cargar(personajes[indice]);
             perso = personajes[indice];
             MostrarPorClase(personajes[indice].clase);
@@ -35,9 +38,14 @@ namespace IGU
             ValidarSiguente();
         }
 
-        private void CargarPersajes()
+        private void CargarPersonajes()
         {
             personajes = personajeService.GetAll();
+        }
+
+        private void AsignarNpc()
+        {
+            npc = npcservice.GetId("01_LOBO");
         }
 
         private void RecargarInfo()

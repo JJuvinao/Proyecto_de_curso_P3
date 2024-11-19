@@ -29,5 +29,12 @@ namespace BLL
             var mundo = MundoRepository.GetById(id);
             return mundo;
         }
+
+        public Mundo GetByName(string fondo)
+        {
+            var mundo = MundoRepository.GetByName(fondo);
+            return mundo;
+        }
+
     }
 }

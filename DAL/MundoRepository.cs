@@ -70,5 +70,10 @@ namespace DAL
         {
             return GetList().FirstOrDefault<Mundo>(x => x.Id == id);
         }
+
+        public Mundo GetByName(string name)
+        {
+            return GetList().FirstOrDefault<Mundo>(x => x.Fondo == name);
+        }
     }
 }

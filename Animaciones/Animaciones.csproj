@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AniKnight.cs" />
+    <Compile Include="AnimacionVarias.cs" />
     <Compile Include="AniMago.cs" />
     <Compile Include="AniNpcs.cs" />
     <Compile Include="IcrudAnimacion.cs" />
