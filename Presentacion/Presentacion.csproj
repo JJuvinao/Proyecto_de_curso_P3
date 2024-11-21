@@ -80,10 +80,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Downloads\DIse-oVentanasPoyecP3Pp-master\DIse-oVentanasPoyecP3Pp-master\GUI\GUI.csproj">
-      <Project>{b7e75d6d-9584-4f5e-a3c1-e8526a5a0884}</Project>
-      <Name>GUI</Name>
-    </ProjectReference>
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{9d1f703b-577c-459b-b6be-7462a9e1d22e}</Project>
       <Name>BLL</Name>
@@ -91,6 +87,10 @@
     <ProjectReference Include="..\Entity\Entity.csproj">
       <Project>{db619be2-1cf7-43e2-86eb-fdceaac3df41}</Project>
       <Name>Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GUI\GUI.csproj">
+      <Project>{b7e75d6d-9584-4f5e-a3c1-e8526a5a0884}</Project>
+      <Name>GUI</Name>
     </ProjectReference>
     <ProjectReference Include="..\IGU\IGU.csproj">
       <Project>{8fdfd443-5404-4ed9-8a24-00c7aeb2760c}</Project>
