@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Animaciones", "Animaciones\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IGU", "IGU\IGU.csproj", "{8FDFD443-5404-4ED9-8A24-00C7AEB2760C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "..\..\..\Downloads\DIse-oVentanasPoyecP3Pp-master\DIse-oVentanasPoyecP3Pp-master\GUI\GUI.csproj", "{B7E75D6D-9584-4F5E-A3C1-E8526A5A0884}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{B7E75D6D-9584-4F5E-A3C1-E8526A5A0884}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
