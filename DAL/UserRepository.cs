@@ -105,7 +105,7 @@ namespace DAL
             {
                 sqlconnec = DBConnection.Getinstancia().GetConnection();
                 sqlconnec.Open();
-                using (OracleCommand command = new OracleCommand("PR_ASIGNARPERSONAJE", sqlconnec))
+                using (OracleCommand command = new OracleCommand("PKG_INSERT.PR_ASIGNARPERSONAJE", sqlconnec))
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add("id_user", OracleDbType.Int32).Value = id_user;
@@ -139,15 +139,12 @@ namespace DAL
             {
                 connection = DBConnection.Getinstancia().GetConnection();
                 connection.Open();
-                string query = "UPDATE usuarios SET NOMBRE_USER = :Nane, ROL = :Rol, CONTRA_USER = :Contra " +
-                               "WHERE ID_USER = :Id";
-
-                using (OracleCommand command = new OracleCommand(query, connection))
+                using (OracleCommand command = new OracleCommand("PR_ACTUALIZAR_USER", connection))
                 {
-                    command.Parameters.Add(":Nombre", usuario.Name);
-                    command.Parameters.Add(":Contra", usuario.Contra);
-                    command.Parameters.Add(":Rol", usuario.Rol);
-                    command.Parameters.Add(":Id", usuario.Id);
+                    command.Parameters.Add("id_user", usuario.Id);
+                    command.Parameters.Add("nombre_use", usuario.Name);
+                    command.Parameters.Add("contra", usuario.Contra);
+                    command.Parameters.Add("rol", usuario.Rol);
                     command.ExecuteNonQuery();
                 }
 

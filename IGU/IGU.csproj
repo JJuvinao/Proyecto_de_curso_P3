@@ -31,8 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MaterialSkin, Version=2.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialSkin.2.2.3.1\lib\net48\MaterialSkin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
@@ -43,24 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccionesPerso.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AccionesPerso.Designer.cs">
-      <DependentUpon>AccionesPerso.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Inicio.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inicio.Designer.cs">
-      <DependentUpon>Inicio.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
     <Compile Include="OpcionDeBuffer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,66 +70,9 @@
     <Compile Include="SeleccionPrreyRes.Designer.cs">
       <DependentUpon>SeleccionPrreyRes.cs</DependentUpon>
     </Compile>
-    <Compile Include="VistaEscojerPersonaje.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VistaEscojerPersonaje.Designer.cs">
-      <DependentUpon>VistaEscojerPersonaje.cs</DependentUpon>
-    </Compile>
-    <Compile Include="VistaMundo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VistaMundo.Designer.cs">
-      <DependentUpon>VistaMundo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="VistaConsultaPreguntasYRespestas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VistaConsultaPreguntasYRespestas.Designer.cs">
-      <DependentUpon>VistaConsultaPreguntasYRespestas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="VistaPreg_Y_Resp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VistaPreg_Y_Resp.Designer.cs">
-      <DependentUpon>VistaPreg_Y_Resp.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VistaRegistrar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VistaRegistrar.Designer.cs">
-      <DependentUpon>VistaRegistrar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="VistaRegistroPreYRes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VistaRegistroPreYRes.Designer.cs">
-      <DependentUpon>VistaRegistroPreYRes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="VistaUser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VistaUser.Designer.cs">
-      <DependentUpon>VistaUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="VistaUserPersonajes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VistaUserPersonajes.Designer.cs">
-      <DependentUpon>VistaUserPersonajes.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AccionesPerso.resx">
-      <DependentUpon>AccionesPerso.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inicio.resx">
-      <DependentUpon>Inicio.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="OpcionDeBuffer.resx">
       <DependentUpon>OpcionDeBuffer.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,30 +85,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SeleccionPrreyRes.resx">
       <DependentUpon>SeleccionPrreyRes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VistaEscojerPersonaje.resx">
-      <DependentUpon>VistaEscojerPersonaje.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VistaMundo.resx">
-      <DependentUpon>VistaMundo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VistaConsultaPreguntasYRespestas.resx">
-      <DependentUpon>VistaConsultaPreguntasYRespestas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VistaPreg_Y_Resp.resx">
-      <DependentUpon>VistaPreg_Y_Resp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VistaRegistrar.resx">
-      <DependentUpon>VistaRegistrar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VistaRegistroPreYRes.resx">
-      <DependentUpon>VistaRegistroPreYRes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VistaUser.resx">
-      <DependentUpon>VistaUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VistaUserPersonajes.resx">
-      <DependentUpon>VistaUserPersonajes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -198,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
