@@ -31,11 +31,11 @@ namespace GUI
         AnimacionVarias animacionVarias;
         AniNpcs aniNpcs;
         NPCservice npcservise;
-        string Rutafondo;
+        string Rutafondo,Rutapiso;
         bool turno = true;
         int puntajejugar = 0;
 
-        public VistaAccionesPersonaje(string fondo, User usser, Mundo mund, Plantilla plantilla)
+        public VistaAccionesPersonaje(string fondo,string piso, User usser, Mundo mund, Plantilla plantilla)
         {
             InitializeComponent();
 
@@ -59,6 +59,7 @@ namespace GUI
             aniNpcs = new AniNpcs();
             animacionVarias = new AnimacionVarias();
             Rutafondo = fondo;
+            Rutapiso = piso;
             AsignacionAnimacion(plantilla.clase);
             GestionarBotones(1);
             Estadisticas();
@@ -464,7 +465,7 @@ namespace GUI
             PictureNpc1.Image = Image.FromFile(aniNpcs.GetPosicionInicial());
             PictureNpc1.SizeMode = PictureBoxSizeMode.StretchImage;
             PictureNpc1.BringToFront();
-            picturepiso.Image = Image.FromFile(animacionVarias.MostrarsPiso());
+            picturepiso.Image = Image.FromFile(Rutapiso);
             picturepiso.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
