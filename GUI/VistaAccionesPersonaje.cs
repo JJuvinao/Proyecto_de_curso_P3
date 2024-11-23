@@ -68,10 +68,10 @@ namespace GUI
             PictureNpc1.BackColor = Color.Transparent;
             PictureNpc1.BringToFront();
             PictureNpc2.BackColor = Color.Transparent;
-            sangrenpc.BackColor = Color.Transparent;
-            sangrenpc.BringToFront();
-            sangrepersonaje.BackColor = Color.Transparent;
-            sangrepersonaje.BringToFront();
+            sangrenpc1.BackColor = Color.Transparent;
+            sangrenpc1.BringToFront();
+            sangrepersonaje1.BackColor = Color.Transparent;
+            sangrepersonaje1.BringToFront();
             MostrarIncial();
         }
 
@@ -201,19 +201,26 @@ namespace GUI
             }
         }
 
-        private void GestionarBotones(int turno)
+        private async void GestionarBotones(int turno)
         {
+            await Task.Delay(1000);
             if (turno == 1)
             {
                 Btataque.Enabled = true;
                 Btbeffer.Enabled = true;
                 Btdefender.Enabled = true;
+                Btrendirse.Enabled = true;
+                btnpc.Enabled = false;
+                btpersonaje.Enabled = true;
             }
             else
             {
                 Btataque.Enabled = false;
                 Btbeffer.Enabled = false;
                 Btdefender.Enabled = false;
+                Btrendirse.Enabled = false;
+                btnpc.Enabled = true;
+                btpersonaje.Enabled = false;
             }
         }
 
@@ -285,7 +292,7 @@ namespace GUI
             {
                 AnimacionesNpc(opcnpc);
                 Atacar(opcnpc, turno);
-                await Task.Delay(2800);
+                await Task.Delay(2000);
             }
             turno = true;
             GestionarBotones(1);
@@ -298,11 +305,11 @@ namespace GUI
             PicturePersonaje2.Visible = true;
             PicturePersonaje2.Image = Image.FromFile(posicion2[0]);
             PicturePersonaje2.SizeMode = PictureBoxSizeMode.StretchImage;
-            sangrenpc.Visible = true;
-            sangrenpc.Image = Image.FromFile(animacionVarias.Mostrarsangre());
-            sangrenpc.SizeMode = PictureBoxSizeMode.StretchImage;
+            sangrenpc1.Visible = true;
+            sangrenpc1.Image = Image.FromFile(animacionVarias.MostrarsangreNpc());
+            sangrenpc1.SizeMode = PictureBoxSizeMode.StretchImage;
             await Task.Delay(2000);
-            sangrenpc.Visible = false;
+            sangrenpc1.Visible = false;
             PicturePersonaje2.Visible = false;
             PicturePersonaje.Visible = true;
             PicturePersonaje.Image = Image.FromFile(posicion1);
@@ -320,11 +327,11 @@ namespace GUI
             PicturePersonaje2.Image = Image.FromFile(posicion2[1]);
             PicturePersonaje2.SizeMode = PictureBoxSizeMode.StretchImage;
             PicturePersonaje2.BringToFront();
-            sangrenpc.Visible = true;
-            sangrenpc.Image = Image.FromFile(animacionVarias.Mostrarsangre());
-            sangrenpc.SizeMode = PictureBoxSizeMode.StretchImage;
+            sangrenpc1.Visible = true;
+            sangrenpc1.Image = Image.FromFile(animacionVarias.MostrarsangreNpc());
+            sangrenpc1.SizeMode = PictureBoxSizeMode.StretchImage;
             await Task.Delay(1500);
-            sangrenpc.Visible = false;
+            sangrenpc1.Visible = false;
             PicturePersonaje2.Visible = false;
             await Task.Delay(700);
             PicturePersonaje.Image = Image.FromFile(animacion.GetPosicionInicial());
@@ -423,11 +430,11 @@ namespace GUI
             PictureNpc2.Image = Image.FromFile(posicion1);
             PictureNpc2.SizeMode = PictureBoxSizeMode.StretchImage;
             PictureNpc2.BringToFront();
-            sangrepersonaje.Visible = true;
-            sangrepersonaje.Image = Image.FromFile(animacionVarias.Mostrarsangre());
-            sangrepersonaje.SizeMode = PictureBoxSizeMode.StretchImage;
+            sangrepersonaje1.Visible = true;
+            sangrepersonaje1.Image = Image.FromFile(animacionVarias.MostrarsangrePersonaje());
+            sangrepersonaje1.SizeMode = PictureBoxSizeMode.StretchImage;
             await Task.Delay(2000);
-            sangrepersonaje.Visible = false;
+            sangrepersonaje1.Visible = false;
             PictureNpc2.Visible = false;
             PictureNpc1.Visible = true;
             PictureNpc1.Image = Image.FromFile(posicion2);
@@ -457,6 +464,8 @@ namespace GUI
             PictureNpc1.Image = Image.FromFile(aniNpcs.GetPosicionInicial());
             PictureNpc1.SizeMode = PictureBoxSizeMode.StretchImage;
             PictureNpc1.BringToFront();
+            picturepiso.Image = Image.FromFile(animacionVarias.MostrarsPiso());
+            picturepiso.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         #endregion
