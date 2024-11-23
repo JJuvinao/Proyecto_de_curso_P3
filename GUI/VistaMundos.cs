@@ -3,13 +3,8 @@ using Entity;
 using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI
@@ -21,6 +16,7 @@ namespace GUI
         MundoService mundoService;
         List<Mundo> mundos;
         string fondo01, fondo02, fondo03;
+        string piso01, piso02, piso03;
         string Rutadirec = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
         string Ruta1 = "imagenes";
         string Ruta2 = "Fondos";
@@ -64,20 +60,23 @@ namespace GUI
 
         private void BtEscoger1_Click(object sender, EventArgs e)
         {
-            string combi = Path.Combine(Rutadirec, Ruta1, Ruta2, fondo01);
-            CambiarVista(combi, fondo01);
+            string combifondo = Path.Combine(Rutadirec, Ruta1, Ruta2, fondo01);
+            string combipiso = Path.Combine(Rutadirec, Ruta1, Ruta2, piso01);
+            CambiarVista(combifondo, combipiso, fondo01);
         }
 
         private void BtEscoger2_Click(object sender, EventArgs e)
         {
-            string combi = Path.Combine(Rutadirec, Ruta1, Ruta2, fondo02);
-            CambiarVista(combi, fondo02);
+            string combifondo = Path.Combine(Rutadirec, Ruta1, Ruta2, fondo02);
+            string combipiso = Path.Combine(Rutadirec, Ruta1, Ruta2, piso02);
+            CambiarVista(combifondo, combipiso, fondo02);
         }
 
         private void BtEscoger3_Click(object sender, EventArgs e)
         {
-            string combi = Path.Combine(Rutadirec, Ruta1, Ruta2, fondo03);
-            CambiarVista(combi, fondo03);
+            string combifondo = Path.Combine(Rutadirec, Ruta1, Ruta2, fondo03);
+            string combipiso = Path.Combine(Rutadirec, Ruta1, Ruta2, piso03);
+            CambiarVista(combifondo, combipiso, fondo03);
         }
 
         #region METODOS
@@ -97,12 +96,15 @@ namespace GUI
             if (intervalo <= mundos.Count)
             {
                 fondo01 = mundos[start].Fondo;
+                piso01 = mundos[start].Piso;
                 txtmundo1.Text = mundos[start].Nombre;
                 txtcategoria1.Text = mundos[start].Id_Categoria;
                 fondo02 = mundos[start + 1].Fondo;
+                piso02 = mundos[start + 1].Piso;
                 txtmundo2.Text = mundos[start + 1].Nombre;
                 txtcategoria2.Text = mundos[start + 1].Id_Categoria;
                 fondo03 = mundos[start + 2].Fondo;
+                piso03 = mundos[start + 2].Piso;
                 txtmundo3.Text = mundos[start + 2].Nombre;
                 txtcategoria3.Text = mundos[start + 2].Id_Categoria;
             }
@@ -113,12 +115,15 @@ namespace GUI
                     case 1:
                         {
                             fondo01 = mundos[start].Fondo;
+                            piso01 = mundos[start].Piso;
                             txtmundo1.Text = mundos[start].Nombre;
                             txtcategoria1.Text = mundos[start].Id_Categoria;
                             fondo02 = mundos[start + 1].Fondo;
+                            piso02 = mundos[start + 1].Piso;
                             txtmundo2.Text = mundos[start + 1].Nombre;
                             txtcategoria2.Text = mundos[start + 1].Id_Categoria;
                             fondo03 = predeterminado;
+                            piso03 = predeterminado;
                             txtmundo3.Text = "";
                             txtcategoria3.Text = "";
                         }
@@ -126,12 +131,15 @@ namespace GUI
                     case 2:
                         {
                             fondo01 = mundos[start].Fondo;
+                            piso01 = mundos[start].Piso;
                             txtmundo1.Text = mundos[start].Nombre;
                             txtcategoria1.Text = mundos[start].Id_Categoria;
                             fondo02 = predeterminado;
+                            piso02 = predeterminado;
                             txtmundo2.Text = "";
                             txtcategoria2.Text = "";
                             fondo03 = predeterminado;
+                            piso03 = predeterminado;
                             txtmundo3.Text = "";
                             txtcategoria3.Text = "";
                         }
@@ -142,9 +150,11 @@ namespace GUI
                             txtmundo1.Text = "";
                             txtcategoria1.Text = "";
                             fondo02 = predeterminado;
+                            piso02 = predeterminado;
                             txtmundo2.Text = "";
                             txtcategoria2.Text = "";
                             fondo03 = predeterminado;
+                            piso03 = predeterminado;
                             txtmundo3.Text = "";
                             txtcategoria3.Text = "";
                         }
@@ -202,13 +212,13 @@ namespace GUI
             return mundoService.GetByName(fondo);
         }
 
-        private void CambiarVista(string fondo, string mundo)
+        private void CambiarVista(string fondo, string piso, string mundo)
         {
             var Mundo = SelectMundo(mundo);
             if (Mundo != null)
             {
                 this.Hide();
-                new VistaAccionesPersonaje(fondo, user, Mundo, personaje).ShowDialog();
+                new VistaAccionesPersonaje(fondo, piso, user, Mundo, personaje).ShowDialog();
                 this.Close();
             }
             else
