@@ -36,6 +36,9 @@
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.Btregistrar = new MaterialSkin.Controls.MaterialButton();
             this.Btcancelar = new MaterialSkin.Controls.MaterialButton();
+            this.txtrespuestaf1 = new MaterialSkin.Controls.MaterialTextBox();
+            this.txtrespuestaf3 = new MaterialSkin.Controls.MaterialTextBox();
+            this.txtrespuestaf2 = new MaterialSkin.Controls.MaterialTextBox();
             this.materialCard1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,7 +75,7 @@
             this.txtpregunta.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtpregunta.Hint = "Pregunta";
             this.txtpregunta.LeadingIcon = null;
-            this.txtpregunta.Location = new System.Drawing.Point(36, 102);
+            this.txtpregunta.Location = new System.Drawing.Point(36, 91);
             this.txtpregunta.MaxLength = 300;
             this.txtpregunta.MouseState = MaterialSkin.MouseState.OUT;
             this.txtpregunta.Multiline = false;
@@ -90,7 +93,7 @@
             this.txtrespuesta.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtrespuesta.Hint = "Respuesta";
             this.txtrespuesta.LeadingIcon = null;
-            this.txtrespuesta.Location = new System.Drawing.Point(36, 172);
+            this.txtrespuesta.Location = new System.Drawing.Point(36, 159);
             this.txtrespuesta.MaxLength = 200;
             this.txtrespuesta.MouseState = MaterialSkin.MouseState.OUT;
             this.txtrespuesta.Multiline = false;
@@ -112,31 +115,35 @@
             this.boxcategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.boxcategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.boxcategoria.FormattingEnabled = true;
+            this.boxcategoria.Hint = "Categorias";
             this.boxcategoria.IntegralHeight = false;
             this.boxcategoria.ItemHeight = 43;
-            this.boxcategoria.Location = new System.Drawing.Point(36, 244);
+            this.boxcategoria.Location = new System.Drawing.Point(36, 224);
             this.boxcategoria.MaxDropDownItems = 4;
             this.boxcategoria.MouseState = MaterialSkin.MouseState.OUT;
             this.boxcategoria.Name = "boxcategoria";
-            this.boxcategoria.Size = new System.Drawing.Size(196, 49);
+            this.boxcategoria.Size = new System.Drawing.Size(235, 49);
             this.boxcategoria.StartIndex = 0;
             this.boxcategoria.TabIndex = 4;
             // 
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.txtrespuestaf2);
+            this.materialCard1.Controls.Add(this.txtrespuestaf3);
+            this.materialCard1.Controls.Add(this.txtrespuestaf1);
             this.materialCard1.Controls.Add(this.boxcategoria);
             this.materialCard1.Controls.Add(this.txtrespuesta);
             this.materialCard1.Controls.Add(this.txtpregunta);
             this.materialCard1.Controls.Add(this.label1);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(62, 98);
+            this.materialCard1.Location = new System.Drawing.Point(62, 80);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(762, 365);
+            this.materialCard1.Size = new System.Drawing.Size(762, 378);
             this.materialCard1.TabIndex = 5;
             // 
             // Btregistrar
@@ -146,7 +153,7 @@
             this.Btregistrar.Depth = 0;
             this.Btregistrar.HighEmphasis = true;
             this.Btregistrar.Icon = null;
-            this.Btregistrar.Location = new System.Drawing.Point(341, 494);
+            this.Btregistrar.Location = new System.Drawing.Point(341, 520);
             this.Btregistrar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Btregistrar.MouseState = MaterialSkin.MouseState.HOVER;
             this.Btregistrar.Name = "Btregistrar";
@@ -166,7 +173,7 @@
             this.Btcancelar.Depth = 0;
             this.Btcancelar.HighEmphasis = true;
             this.Btcancelar.Icon = null;
-            this.Btcancelar.Location = new System.Drawing.Point(463, 494);
+            this.Btcancelar.Location = new System.Drawing.Point(463, 520);
             this.Btcancelar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Btcancelar.MouseState = MaterialSkin.MouseState.HOVER;
             this.Btcancelar.Name = "Btcancelar";
@@ -178,6 +185,60 @@
             this.Btcancelar.UseAccentColor = false;
             this.Btcancelar.UseVisualStyleBackColor = true;
             this.Btcancelar.Click += new System.EventHandler(this.materialBtnCancelar_Click);
+            // 
+            // txtrespuestaf1
+            // 
+            this.txtrespuestaf1.AnimateReadOnly = false;
+            this.txtrespuestaf1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtrespuestaf1.Depth = 0;
+            this.txtrespuestaf1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtrespuestaf1.Hint = "Respuesta falsa";
+            this.txtrespuestaf1.LeadingIcon = null;
+            this.txtrespuestaf1.Location = new System.Drawing.Point(36, 292);
+            this.txtrespuestaf1.MaxLength = 200;
+            this.txtrespuestaf1.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtrespuestaf1.Multiline = false;
+            this.txtrespuestaf1.Name = "txtrespuestaf1";
+            this.txtrespuestaf1.Size = new System.Drawing.Size(330, 50);
+            this.txtrespuestaf1.TabIndex = 5;
+            this.txtrespuestaf1.Text = "";
+            this.txtrespuestaf1.TrailingIcon = null;
+            // 
+            // txtrespuestaf3
+            // 
+            this.txtrespuestaf3.AnimateReadOnly = false;
+            this.txtrespuestaf3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtrespuestaf3.Depth = 0;
+            this.txtrespuestaf3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtrespuestaf3.Hint = "Respuesta falsa";
+            this.txtrespuestaf3.LeadingIcon = null;
+            this.txtrespuestaf3.Location = new System.Drawing.Point(399, 292);
+            this.txtrespuestaf3.MaxLength = 200;
+            this.txtrespuestaf3.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtrespuestaf3.Multiline = false;
+            this.txtrespuestaf3.Name = "txtrespuestaf3";
+            this.txtrespuestaf3.Size = new System.Drawing.Size(330, 50);
+            this.txtrespuestaf3.TabIndex = 6;
+            this.txtrespuestaf3.Text = "";
+            this.txtrespuestaf3.TrailingIcon = null;
+            // 
+            // txtrespuestaf2
+            // 
+            this.txtrespuestaf2.AnimateReadOnly = false;
+            this.txtrespuestaf2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtrespuestaf2.Depth = 0;
+            this.txtrespuestaf2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtrespuestaf2.Hint = "Respuesta falsa";
+            this.txtrespuestaf2.LeadingIcon = null;
+            this.txtrespuestaf2.Location = new System.Drawing.Point(399, 224);
+            this.txtrespuestaf2.MaxLength = 200;
+            this.txtrespuestaf2.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtrespuestaf2.Multiline = false;
+            this.txtrespuestaf2.Name = "txtrespuestaf2";
+            this.txtrespuestaf2.Size = new System.Drawing.Size(330, 50);
+            this.txtrespuestaf2.TabIndex = 7;
+            this.txtrespuestaf2.Text = "";
+            this.txtrespuestaf2.TrailingIcon = null;
             // 
             // VistaRegistrarPrgRp
             // 
@@ -206,5 +267,8 @@
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private MaterialSkin.Controls.MaterialButton Btregistrar;
         private MaterialSkin.Controls.MaterialButton Btcancelar;
+        private MaterialSkin.Controls.MaterialTextBox txtrespuestaf2;
+        private MaterialSkin.Controls.MaterialTextBox txtrespuestaf3;
+        private MaterialSkin.Controls.MaterialTextBox txtrespuestaf1;
     }
 }

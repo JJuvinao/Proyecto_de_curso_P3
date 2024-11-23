@@ -51,7 +51,9 @@ namespace GUI
         {
             if (!string.IsNullOrEmpty(txtpregunta.Text) && !string.IsNullOrEmpty(txtrespuesta.Text) && ValidarBox())
             {
-                Guardar(new Preg_Y_Resp(respService.Number(), txtpregunta.Text, txtrespuesta.Text, boxcategoria.SelectedValue.ToString()));
+                int id = respService.Number();
+                GuardarPreguntayRespuesta(new Preg_Y_Resp(id, txtpregunta.Text, txtrespuesta.Text, boxcategoria.SelectedValue.ToString()));
+                RegistrarRespuesta_Falsa(id);
                 this.Hide();
                 new VistaConsulPrgRp(usuario).ShowDialog();
                 this.Close();
@@ -77,10 +79,32 @@ namespace GUI
             }
         }
 
-        private void Guardar(Preg_Y_Resp preg_Y_Resp)
+        private void GuardarPreguntayRespuesta(Preg_Y_Resp preg_Y_Resp)
         {
             var msg = respService.SaveData(preg_Y_Resp);
             MessageBox.Show(msg);
+        }
+
+        private void GuardarRespuestasFalsas(Respuestas_falsas respuesta)
+        {
+            var msg = respService.SaveRespuestas(respuesta);
+            MessageBox.Show(msg);
+        }
+
+        private void RegistrarRespuesta_Falsa(int id)
+        {
+            if (txtrespuestaf1.Text != null)
+            {
+                GuardarRespuestasFalsas(new Respuestas_falsas(respService.Number_Falsa(), txtrespuestaf1.Text, boxcategoria.SelectedValue.ToString(),id));
+            }
+            if (txtrespuestaf2.Text != null)
+            {
+                GuardarRespuestasFalsas(new Respuestas_falsas(respService.Number_Falsa(), txtrespuestaf2.Text, boxcategoria.SelectedValue.ToString(), id));
+            }
+            if (txtrespuestaf3.Text != null)
+            {
+                GuardarRespuestasFalsas(new Respuestas_falsas(respService.Number_Falsa(), txtrespuestaf3.Text, boxcategoria.SelectedValue.ToString(), id));
+            }
         }
 
         private void LLenarCombobox()

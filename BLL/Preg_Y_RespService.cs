@@ -9,6 +9,7 @@ namespace BLL
     public class Preg_Y_RespService
     {
         List<Preg_Y_Resp> listaPreYRes;
+        List<Respuestas_falsas> respuestas_Falsas_BY_Pregunta;
         List<Respuestas_falsas> respuestas_Falsas;
         PRE_Y_RESRepository PRE_Y_RESRepository;
 
@@ -21,6 +22,7 @@ namespace BLL
         private void RefrescarLista()
         {
             listaPreYRes = PRE_Y_RESRepository.GetList();
+            respuestas_Falsas = PRE_Y_RESRepository.GetList_falsas();
         }
 
         public DataTable Gettabla()
@@ -35,18 +37,18 @@ namespace BLL
 
         public List<Respuestas_falsas> Getlis_falsas(int id_pregunta)
         {
-            return respuestas_Falsas = PRE_Y_RESRepository.GetList_falsas(id_pregunta);
+            return respuestas_Falsas_BY_Pregunta = PRE_Y_RESRepository.GetList_falsasBY_Pregunta(id_pregunta);
         }
 
         public Preg_Y_Resp GetId(int id)
         {
-            Preg_Y_Resp pres = PRE_Y_RESRepository.GetById(id);
+            Preg_Y_Resp pres = PRE_Y_RESRepository.GetByIdPregunta(id);
             return pres;
         }
 
         public string SaveData(Preg_Y_Resp entity)
         {
-            Preg_Y_Resp pre = PRE_Y_RESRepository.GetById(entity.Id);
+            Preg_Y_Resp pre = PRE_Y_RESRepository.GetByIdPregunta(entity.Id);
             if (pre != null)
             {
                 return "No pueden repetir las preguntas o cambiar el id";
@@ -56,9 +58,21 @@ namespace BLL
             return msg;
         }
 
+        public string SaveRespuestas(Respuestas_falsas respuesta)
+        {
+            Respuestas_falsas pre = PRE_Y_RESRepository.GetByIdRespuesta(respuesta.Respesta_id,respuesta.Id_Pregunta);
+            if (pre != null)
+            {
+                return "No pueden repetir el id";
+            }
+            var msg = PRE_Y_RESRepository.RegistrarRespuestaFalsa(respuesta);
+            RefrescarLista();
+            return msg;
+        }
+
         public string Delete(int id)
         {
-            Preg_Y_Resp pres = PRE_Y_RESRepository.GetById(id);
+            Preg_Y_Resp pres = PRE_Y_RESRepository.GetByIdPregunta(id);
             if (pres == null)
             {
                 return null;
@@ -89,5 +103,14 @@ namespace BLL
             else { return 0; }
         }
 
+        public int Number_Falsa()
+        {
+            if (respuestas_Falsas_BY_Pregunta.Count != 0)
+            {
+                var last = respuestas_Falsas_BY_Pregunta.Last<Respuestas_falsas>();
+                return last.Respesta_id + 1;
+            }
+            else { return 0; }
+        }
     }
 }
