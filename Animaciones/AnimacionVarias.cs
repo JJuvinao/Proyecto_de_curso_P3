@@ -9,7 +9,9 @@ namespace Animaciones
 {
     public class AnimacionVarias
     {
-        string sangre = "sangre.png";
+        string sangreperso = "sangrepersonaje.png";
+        string sangrenpc = "sangrenpc.png";
+        string piso = "pisomontaña.png";
         string Rutadirec = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
         string Ruta1 = "imagenes";
         string Ruta2 = "Varios";
@@ -29,9 +31,19 @@ namespace Animaciones
             }
         }
 
-        public string Mostrarsangre()
+        public string MostrarsangrePersonaje()
         {
-            return ValidarExistencia(sangre);
+            return ValidarExistencia(sangreperso);
+        }
+
+        public string MostrarsangreNpc()
+        {
+            return ValidarExistencia(sangrenpc);
+        }
+
+        public string MostrarsPiso()
+        {
+            return ValidarExistencia(piso);
         }
 
     }

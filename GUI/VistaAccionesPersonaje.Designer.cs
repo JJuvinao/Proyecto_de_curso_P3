@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.PanelFondo = new System.Windows.Forms.Panel();
-            this.sangrepersonaje = new System.Windows.Forms.PictureBox();
-            this.sangrenpc = new System.Windows.Forms.PictureBox();
+            this.sangrepersonaje1 = new System.Windows.Forms.PictureBox();
+            this.sangrenpc1 = new System.Windows.Forms.PictureBox();
             this.PictureNpc2 = new System.Windows.Forms.PictureBox();
             this.PicturePersonaje2 = new System.Windows.Forms.PictureBox();
             this.PictureNpc1 = new System.Windows.Forms.PictureBox();
             this.PicturePersonaje = new System.Windows.Forms.PictureBox();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
-            this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
-            this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            this.btnpc = new MaterialSkin.Controls.MaterialButton();
+            this.btpersonaje = new MaterialSkin.Controls.MaterialButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -70,9 +70,10 @@
             this.Btvolver = new MaterialSkin.Controls.MaterialButton();
             this.labelMensaje = new System.Windows.Forms.Label();
             this.materialButton7 = new MaterialSkin.Controls.MaterialButton();
+            this.picturepiso = new System.Windows.Forms.PictureBox();
             this.PanelFondo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sangrepersonaje)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sangrenpc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sangrepersonaje1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sangrenpc1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureNpc2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicturePersonaje2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureNpc1)).BeginInit();
@@ -83,39 +84,41 @@
             this.panel4.SuspendLayout();
             this.materialCard3.SuspendLayout();
             this.materialCard4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picturepiso)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelFondo
             // 
             this.PanelFondo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PanelFondo.Controls.Add(this.sangrepersonaje);
-            this.PanelFondo.Controls.Add(this.sangrenpc);
+            this.PanelFondo.Controls.Add(this.picturepiso);
+            this.PanelFondo.Controls.Add(this.sangrepersonaje1);
+            this.PanelFondo.Controls.Add(this.sangrenpc1);
             this.PanelFondo.Controls.Add(this.PictureNpc2);
             this.PanelFondo.Controls.Add(this.PicturePersonaje2);
             this.PanelFondo.Controls.Add(this.PictureNpc1);
             this.PanelFondo.Controls.Add(this.PicturePersonaje);
-            this.PanelFondo.Location = new System.Drawing.Point(17, 17);
+            this.PanelFondo.Location = new System.Drawing.Point(12, 17);
             this.PanelFondo.Name = "PanelFondo";
-            this.PanelFondo.Size = new System.Drawing.Size(620, 305);
+            this.PanelFondo.Size = new System.Drawing.Size(647, 305);
             this.PanelFondo.TabIndex = 6;
             // 
-            // sangrepersonaje
+            // sangrepersonaje1
             // 
-            this.sangrepersonaje.Location = new System.Drawing.Point(0, 14);
-            this.sangrepersonaje.Name = "sangrepersonaje";
-            this.sangrepersonaje.Size = new System.Drawing.Size(123, 128);
-            this.sangrepersonaje.TabIndex = 10;
-            this.sangrepersonaje.TabStop = false;
-            this.sangrepersonaje.Visible = false;
+            this.sangrepersonaje1.Location = new System.Drawing.Point(-1, 14);
+            this.sangrepersonaje1.Name = "sangrepersonaje1";
+            this.sangrepersonaje1.Size = new System.Drawing.Size(139, 182);
+            this.sangrepersonaje1.TabIndex = 10;
+            this.sangrepersonaje1.TabStop = false;
+            this.sangrepersonaje1.Visible = false;
             // 
-            // sangrenpc
+            // sangrenpc1
             // 
-            this.sangrenpc.Location = new System.Drawing.Point(481, 14);
-            this.sangrenpc.Name = "sangrenpc";
-            this.sangrenpc.Size = new System.Drawing.Size(138, 128);
-            this.sangrenpc.TabIndex = 9;
-            this.sangrenpc.TabStop = false;
-            this.sangrenpc.Visible = false;
+            this.sangrenpc1.Location = new System.Drawing.Point(491, 14);
+            this.sangrenpc1.Name = "sangrenpc1";
+            this.sangrenpc1.Size = new System.Drawing.Size(151, 182);
+            this.sangrenpc1.TabIndex = 9;
+            this.sangrenpc1.TabStop = false;
+            this.sangrenpc1.Visible = false;
             // 
             // PictureNpc2
             // 
@@ -161,69 +164,70 @@
             this.materialCard1.Controls.Add(this.PanelFondo);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(27, 80);
+            this.materialCard1.Location = new System.Drawing.Point(5, 80);
             this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(654, 330);
+            this.materialCard1.Size = new System.Drawing.Size(676, 330);
             this.materialCard1.TabIndex = 7;
             // 
             // materialCard2
             // 
             this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard2.Controls.Add(this.materialButton2);
-            this.materialCard2.Controls.Add(this.materialButton1);
+            this.materialCard2.Controls.Add(this.btnpc);
+            this.materialCard2.Controls.Add(this.btpersonaje);
             this.materialCard2.Controls.Add(this.panel2);
             this.materialCard2.Controls.Add(this.panel4);
             this.materialCard2.Depth = 0;
             this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard2.Location = new System.Drawing.Point(27, 419);
+            this.materialCard2.Location = new System.Drawing.Point(5, 419);
             this.materialCard2.Margin = new System.Windows.Forms.Padding(14);
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard2.Size = new System.Drawing.Size(653, 174);
+            this.materialCard2.Size = new System.Drawing.Size(675, 174);
             this.materialCard2.TabIndex = 8;
             // 
-            // materialButton2
+            // btnpc
             // 
-            this.materialButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton2.Depth = 0;
-            this.materialButton2.HighEmphasis = true;
-            this.materialButton2.Icon = null;
-            this.materialButton2.Location = new System.Drawing.Point(290, 33);
-            this.materialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton2.Name = "materialButton2";
-            this.materialButton2.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton2.Size = new System.Drawing.Size(64, 36);
-            this.materialButton2.TabIndex = 14;
-            this.materialButton2.Text = "NPC";
-            this.materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton2.UseAccentColor = false;
-            this.materialButton2.UseVisualStyleBackColor = true;
+            this.btnpc.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnpc.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnpc.Depth = 0;
+            this.btnpc.Enabled = false;
+            this.btnpc.HighEmphasis = true;
+            this.btnpc.Icon = null;
+            this.btnpc.Location = new System.Drawing.Point(348, 33);
+            this.btnpc.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnpc.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnpc.Name = "btnpc";
+            this.btnpc.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnpc.Size = new System.Drawing.Size(64, 36);
+            this.btnpc.TabIndex = 14;
+            this.btnpc.Text = "NPC";
+            this.btnpc.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnpc.UseAccentColor = false;
+            this.btnpc.UseVisualStyleBackColor = true;
             // 
-            // materialButton1
+            // btpersonaje
             // 
-            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton1.Depth = 0;
-            this.materialButton1.Enabled = false;
-            this.materialButton1.HighEmphasis = true;
-            this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(18, 33);
-            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton1.Name = "materialButton1";
-            this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton1.Size = new System.Drawing.Size(104, 36);
-            this.materialButton1.TabIndex = 13;
-            this.materialButton1.Text = "Personaje";
-            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton1.UseAccentColor = false;
-            this.materialButton1.UseVisualStyleBackColor = true;
+            this.btpersonaje.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btpersonaje.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btpersonaje.Depth = 0;
+            this.btpersonaje.Enabled = false;
+            this.btpersonaje.HighEmphasis = true;
+            this.btpersonaje.Icon = null;
+            this.btpersonaje.Location = new System.Drawing.Point(18, 33);
+            this.btpersonaje.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btpersonaje.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btpersonaje.Name = "btpersonaje";
+            this.btpersonaje.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btpersonaje.Size = new System.Drawing.Size(104, 36);
+            this.btpersonaje.TabIndex = 13;
+            this.btpersonaje.Text = "Personaje";
+            this.btpersonaje.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btpersonaje.UseAccentColor = false;
+            this.btpersonaje.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -236,7 +240,7 @@
             this.panel2.Controls.Add(this.lbnpcfuerza);
             this.panel2.Controls.Add(this.lbnpcvida);
             this.panel2.Controls.Add(this.lbnpcnom);
-            this.panel2.Location = new System.Drawing.Point(361, 24);
+            this.panel2.Location = new System.Drawing.Point(419, 24);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(170, 142);
             this.panel2.TabIndex = 12;
@@ -606,6 +610,14 @@
             this.materialButton7.UseAccentColor = false;
             this.materialButton7.UseVisualStyleBackColor = true;
             // 
+            // picturepiso
+            // 
+            this.picturepiso.Location = new System.Drawing.Point(-1, 253);
+            this.picturepiso.Name = "picturepiso";
+            this.picturepiso.Size = new System.Drawing.Size(647, 50);
+            this.picturepiso.TabIndex = 11;
+            this.picturepiso.TabStop = false;
+            // 
             // VistaAccionesPersonaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -620,8 +632,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VistaAccionesPersonaje";
             this.PanelFondo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.sangrepersonaje)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sangrenpc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sangrepersonaje1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sangrenpc1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureNpc2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicturePersonaje2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureNpc1)).EndInit();
@@ -636,6 +648,7 @@
             this.materialCard3.ResumeLayout(false);
             this.materialCard4.ResumeLayout(false);
             this.materialCard4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picturepiso)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -673,8 +686,8 @@
         private System.Windows.Forms.Label labelmana;
         private System.Windows.Forms.Label labelvida;
         private System.Windows.Forms.Label labelperso;
-        private MaterialSkin.Controls.MaterialButton materialButton2;
-        private MaterialSkin.Controls.MaterialButton materialButton1;
+        private MaterialSkin.Controls.MaterialButton btnpc;
+        private MaterialSkin.Controls.MaterialButton btpersonaje;
         private MaterialSkin.Controls.MaterialButton Btrendirse;
         private MaterialSkin.Controls.MaterialButton Btbeffer;
         private MaterialSkin.Controls.MaterialButton Btdefender;
@@ -682,7 +695,8 @@
         private System.Windows.Forms.Label labelMensaje;
         private MaterialSkin.Controls.MaterialButton materialButton7;
         private MaterialSkin.Controls.MaterialButton Btvolver;
-        private System.Windows.Forms.PictureBox sangrenpc;
-        private System.Windows.Forms.PictureBox sangrepersonaje;
+        private System.Windows.Forms.PictureBox sangrenpc1;
+        private System.Windows.Forms.PictureBox sangrepersonaje1;
+        private System.Windows.Forms.PictureBox picturepiso;
     }
 }
