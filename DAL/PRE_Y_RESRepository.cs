@@ -36,9 +36,9 @@ namespace DAL
             return presyresps;
         }
 
-        public List<Respuestas_falsas> GetList_falsas(int id_pregunta)
+        public List<Respuestas_falsas> GetList_falsasBY_Pregunta(int id_pregunta)
         {
-            DataTable tablepreyres = Listado_Respuesta_falsas(id_pregunta);
+            DataTable tablepreyres = Listado_Respuesta_falsasBY_Pregunta(id_pregunta);
             List<Respuestas_falsas> resps_falsas = new List<Respuestas_falsas>();
 
             foreach (DataRow row in tablepreyres.Rows)
@@ -46,8 +46,29 @@ namespace DAL
                 Respuestas_falsas elemento = new Respuestas_falsas
                 {
                     Respesta_f = row["RESPUESTA_FALSA"].ToString(),
-                    Respesta_id = row["ID_FALSA"].ToString(),
-                    Id_Categoria = row["ID_CATEGORIA"].ToString()
+                    Respesta_id = Convert.ToInt32(row["ID_FALSA"]),
+                    Id_Categoria = row["ID_CATEGORIA"].ToString(),
+                    Id_Pregunta = Convert.ToInt32(row["ID_PREGUNTA"])
+                };
+                resps_falsas.Add(elemento);
+            }
+
+            return resps_falsas;
+        }
+
+        public List<Respuestas_falsas> GetList_falsas()
+        {
+            DataTable tablepreyres = Listado_Respuesta_falsas();
+            List<Respuestas_falsas> resps_falsas = new List<Respuestas_falsas>();
+
+            foreach (DataRow row in tablepreyres.Rows)
+            {
+                Respuestas_falsas elemento = new Respuestas_falsas
+                {
+                    Respesta_f = row["RESPUESTA_FALSA"].ToString(),
+                    Respesta_id = Convert.ToInt32(row["ID_FALSA"]),
+                    Id_Categoria = row["ID_CATEGORIA"].ToString(),
+                    Id_Pregunta = Convert.ToInt32(row["ID_PREGUNTA"])
                 };
                 resps_falsas.Add(elemento);
             }
@@ -86,7 +107,7 @@ namespace DAL
             }
         }
 
-        public DataTable Listado_Respuesta_falsas(int id_pregunta)
+        public DataTable Listado_Respuesta_falsasBY_Pregunta(int id_pregunta)
         {
             OracleDataReader dataReader;
             DataTable tabla = new DataTable();
@@ -100,6 +121,37 @@ namespace DAL
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add("resultadoCursor", OracleDbType.RefCursor).Direction = ParameterDirection.ReturnValue;
                     command.Parameters.Add("id_preg", OracleDbType.Int32).Value = id_pregunta;
+                    dataReader = command.ExecuteReader();
+                    tabla.Load(dataReader);
+                }
+                return tabla;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                if (sqlconnec.State == ConnectionState.Open)
+                {
+                    sqlconnec.Close();
+                }
+            }
+        }
+
+        public DataTable Listado_Respuesta_falsas()
+        {
+            OracleDataReader dataReader;
+            DataTable tabla = new DataTable();
+            OracleConnection sqlconnec = new OracleConnection();
+            try
+            {
+                sqlconnec = DBConnection.Getinstancia().GetConnection();
+                sqlconnec.Open();
+                using (OracleCommand command = new OracleCommand("FX_CONSULTAR_TODAS_RESPUESTAS_FALSAS", sqlconnec))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("resultadoCursor", OracleDbType.RefCursor).Direction = ParameterDirection.ReturnValue;
                     dataReader = command.ExecuteReader();
                     tabla.Load(dataReader);
                 }
@@ -151,11 +203,38 @@ namespace DAL
             }
         }
 
-        private void SaveAll(List<Preg_Y_Resp> pregs)
+        public string RegistrarRespuestaFalsa(Respuestas_falsas respuesta)
         {
-           
-        }
+            OracleConnection connection = new OracleConnection();
+            try
+            {
+                connection = DBConnection.Getinstancia().GetConnection();
+                connection.Open();
+                using (OracleCommand command = new OracleCommand("PKG_INSERT.PR_INSERT_RESPUESTAS_FALSAS", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("id_falsa", OracleDbType.Int32).Value = respuesta.Respesta_id;
+                    command.Parameters.Add(":repuesta", OracleDbType.Varchar2).Value = respuesta.Respesta_f;
+                    command.Parameters.Add(":id_catedoria", OracleDbType.Varchar2).Value = respuesta.Id_Categoria;
+                    command.Parameters.Add(":id_pregunta", OracleDbType.Int32).Value = respuesta.Id_Pregunta;
 
+                    command.ExecuteNonQuery();
+                }
+
+                return "Registro exitoso";
+            }
+            catch (Exception ex)
+            {
+                return "Error al registrar la pregunta y repuesta: " + ex.Message;
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
 
         public string Delete(int id)
         {
@@ -169,7 +248,6 @@ namespace DAL
                 {
                     preg.Remove(pregToDelete);
 
-                    SaveAll(preg);
 
                     return "pregutas y respuesta eliminadas correctamente.";
                 }
@@ -199,8 +277,6 @@ namespace DAL
                     updaP_Y_R.Repuesta = entity.Repuesta;
                     updaP_Y_R.Id_Categoria = entity.Id_Categoria;
 
-                    SaveAll(pres);
-
                     return "informacion actualizada";
                 }
                 else
@@ -214,9 +290,14 @@ namespace DAL
             }
         }
 
-        public Preg_Y_Resp GetById(int id)
+        public Preg_Y_Resp GetByIdPregunta(int id)
         {
             return GetList().FirstOrDefault<Preg_Y_Resp>(x => x.Id == id);
+        }
+
+        public Respuestas_falsas GetByIdRespuesta(int id,int id_pregunta)
+        {
+            return GetList_falsasBY_Pregunta(id_pregunta).FirstOrDefault<Respuestas_falsas>(x => x.Respesta_id == id);
         }
     }
 }
