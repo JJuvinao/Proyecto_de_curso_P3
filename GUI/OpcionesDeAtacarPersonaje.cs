@@ -77,7 +77,7 @@ namespace GUI
             labelbasico.Text = gerrero.Basico(npc.defensa);
             labelhab1.Text = gerrero.Hab1(npc.defensa);
             labelhab2.Text = gerrero.Hab2(npc.defensa);
-            labelhab2.Text = "Cancelar el ataque";
+            labelcancelar.Text = "Cancelar el ataque";
         }
 
         private void MostrarInfoMago()
@@ -85,7 +85,7 @@ namespace GUI
             labelbasico.Text = mago.Basico(mago.defensa);
             labelhab1.Text = mago.Hab1(mago.defensa);
             labelhab2.Text = mago.Hab2(mago.defensa);
-            labelhab2.Text = "Cancelar el ataque";
+            labelcancelar.Text = "Cancelar el ataque";
         }
 
         private void MostrarInfoArquero()
@@ -93,7 +93,7 @@ namespace GUI
             labelbasico.Text = arquero.Basico(npc.defensa);
             labelhab1.Text = arquero.Hab1(npc.defensa);
             labelhab2.Text = arquero.Hab2(npc.defensa);
-            labelhab2.Text = "Cancelar el ataque";
+            labelcancelar.Text = "Cancelar el ataque";
         }
 
         private void ValidarElMana()

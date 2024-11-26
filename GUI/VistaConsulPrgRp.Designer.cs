@@ -34,7 +34,6 @@
             this.Btagregar = new MaterialSkin.Controls.MaterialButton();
             this.Btsalir = new MaterialSkin.Controls.MaterialButton();
             this.bteliminar = new MaterialSkin.Controls.MaterialButton();
-            this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)(this.tablapreyres)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,7 +107,7 @@
             this.Btsalir.Depth = 0;
             this.Btsalir.HighEmphasis = true;
             this.Btsalir.Icon = null;
-            this.Btsalir.Location = new System.Drawing.Point(714, 333);
+            this.Btsalir.Location = new System.Drawing.Point(714, 285);
             this.Btsalir.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Btsalir.MouseState = MaterialSkin.MouseState.HOVER;
             this.Btsalir.Name = "Btsalir";
@@ -142,32 +141,11 @@
             this.bteliminar.UseVisualStyleBackColor = true;
             this.bteliminar.Click += new System.EventHandler(this.bteliminar_Click);
             // 
-            // materialButton1
-            // 
-            this.materialButton1.AutoSize = false;
-            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton1.Depth = 0;
-            this.materialButton1.HighEmphasis = true;
-            this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(714, 285);
-            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton1.Name = "materialButton1";
-            this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton1.Size = new System.Drawing.Size(188, 36);
-            this.materialButton1.TabIndex = 5;
-            this.materialButton1.Text = "Eliminar";
-            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton1.UseAccentColor = false;
-            this.materialButton1.UseVisualStyleBackColor = true;
-            // 
             // VistaConsulPrgRp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(915, 517);
-            this.Controls.Add(this.materialButton1);
             this.Controls.Add(this.bteliminar);
             this.Controls.Add(this.Btsalir);
             this.Controls.Add(this.Btagregar);
@@ -191,6 +169,5 @@
         private MaterialSkin.Controls.MaterialButton Btagregar;
         private MaterialSkin.Controls.MaterialButton Btsalir;
         private MaterialSkin.Controls.MaterialButton bteliminar;
-        private MaterialSkin.Controls.MaterialButton materialButton1;
     }
 }

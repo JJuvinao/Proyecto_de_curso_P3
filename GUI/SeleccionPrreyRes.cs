@@ -21,6 +21,7 @@ namespace GUI
         List<Respuestas_falsas> respuestas_Falsas;
         string repes1 = "", repes2 = "", repes3 = "", repes4 = "", pregunta = "";
         bool Validar = false;
+        int opc;
 
         Random ramd = new Random();
 
@@ -41,6 +42,7 @@ namespace GUI
 
             this.StartPosition = FormStartPosition.CenterScreen;
             preg_Y_Respservice = new Preg_Y_RespService();
+            preg_Y_Resps = preg_Y_Respservice.GetAll();
             Llenarpreguyresp();
             MostrarPrepyResp();
         }
@@ -73,10 +75,9 @@ namespace GUI
 
         private void Llenarpreguyresp()
         {
-            preg_Y_Resps = preg_Y_Respservice.GetAll();
             if (preg_Y_Resps.Count > 0)
             {
-                int opc = ramd.Next(0, preg_Y_Resps.Count() - 1);
+                opc = ramd.Next(0, preg_Y_Resps.Count() - 1);
                 pregunta = preg_Y_Resps[opc].Pregunta;
                 repes1 = preg_Y_Resps[opc].Repuesta;
                 respuestas_Falsas = preg_Y_Respservice.Getlis_falsas_Pregunta(preg_Y_Resps[opc].Id);
@@ -116,11 +117,17 @@ namespace GUI
             if (repes1 == preguntaselec)
             {
                 Validar = true;
+                ReducirLista();
             }
             else
             {
                 Validar = false;
             }
+        }
+
+        private void ReducirLista()
+        {
+            preg_Y_Resps.RemoveAt(opc);
         }
 
         #endregion

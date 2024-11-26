@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.PanelFondo = new System.Windows.Forms.Panel();
+            this.picturepiso = new System.Windows.Forms.PictureBox();
             this.sangrepersonaje1 = new System.Windows.Forms.PictureBox();
             this.sangrenpc1 = new System.Windows.Forms.PictureBox();
             this.PictureNpc2 = new System.Windows.Forms.PictureBox();
@@ -70,8 +71,14 @@
             this.Btvolver = new MaterialSkin.Controls.MaterialButton();
             this.labelMensaje = new System.Windows.Forms.Label();
             this.materialButton7 = new MaterialSkin.Controls.MaterialButton();
-            this.picturepiso = new System.Windows.Forms.PictureBox();
+            this.panelpuntaje = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.labelpuntaje = new System.Windows.Forms.Label();
+            this.labelmundo = new System.Windows.Forms.Label();
+            this.btpuntaje = new MaterialSkin.Controls.MaterialButton();
             this.PanelFondo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picturepiso)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sangrepersonaje1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sangrenpc1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureNpc2)).BeginInit();
@@ -84,7 +91,7 @@
             this.panel4.SuspendLayout();
             this.materialCard3.SuspendLayout();
             this.materialCard4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picturepiso)).BeginInit();
+            this.panelpuntaje.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelFondo
@@ -101,6 +108,14 @@
             this.PanelFondo.Name = "PanelFondo";
             this.PanelFondo.Size = new System.Drawing.Size(647, 305);
             this.PanelFondo.TabIndex = 6;
+            // 
+            // picturepiso
+            // 
+            this.picturepiso.Location = new System.Drawing.Point(-1, 253);
+            this.picturepiso.Name = "picturepiso";
+            this.picturepiso.Size = new System.Drawing.Size(647, 50);
+            this.picturepiso.TabIndex = 11;
+            this.picturepiso.TabStop = false;
             // 
             // sangrepersonaje1
             // 
@@ -175,6 +190,8 @@
             // materialCard2
             // 
             this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard2.Controls.Add(this.btpuntaje);
+            this.materialCard2.Controls.Add(this.panelpuntaje);
             this.materialCard2.Controls.Add(this.btnpc);
             this.materialCard2.Controls.Add(this.btpersonaje);
             this.materialCard2.Controls.Add(this.panel2);
@@ -186,7 +203,7 @@
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard2.Size = new System.Drawing.Size(675, 174);
+            this.materialCard2.Size = new System.Drawing.Size(675, 202);
             this.materialCard2.TabIndex = 8;
             // 
             // btnpc
@@ -197,7 +214,7 @@
             this.btnpc.Enabled = false;
             this.btnpc.HighEmphasis = true;
             this.btnpc.Icon = null;
-            this.btnpc.Location = new System.Drawing.Point(348, 33);
+            this.btnpc.Location = new System.Drawing.Point(227, 9);
             this.btnpc.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnpc.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnpc.Name = "btnpc";
@@ -217,7 +234,7 @@
             this.btpersonaje.Enabled = false;
             this.btpersonaje.HighEmphasis = true;
             this.btpersonaje.Icon = null;
-            this.btpersonaje.Location = new System.Drawing.Point(18, 33);
+            this.btpersonaje.Location = new System.Drawing.Point(2, 9);
             this.btpersonaje.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btpersonaje.MouseState = MaterialSkin.MouseState.HOVER;
             this.btpersonaje.Name = "btpersonaje";
@@ -240,7 +257,7 @@
             this.panel2.Controls.Add(this.lbnpcfuerza);
             this.panel2.Controls.Add(this.lbnpcvida);
             this.panel2.Controls.Add(this.lbnpcnom);
-            this.panel2.Location = new System.Drawing.Point(419, 24);
+            this.panel2.Location = new System.Drawing.Point(251, 54);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(170, 142);
             this.panel2.TabIndex = 12;
@@ -332,7 +349,7 @@
             this.panel4.Controls.Add(this.labelmana);
             this.panel4.Controls.Add(this.labelvida);
             this.panel4.Controls.Add(this.labelperso);
-            this.panel4.Location = new System.Drawing.Point(129, 24);
+            this.panel4.Location = new System.Drawing.Point(29, 54);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(154, 142);
             this.panel4.TabIndex = 11;
@@ -559,7 +576,7 @@
             this.materialCard4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard4.Name = "materialCard4";
             this.materialCard4.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard4.Size = new System.Drawing.Size(184, 174);
+            this.materialCard4.Size = new System.Drawing.Size(184, 202);
             this.materialCard4.TabIndex = 10;
             // 
             // Btvolver
@@ -570,7 +587,7 @@
             this.Btvolver.Depth = 0;
             this.Btvolver.HighEmphasis = true;
             this.Btvolver.Icon = null;
-            this.Btvolver.Location = new System.Drawing.Point(49, 136);
+            this.Btvolver.Location = new System.Drawing.Point(48, 155);
             this.Btvolver.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Btvolver.MouseState = MaterialSkin.MouseState.HOVER;
             this.Btvolver.Name = "Btvolver";
@@ -587,7 +604,7 @@
             // 
             this.labelMensaje.Location = new System.Drawing.Point(17, 55);
             this.labelMensaje.Name = "labelMensaje";
-            this.labelMensaje.Size = new System.Drawing.Size(150, 78);
+            this.labelMensaje.Size = new System.Drawing.Size(150, 92);
             this.labelMensaje.TabIndex = 16;
             // 
             // materialButton7
@@ -610,19 +627,77 @@
             this.materialButton7.UseAccentColor = false;
             this.materialButton7.UseVisualStyleBackColor = true;
             // 
-            // picturepiso
+            // panelpuntaje
             // 
-            this.picturepiso.Location = new System.Drawing.Point(-1, 253);
-            this.picturepiso.Name = "picturepiso";
-            this.picturepiso.Size = new System.Drawing.Size(647, 50);
-            this.picturepiso.TabIndex = 11;
-            this.picturepiso.TabStop = false;
+            this.panelpuntaje.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelpuntaje.Controls.Add(this.label10);
+            this.panelpuntaje.Controls.Add(this.label13);
+            this.panelpuntaje.Controls.Add(this.labelpuntaje);
+            this.panelpuntaje.Controls.Add(this.labelmundo);
+            this.panelpuntaje.Location = new System.Drawing.Point(485, 54);
+            this.panelpuntaje.Name = "panelpuntaje";
+            this.panelpuntaje.Size = new System.Drawing.Size(170, 142);
+            this.panelpuntaje.TabIndex = 13;
+            this.panelpuntaje.Visible = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(3, 55);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(46, 13);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Puntaje:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(1, 7);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(85, 13);
+            this.label13.TabIndex = 5;
+            this.label13.Text = "Nombre mundo: ";
+            // 
+            // labelpuntaje
+            // 
+            this.labelpuntaje.Location = new System.Drawing.Point(15, 79);
+            this.labelpuntaje.Name = "labelpuntaje";
+            this.labelpuntaje.Size = new System.Drawing.Size(67, 13);
+            this.labelpuntaje.TabIndex = 1;
+            // 
+            // labelmundo
+            // 
+            this.labelmundo.Location = new System.Drawing.Point(6, 31);
+            this.labelmundo.Name = "labelmundo";
+            this.labelmundo.Size = new System.Drawing.Size(159, 13);
+            this.labelmundo.TabIndex = 0;
+            // 
+            // btpuntaje
+            // 
+            this.btpuntaje.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btpuntaje.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btpuntaje.Depth = 0;
+            this.btpuntaje.Enabled = false;
+            this.btpuntaje.HighEmphasis = true;
+            this.btpuntaje.Icon = null;
+            this.btpuntaje.Location = new System.Drawing.Point(461, 9);
+            this.btpuntaje.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btpuntaje.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btpuntaje.Name = "btpuntaje";
+            this.btpuntaje.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btpuntaje.Size = new System.Drawing.Size(86, 36);
+            this.btpuntaje.TabIndex = 15;
+            this.btpuntaje.Text = "PUNTAJE";
+            this.btpuntaje.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btpuntaje.UseAccentColor = false;
+            this.btpuntaje.UseVisualStyleBackColor = true;
+            this.btpuntaje.Visible = false;
             // 
             // VistaAccionesPersonaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 600);
+            this.ClientSize = new System.Drawing.Size(900, 628);
             this.Controls.Add(this.materialCard4);
             this.Controls.Add(this.materialCard3);
             this.Controls.Add(this.materialCard2);
@@ -632,6 +707,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VistaAccionesPersonaje";
             this.PanelFondo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picturepiso)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sangrepersonaje1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sangrenpc1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureNpc2)).EndInit();
@@ -648,7 +724,8 @@
             this.materialCard3.ResumeLayout(false);
             this.materialCard4.ResumeLayout(false);
             this.materialCard4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picturepiso)).EndInit();
+            this.panelpuntaje.ResumeLayout(false);
+            this.panelpuntaje.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -698,5 +775,11 @@
         private System.Windows.Forms.PictureBox sangrenpc1;
         private System.Windows.Forms.PictureBox sangrepersonaje1;
         private System.Windows.Forms.PictureBox picturepiso;
+        private MaterialSkin.Controls.MaterialButton btpuntaje;
+        private System.Windows.Forms.Panel panelpuntaje;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label labelpuntaje;
+        private System.Windows.Forms.Label labelmundo;
     }
 }

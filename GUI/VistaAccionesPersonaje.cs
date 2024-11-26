@@ -69,18 +69,13 @@ namespace GUI
             AsignacionAnimacion(plantilla.clase);
             GestionarBotones(1);
             Estadisticas();
+            PonerColor();
             puntajeService = new PuntajeService(user.Id);
-            PicturePersonaje2.BackColor = Color.Transparent;
-            PicturePersonaje.BackColor = Color.Transparent;
-            PictureNpc1.BackColor = Color.Transparent;
+            PonerColor();
             PictureNpc1.BringToFront();
-            PictureNpc2.BackColor = Color.Transparent;
-            sangrenpc1.BackColor = Color.Transparent;
             sangrenpc1.BringToFront();
-            sangrepersonaje1.BackColor = Color.Transparent;
             sangrepersonaje1.BringToFront();
             MostrarIncial();
-
             #endregion
         }
 
@@ -92,6 +87,7 @@ namespace GUI
             if (personaje_actual.mana >= 5)
             {
                 int opc;
+                PonerColor();
                 opcion = new OpcionesDeAtacarPersonaje(personaje_actual, npc);
                 opcion.ShowDialog();
                 opc = opcion.Prueba();
@@ -131,6 +127,7 @@ namespace GUI
                 AccionNpc();
             }
             await Task.Delay(1500);
+            PonerColor();
             AnimacionInicial();
         }
 
@@ -154,7 +151,13 @@ namespace GUI
 
         private void Btrendirse_Click(object sender, EventArgs e)
         {
+            DialogResult resultado = MessageBox.Show("¿Estás seguro de que deseas rendirte?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+            if (resultado == DialogResult.Yes)
+            {
+                personaje_actual.Morir();
+                ValidarVidaPersonaje();
+            }
         }
 
         private void Btvolver_Click(object sender, EventArgs e)
@@ -193,6 +196,7 @@ namespace GUI
                 Estadisticas();
                 MessageBox.Show("murio el personaje");
                 AnimacionMorirPersonaje();
+                MostrarPuntaje();
             }
         }
 
@@ -257,6 +261,14 @@ namespace GUI
             MessageBox.Show(msg);
         }
 
+        private void MostrarPuntaje()
+        {
+            btpuntaje.Visible = true;
+            panelpuntaje.Visible = true;
+            labelmundo.Text = mundo.Nombre;
+            labelpuntaje.Text = puntajejugar.ToString();
+        }
+
         private void AsignarNpc()
         {
             npc = npcservise.GetId("01_LOBO");
@@ -309,10 +321,23 @@ namespace GUI
             GestionarBotones(1);
         }
 
+        private void PonerColor()
+        {
+            PictureNpc2.BackColor = Color.Transparent;
+            sangrenpc1.BackColor = Color.Transparent;
+            PictureNpc1.BackColor = Color.Transparent;
+            sangrepersonaje1.BackColor = Color.Transparent;
+            PicturePersonaje2.BackColor = Color.Transparent;
+            PicturePersonaje.BackColor = Color.Transparent;
+
+        }
+
         private async void MostraPerso(string posicion1, string[] posicion2)
         {
+            PonerColor();
             PicturePersonaje.Visible = false;
             await Task.Delay(300);
+            PonerColor();
             PicturePersonaje2.Visible = true;
             PicturePersonaje2.Image = Image.FromFile(posicion2[0]);
             PicturePersonaje2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -320,6 +345,7 @@ namespace GUI
             sangrenpc1.Image = Image.FromFile(animacionVarias.MostrarsangreNpc());
             sangrenpc1.SizeMode = PictureBoxSizeMode.StretchImage;
             await Task.Delay(2000);
+            PonerColor();
             sangrenpc1.Visible = false;
             PicturePersonaje2.Visible = false;
             PicturePersonaje.Visible = true;
@@ -331,9 +357,11 @@ namespace GUI
 
         private async void MostraPersoMago(string posicion1, string[] posicion2)
         {
+            PonerColor();
             PicturePersonaje.Image = Image.FromFile(posicion2[0]);
             PicturePersonaje.SizeMode = PictureBoxSizeMode.StretchImage;
             await Task.Delay(800);
+            PonerColor();
             PicturePersonaje2.Visible = true;
             PicturePersonaje2.Image = Image.FromFile(posicion2[1]);
             PicturePersonaje2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -342,9 +370,11 @@ namespace GUI
             sangrenpc1.Image = Image.FromFile(animacionVarias.MostrarsangreNpc());
             sangrenpc1.SizeMode = PictureBoxSizeMode.StretchImage;
             await Task.Delay(1500);
+            PonerColor();
             sangrenpc1.Visible = false;
             PicturePersonaje2.Visible = false;
             await Task.Delay(700);
+            PonerColor();
             PicturePersonaje.Image = Image.FromFile(animacion.GetPosicionInicial());
             PicturePersonaje.SizeMode = PictureBoxSizeMode.StretchImage;
             await Task.Delay(2000);
@@ -388,15 +418,18 @@ namespace GUI
 
         private async void AnimacionMorirPersonaje()
         {
+            PonerColor();
             PicturePersonaje.Image = Image.FromFile(animacion.GetMorir1());
             PicturePersonaje.SizeMode = PictureBoxSizeMode.StretchImage;
             await Task.Delay(500);
+            PonerColor();
             PicturePersonaje.Image = Image.FromFile(animacion.GetMorir2());
             PicturePersonaje.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void AnimacionMorirNpc()
         {
+            PonerColor();
             PictureNpc1.Image = Image.FromFile(aniNpcs.GetMorir());
             PictureNpc1.SizeMode = PictureBoxSizeMode.StretchImage;
             PictureNpc1.BringToFront();
@@ -404,6 +437,7 @@ namespace GUI
 
         private void AnimacionInicial()
         {
+            PonerColor();
             PicturePersonaje.Image = Image.FromFile(animacion.GetPosicionInicial());
             PicturePersonaje.SizeMode = PictureBoxSizeMode.StretchImage;
             PicturePersonaje.BringToFront();
@@ -411,6 +445,7 @@ namespace GUI
 
         private void AnimacionDefender()
         {
+            PonerColor();
             PicturePersonaje.Image = Image.FromFile(animacion.GetPosicionDefender());
             PicturePersonaje.SizeMode = PictureBoxSizeMode.StretchImage;
             PicturePersonaje.BringToFront();
@@ -418,6 +453,7 @@ namespace GUI
 
         private void AnimacionBuffer()
         {
+            PonerColor();
             PicturePersonaje.Image = Image.FromFile(animacion.GetAccionMejora());
             PicturePersonaje.SizeMode = PictureBoxSizeMode.StretchImage;
             PicturePersonaje.BringToFront();
@@ -435,6 +471,7 @@ namespace GUI
 
         private async void MostrarAnimacionNpc(string posicion1, string posicion2)
         {
+            PonerColor();
             PictureNpc1.Visible = false;
             await Task.Delay(300);
             PictureNpc2.Visible = true;
@@ -445,6 +482,7 @@ namespace GUI
             sangrepersonaje1.Image = Image.FromFile(animacionVarias.MostrarsangrePersonaje());
             sangrepersonaje1.SizeMode = PictureBoxSizeMode.StretchImage;
             await Task.Delay(2000);
+            PonerColor();
             sangrepersonaje1.Visible = false;
             PictureNpc2.Visible = false;
             PictureNpc1.Visible = true;
@@ -456,6 +494,7 @@ namespace GUI
 
         private void AnimaNpcDefender()
         {
+            PonerColor();
             PictureNpc1.Image = Image.FromFile(aniNpcs.GetPosicionDefender());
             PictureNpc1.SizeMode = PictureBoxSizeMode.StretchImage;
             PictureNpc1.BringToFront();
@@ -470,6 +509,7 @@ namespace GUI
 
         private void MostrarIncial()
         {
+            PonerColor();
             PanelFondo.Paint += new PaintEventHandler(panel1_Paint);
             AnimacionInicial();
             PictureNpc1.Image = Image.FromFile(aniNpcs.GetPosicionInicial());
