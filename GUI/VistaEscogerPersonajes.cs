@@ -18,9 +18,9 @@ namespace GUI
     {
 
         User Usser;
-        Guerrero gerrero;
+        Samurai gerrero;
         Mago mago;
-        Arquero arquero;
+        Guerrero arquero;
         Plantilla perso;
         List<Plantilla> personajes;
         Npc npc;
@@ -118,9 +118,9 @@ namespace GUI
         {
             switch (plantilla.clase)
             {
-                case "GERRERO": { gerrero = new Guerrero(plantilla.id, plantilla.clase, plantilla.nombre, plantilla.vida, plantilla.mana, plantilla.fuerza, plantilla.defensa, plantilla.armaid); } break;
+                case "GERRERO": { gerrero = new Samurai(plantilla.id, plantilla.clase, plantilla.nombre, plantilla.vida, plantilla.mana, plantilla.fuerza, plantilla.defensa, plantilla.armaid); } break;
                 case "MAGO": { mago = new Mago(plantilla.id, plantilla.clase, plantilla.nombre, plantilla.vida, plantilla.mana, plantilla.fuerza, plantilla.defensa, plantilla.armaid); } break;
-                case "ARQUERO": { arquero = new Arquero(plantilla.id, plantilla.clase, plantilla.nombre, plantilla.vida, plantilla.mana, plantilla.fuerza, plantilla.defensa, plantilla.armaid); } break;
+                case "ARQUERO": { arquero = new Guerrero(plantilla.id, plantilla.clase, plantilla.nombre, plantilla.vida, plantilla.mana, plantilla.fuerza, plantilla.defensa, plantilla.armaid); } break;
             }
         }
         private void MostrarPorClase(string clase)

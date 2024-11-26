@@ -16,10 +16,10 @@ namespace GUI
     public partial class OpcionesDeAtacarPersonaje : MaterialForm
     {
         int opcion = 0;
-        Guerrero gerrero;
+        Samurai gerrero;
         Mago mago;
         Npc npc;
-        Arquero arquero;
+        Guerrero arquero;
         Plantilla personaje;
         SeleccionPrreyRes seleccionpreyres;
 
@@ -52,9 +52,9 @@ namespace GUI
         {
             switch (plantilla.clase)
             {
-                case "SAMURAI": { gerrero = new Guerrero(plantilla.id, plantilla.clase, plantilla.nombre, plantilla.vida, plantilla.mana, plantilla.fuerza, plantilla.defensa, plantilla.armaid); } break;
+                case "SAMURAI": { gerrero = new Samurai(plantilla.id, plantilla.clase, plantilla.nombre, plantilla.vida, plantilla.mana, plantilla.fuerza, plantilla.defensa, plantilla.armaid); } break;
                 case "MAGO": { mago = new Mago(plantilla.id, plantilla.clase, plantilla.nombre, plantilla.vida, plantilla.mana, plantilla.fuerza, plantilla.defensa, plantilla.armaid); } break;
-                case "GUERRERO": { arquero = new Arquero(plantilla.id, plantilla.clase, plantilla.nombre, plantilla.vida, plantilla.mana, plantilla.fuerza, plantilla.defensa, plantilla.armaid); } break;
+                case "GUERRERO": { arquero = new Guerrero(plantilla.id, plantilla.clase, plantilla.nombre, plantilla.vida, plantilla.mana, plantilla.fuerza, plantilla.defensa, plantilla.armaid); } break;
             }
         }
 
