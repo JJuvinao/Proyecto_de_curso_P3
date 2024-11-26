@@ -1,13 +1,20 @@
 ﻿using BLL;
 using Entity;
+using MaterialSkin;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace IGU
+namespace GUI
 {
-    public partial class SeleccionPrreyRes : Form
+    public partial class SeleccionPrreyRes : MaterialForm
     {
         Preg_Y_RespService preg_Y_Respservice;
         List<Preg_Y_Resp> preg_Y_Resps;
@@ -20,11 +27,49 @@ namespace IGU
         public SeleccionPrreyRes()
         {
             InitializeComponent();
+
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+            materialSkinManager.ColorScheme = new ColorScheme(
+                Primary.BlueGrey800,
+                Primary.BlueGrey900,
+                Primary.BlueGrey500,
+                Accent.LightBlue200,
+                TextShade.WHITE
+            );
+
             this.StartPosition = FormStartPosition.CenterScreen;
             preg_Y_Respservice = new Preg_Y_RespService();
             Llenarpreguyresp();
             MostrarPrepyResp();
         }
+
+        private void Btrepuesta1_Click(object sender, EventArgs e)
+        {
+            ValidarRepuesta(Btrepuesta1.Text);
+            this.Close();
+        }
+
+        private void Btrepuesta2_Click(object sender, EventArgs e)
+        {
+            ValidarRepuesta(Btrepuesta2.Text);
+            this.Close();
+        }
+
+        private void Btrepuesta3_Click(object sender, EventArgs e)
+        {
+            ValidarRepuesta(Btrepuesta3.Text);
+            this.Close();
+        }
+
+        private void Btrepuesta4_Click(object sender, EventArgs e)
+        {
+            ValidarRepuesta(Btrepuesta4.Text);
+            this.Close();
+        }
+
+        #region METODOS
 
         private void Llenarpreguyresp()
         {
@@ -47,25 +92,6 @@ namespace IGU
                 MessageBox.Show("No hay preguntas ni repuestas");
             }
         }
-
-        private void Btrepuesta2_Click(object sender, EventArgs e)
-        {
-            ValidarRepuesta(Btrepuesta2.Text);
-            this.Close();
-        }
-
-        private void Btrepuesta3_Click(object sender, EventArgs e)
-        {
-            ValidarRepuesta(Btrepuesta3.Text);
-            this.Close();
-        }
-
-        private void Btrepuesta4_Click(object sender, EventArgs e)
-        {
-            ValidarRepuesta(Btrepuesta4.Text);
-            this.Close();
-        }
-
         private void MostrarPrepyResp()
         {
             labelpregunta.Text = pregunta;
@@ -97,10 +123,7 @@ namespace IGU
             }
         }
 
-        private void Btrepuesta1_Click(object sender, EventArgs e)
-        {
-            ValidarRepuesta(Btrepuesta1.Text);
-            this.Close();
-        }
+        #endregion
+
     }
 }

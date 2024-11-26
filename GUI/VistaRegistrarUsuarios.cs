@@ -46,7 +46,7 @@ namespace GUI
                 {
                     Guardar(new User(UserServices.Number(), txtnombre.Text, txtcontra.Text, SeleccionRol()));
                     this.Hide();
-                    new Home().ShowDialog();
+                    new HomeDprb().ShowDialog();
                     this.Close();
                 }
                 else
@@ -59,7 +59,7 @@ namespace GUI
         private void materialBtnCancelar_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Home().ShowDialog();
+            new HomeDprb().ShowDialog();
             this.Close();
         }
 

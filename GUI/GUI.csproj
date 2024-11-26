@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B7E75D6D-9584-4F5E-A3C1-E8526A5A0884}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>GUI</RootNamespace>
     <AssemblyName>GUI</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
@@ -47,6 +47,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MaterialSkin, Version=2.3.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialSkin.2.2.3.1\lib\net48\MaterialSkin.dll</HintPath>
@@ -65,7 +68,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="HomeDprb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomeDprb.Designer.cs">
+      <DependentUpon>HomeDprb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OpcionDeBuffer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OpcionDeBuffer.Designer.cs">
+      <DependentUpon>OpcionDeBuffer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OpcionesDeAtacarPersonaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OpcionesDeAtacarPersonaje.Designer.cs">
+      <DependentUpon>OpcionesDeAtacarPersonaje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SeleccionPrreyRes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeleccionPrreyRes.Designer.cs">
+      <DependentUpon>SeleccionPrreyRes.cs</DependentUpon>
+    </Compile>
     <Compile Include="VistaAccionesPersonaje.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +103,12 @@
     </Compile>
     <Compile Include="VistaConsulPrgRp.Designer.cs">
       <DependentUpon>VistaConsulPrgRp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VistaEliminarUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaEliminarUsuarios.Designer.cs">
+      <DependentUpon>VistaEliminarUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="VistaEscogerPersonajes.cs">
       <SubType>Form</SubType>
@@ -90,6 +122,12 @@
     <Compile Include="VistaMundos.Designer.cs">
       <DependentUpon>VistaMundos.cs</DependentUpon>
     </Compile>
+    <Compile Include="VistaRecuperarContra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VistaRecuperarContra.Designer.cs">
+      <DependentUpon>VistaRecuperarContra.cs</DependentUpon>
+    </Compile>
     <Compile Include="VistaRegistrarPrgRp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,12 +140,6 @@
     <Compile Include="VistaRegistrarUsuarios.Designer.cs">
       <DependentUpon>VistaRegistrarUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Home.Designer.cs">
-      <DependentUpon>Home.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VistaUserPersonajes.cs">
       <SubType>Form</SubType>
@@ -115,8 +147,14 @@
     <Compile Include="VistaUserPersonajes.Designer.cs">
       <DependentUpon>VistaUserPersonajes.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Home.resx">
-      <DependentUpon>Home.cs</DependentUpon>
+    <EmbeddedResource Include="HomeDprb.resx">
+      <DependentUpon>HomeDprb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpcionDeBuffer.resx">
+      <DependentUpon>OpcionDeBuffer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpcionesDeAtacarPersonaje.resx">
+      <DependentUpon>OpcionesDeAtacarPersonaje.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -128,17 +166,26 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SeleccionPrreyRes.resx">
+      <DependentUpon>SeleccionPrreyRes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VistaAccionesPersonaje.resx">
       <DependentUpon>VistaAccionesPersonaje.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistaConsulPrgRp.resx">
       <DependentUpon>VistaConsulPrgRp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VistaEliminarUsuarios.resx">
+      <DependentUpon>VistaEliminarUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VistaEscogerPersonajes.resx">
       <DependentUpon>VistaEscogerPersonajes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistaMundos.resx">
       <DependentUpon>VistaMundos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VistaRecuperarContra.resx">
+      <DependentUpon>VistaRecuperarContra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistaRegistrarPrgRp.resx">
       <DependentUpon>VistaRegistrarPrgRp.cs</DependentUpon>
@@ -202,10 +249,6 @@
     <ProjectReference Include="..\..\..\..\Desktop\P3proyect\Heroes_Del_Aprendizajes\Entity\Entity.csproj">
       <Project>{db619be2-1cf7-43e2-86eb-fdceaac3df41}</Project>
       <Name>Entity</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Desktop\P3proyect\Heroes_Del_Aprendizajes\IGU\IGU.csproj">
-      <Project>{8fdfd443-5404-4ed9-8a24-00c7aeb2760c}</Project>
-      <Name>IGU</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

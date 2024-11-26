@@ -28,5 +28,10 @@ namespace BLL
         {
             return listcategorias;
         }
+
+        public List<string> GetNombre()
+        {
+            return categoriaRepository.GetList_Nombre();
+        }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Entity;
-using IGU;
 using BLL;
 using Animaciones;
 using MaterialSkin.Controls;
@@ -18,6 +17,8 @@ namespace GUI
     public partial class VistaAccionesPersonaje : MaterialForm
     {
 
+        #region VARIABLES
+
         OpcionesDeAtacarPersonaje opcion;
         PuntajeService puntajeService;
         OpcionDeBuffer opcionBuffer;
@@ -31,9 +32,11 @@ namespace GUI
         AnimacionVarias animacionVarias;
         AniNpcs aniNpcs;
         NPCservice npcservise;
-        string Rutafondo,Rutapiso;
+        string Rutafondo, Rutapiso;
         bool turno = true;
         int puntajejugar = 0;
+
+        #endregion
 
         public VistaAccionesPersonaje(string fondo,string piso, User usser, Mundo mund, Plantilla plantilla)
         {
@@ -50,6 +53,8 @@ namespace GUI
                 MaterialSkin.TextShade.WHITE
             );
             this.StartPosition = FormStartPosition.CenterScreen;
+            #region INSTANCIAS
+
             personaje_actual = plantilla;
             npcservise = new NPCservice();
             AsignarNpc();
@@ -74,7 +79,11 @@ namespace GUI
             sangrepersonaje1.BackColor = Color.Transparent;
             sangrepersonaje1.BringToFront();
             MostrarIncial();
+
+            #endregion
         }
+
+        #region EVENTOS
 
         private async void materialBtnAtacar_Click(object sender, EventArgs e)
         {
@@ -167,6 +176,9 @@ namespace GUI
             e.Graphics.DrawImage(combinado, new Rectangle(0, 0, PanelFondo.Width, PanelFondo.Height));
         }
 
+
+        #endregion
+
         #region METODOS
 
         private void ValidarVidaPersonaje()
@@ -180,9 +192,6 @@ namespace GUI
                 Estadisticas();
                 MessageBox.Show("murio el personaje");
                 AnimacionMorirPersonaje();
-                puntajejugar = 0;
-                puntaje = new Puntajes(user.Id, mundo.Id, puntajejugar);
-                RegistrarPuntaje();
             }
         }
 
@@ -286,7 +295,7 @@ namespace GUI
             if (opcnpc == 4)
             {
                 AnimaNpcDefender();
-                npc.Defender(turno);
+                npc.Defender();
                 await Task.Delay(1000);
             }
             else

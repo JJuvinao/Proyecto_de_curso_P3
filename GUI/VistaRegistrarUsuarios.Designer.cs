@@ -36,7 +36,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.BtCancelar = new MaterialSkin.Controls.MaterialButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // txtnombre
@@ -167,23 +166,11 @@
             this.BtCancelar.UseVisualStyleBackColor = true;
             this.BtCancelar.Click += new System.EventHandler(this.materialBtnCancelar_Click);
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(748, 198);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
-            this.radioButton1.TabIndex = 6;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
             // VistaRegistrarUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(900, 600);
-            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.BtCancelar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -210,6 +197,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private MaterialSkin.Controls.MaterialButton BtCancelar;
-        private System.Windows.Forms.RadioButton radioButton1;
     }
 }
