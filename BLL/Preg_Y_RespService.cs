@@ -30,12 +30,17 @@ namespace BLL
             return PRE_Y_RESRepository.Listado_PreYRes();
         }
 
+        public DataTable GettablaCategoria(string id_cate)
+        {
+            return PRE_Y_RESRepository.Listado_PreYRes_By_Categoria(id_cate);
+        }
+
         public List<Preg_Y_Resp> GetAll()
         {
             return listaPreYRes;
         }
 
-        public List<Respuestas_falsas> Getlis_falsas(int id_pregunta)
+        public List<Respuestas_falsas> Getlis_falsas_Pregunta(int id_pregunta)
         {
             return respuestas_Falsas_BY_Pregunta = PRE_Y_RESRepository.GetList_falsasBY_Pregunta(id_pregunta);
         }
@@ -75,7 +80,7 @@ namespace BLL
             Preg_Y_Resp pres = PRE_Y_RESRepository.GetByIdPregunta(id);
             if (pres == null)
             {
-                return null;
+                return "NO EXIXTE LA PREGUNTA";
             }
             var msg = PRE_Y_RESRepository.Delete(id);
             RefrescarLista();
@@ -105,9 +110,9 @@ namespace BLL
 
         public int Number_Falsa()
         {
-            if (respuestas_Falsas_BY_Pregunta.Count != 0)
+            if (respuestas_Falsas.Count != 0)
             {
-                var last = respuestas_Falsas_BY_Pregunta.Last<Respuestas_falsas>();
+                var last = respuestas_Falsas.Last<Respuestas_falsas>();
                 return last.Respesta_id + 1;
             }
             else { return 0; }

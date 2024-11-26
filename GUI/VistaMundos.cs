@@ -21,7 +21,7 @@ namespace GUI
         string Ruta1 = "imagenes";
         string Ruta2 = "Fondos";
         string predeterminado = "fondopredeterminado.png";
-        int start = 0, pagesize = 3, end;
+        int start = 0, pagesize = 3;
 
         public VistaMundos(User usuario, Plantilla plantilla)
         {

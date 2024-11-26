@@ -1,6 +1,5 @@
 ﻿using BLL;
 using Entity;
-using IGU;
 using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
@@ -53,18 +52,8 @@ namespace GUI
         private void materialBtnSalir_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Home().ShowDialog();
+            new HomeDprb().ShowDialog();
             this.Close();
-        }
-
-        private void materialBtnConfig_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("FUNCIONES EN DASARROLLO");
-        }
-
-        private void VistaUserPersonajes_Load(object sender, EventArgs e)
-        {
-            tablapuntaje.ForeColor = Color.Black;
         }
 
         private void Btpersonaje1_Click(object sender, EventArgs e)
@@ -78,10 +67,6 @@ namespace GUI
                 PasarVista(bt2validar, persocontrol);
             }
         }
-        private void MostraPuntaje()
-        {
-            tablapuntaje.DataSource = puntajeService.GetTabla();
-        }
 
         private void Btpersonaje2_Click(object sender, EventArgs e)
         {
@@ -92,20 +77,6 @@ namespace GUI
             else
             {
                 PasarVista(bt2validar, persocontrol);
-            }
-        }
-        private void PasarVista(bool Btvalidar, Plantilla plantilla)
-        {
-            if (Btvalidar == false)
-            {
-                this.Hide();
-                new VistaEscogerPersonajes(usuario).ShowDialog();
-            }
-            else
-            {
-                this.Hide();
-                new VistaMundos(usuario, plantilla).ShowDialog();
-                this.Close();
             }
         }
 
@@ -121,6 +92,25 @@ namespace GUI
             }
         }
 
+        private void Btpreguntas_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new VistaConsulPrgRp(usuario).ShowDialog();
+            this.Close();
+        }
+
+        private void BtEliminar_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("¿Estás seguro de que deseas eliminar el usuario?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                this.Hide();
+                new VistaEliminarUsuarios(usuario).ShowDialog();
+                this.Close();
+            }
+        }
+
         #region METODOS
 
         private void ValidarRol()
@@ -129,6 +119,31 @@ namespace GUI
             {
                 BtPreguntas.Enabled = true;
                 BtPreguntas.Visible = true;
+            }
+        }
+
+        private void VistaUserPersonajes_Load(object sender, EventArgs e)
+        {
+            tablapuntaje.ForeColor = Color.Black;
+        }
+
+        private void MostraPuntaje()
+        {
+            tablapuntaje.DataSource = puntajeService.GetTabla();
+        }
+
+        private void PasarVista(bool Btvalidar, Plantilla plantilla)
+        {
+            if (Btvalidar == false)
+            {
+                this.Hide();
+                new VistaEscogerPersonajes(usuario).ShowDialog();
+            }
+            else
+            {
+                this.Hide();
+                new VistaMundos(usuario, plantilla).ShowDialog();
+                this.Close();
             }
         }
 
@@ -143,13 +158,6 @@ namespace GUI
                 txtnombre.Text = usuario.Name;
                 txtrol.Text = usuario.Rol;
             }
-        }
-
-        private void Btpreguntas_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new VistaConsulPrgRp(usuario).ShowDialog();
-            this.Close();
         }
 
         private void CargarPersonajes()

@@ -75,14 +75,14 @@ namespace BLL
             RefrescarLista();
             return msg;
         }
-        public string Update(User entity)
+        public string Update(int id_u, string contra)
         {
-            User user = GetId(entity.Id);
+            User user = GetId(id_u);
             if (user == null)
             {
                 return "ususario no existe";
             }
-            var mgs = UserRepository.Update(entity);
+            var mgs = UserRepository.Update(id_u,contra);
             RefrescarLista();
             return mgs;
         }

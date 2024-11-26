@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics.Contracts;
 using System.IO;
 using System.Linq;
 
@@ -129,10 +130,38 @@ namespace DAL
 
         public string Delete(int id)
         {
-            return null;
+            OracleConnection connection = new OracleConnection();
+            try
+            {
+                connection = DBConnection.Getinstancia().GetConnection();
+                connection.Open();
+                using (OracleCommand command = new OracleCommand("PR_ELIMINAR_USER", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("id_user", OracleDbType.Int32).Value = id;
+                    command.ExecuteNonQuery();
+                }
+
+                return "Registro exitoso";
+            }
+            catch (OracleException ex)
+            {
+                return "Error desde Oracle: " + ex.Message;
+            }
+            catch (Exception ex)
+            {
+                return "Error al actualizar el usuario: " + ex.Message;
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
         }
 
-        public string Update(User usuario)
+        public string Update(int id_u,string contra)
         {
             OracleConnection connection = new OracleConnection();
             try
@@ -141,14 +170,17 @@ namespace DAL
                 connection.Open();
                 using (OracleCommand command = new OracleCommand("PR_ACTUALIZAR_USER", connection))
                 {
-                    command.Parameters.Add("id_user", usuario.Id);
-                    command.Parameters.Add("nombre_use", usuario.Name);
-                    command.Parameters.Add("contra", usuario.Contra);
-                    command.Parameters.Add("rol", usuario.Rol);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("id_user", OracleDbType.Int32).Value = id_u;
+                    command.Parameters.Add("contra", OracleDbType.Varchar2).Value = contra;
                     command.ExecuteNonQuery();
                 }
 
                 return "Registro exitoso";
+            }
+            catch (OracleException ex)
+            {
+                return "Error desde Oracle: " + ex.Message;
             }
             catch (Exception ex)
             {

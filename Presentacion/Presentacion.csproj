@@ -92,10 +92,6 @@
       <Project>{b7e75d6d-9584-4f5e-a3c1-e8526a5a0884}</Project>
       <Name>GUI</Name>
     </ProjectReference>
-    <ProjectReference Include="..\IGU\IGU.csproj">
-      <Project>{8fdfd443-5404-4ed9-8a24-00c7aeb2760c}</Project>
-      <Name>IGU</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -28,16 +28,9 @@
             this.vida -= danio;
         }
 
-        public void Defender(bool turno)
+        public void Defender()
         {
-            if (turno)
-            {
-                this.defensa += 30;
-            }
-            else
-            {
-                this.defensa -= 30;
-            }
+            this.defensa += 30;
         }
 
         public void Morir()

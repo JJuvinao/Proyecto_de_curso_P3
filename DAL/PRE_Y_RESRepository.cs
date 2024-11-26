@@ -107,6 +107,38 @@ namespace DAL
             }
         }
 
+        public DataTable Listado_PreYRes_By_Categoria(string id_categ)
+        {
+            OracleDataReader dataReader;
+            DataTable tabla = new DataTable();
+            OracleConnection sqlconnec = new OracleConnection();
+            try
+            {
+                sqlconnec = DBConnection.Getinstancia().GetConnection();
+                sqlconnec.Open();
+                using (OracleCommand command = new OracleCommand("FX_CONSULTAR_PREYRES_BY_CATEGORIA", sqlconnec))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("resultadoCursor", OracleDbType.RefCursor).Direction = ParameterDirection.ReturnValue;
+                    command.Parameters.Add("id_cate", OracleDbType.Varchar2).Value = id_categ;
+                    dataReader = command.ExecuteReader();
+                    tabla.Load(dataReader);
+                }
+                return tabla;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                if (sqlconnec.State == ConnectionState.Open)
+                {
+                    sqlconnec.Close();
+                }
+            }
+        }
+
         public DataTable Listado_Respuesta_falsasBY_Pregunta(int id_pregunta)
         {
             OracleDataReader dataReader;
@@ -213,8 +245,8 @@ namespace DAL
                 using (OracleCommand command = new OracleCommand("PKG_INSERT.PR_INSERT_RESPUESTAS_FALSAS", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add("id_falsa", OracleDbType.Int32).Value = respuesta.Respesta_id;
                     command.Parameters.Add(":repuesta", OracleDbType.Varchar2).Value = respuesta.Respesta_f;
+                    command.Parameters.Add("id_falsa", OracleDbType.Int32).Value = respuesta.Respesta_id;
                     command.Parameters.Add(":id_catedoria", OracleDbType.Varchar2).Value = respuesta.Id_Categoria;
                     command.Parameters.Add(":id_pregunta", OracleDbType.Int32).Value = respuesta.Id_Pregunta;
 
@@ -225,7 +257,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                return "Error al registrar la pregunta y repuesta: " + ex.Message;
+                return "Error al registrar la repuesta falsa: " + ex.Message;
             }
             finally
             {
@@ -238,27 +270,30 @@ namespace DAL
 
         public string Delete(int id)
         {
+            OracleConnection sqlconnec = new OracleConnection();
             try
             {
-                List<Preg_Y_Resp> preg = GetList();
-
-                Preg_Y_Resp pregToDelete = preg.Find(g => g.Id == id);
-
-                if (pregToDelete != null)
+                sqlconnec = DBConnection.Getinstancia().GetConnection();
+                sqlconnec.Open();
+                using (OracleCommand command = new OracleCommand("PR_DELETE_PREGUNTAS_Y_RESPUESTAS", sqlconnec))
                 {
-                    preg.Remove(pregToDelete);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("id_pre", OracleDbType.Int32).Value = id;
 
-
-                    return "pregutas y respuesta eliminadas correctamente.";
+                    command.ExecuteNonQuery();
                 }
-                else
-                {
-                    return "pregutas y respuesta no encontradas.";
-                }
+                return "Eliminacion exitosa";
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                return $"Error al eliminar las pregutas y respuesta: {ex.Message}";
+                throw new Exception("Error al eliminar los datos: " + e.Message);
+            }
+            finally
+            {
+                if (sqlconnec.State == ConnectionState.Open)
+                {
+                    sqlconnec.Close();
+                }
             }
         }
 

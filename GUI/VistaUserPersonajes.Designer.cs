@@ -35,9 +35,9 @@ namespace GUI
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.BtEliminar = new MaterialSkin.Controls.MaterialButton();
             this.BtPreguntas = new MaterialSkin.Controls.MaterialButton();
             this.materialBtnSalir = new MaterialSkin.Controls.MaterialButton();
-            this.materialBtnConfig = new MaterialSkin.Controls.MaterialButton();
             this.tablapuntaje = new System.Windows.Forms.DataGridView();
             this.txtrol = new MaterialSkin.Controls.MaterialTextBox();
             this.txtnombre = new MaterialSkin.Controls.MaterialTextBox();
@@ -96,9 +96,9 @@ namespace GUI
             // materialCard1
             // 
             this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.BtEliminar);
             this.materialCard1.Controls.Add(this.BtPreguntas);
             this.materialCard1.Controls.Add(this.materialBtnSalir);
-            this.materialCard1.Controls.Add(this.materialBtnConfig);
             this.materialCard1.Depth = 0;
             this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialCard1.Location = new System.Drawing.Point(414, 34);
@@ -106,28 +106,51 @@ namespace GUI
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(328, 217);
+            this.materialCard1.Size = new System.Drawing.Size(328, 222);
             this.materialCard1.TabIndex = 3;
+            // 
+            // BtEliminar
+            // 
+            this.BtEliminar.AutoSize = false;
+            this.BtEliminar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BtEliminar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.BtEliminar.Depth = 0;
+            this.BtEliminar.HighEmphasis = true;
+            this.BtEliminar.Icon = null;
+            this.BtEliminar.Location = new System.Drawing.Point(63, 20);
+            this.BtEliminar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.BtEliminar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BtEliminar.Name = "BtEliminar";
+            this.BtEliminar.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.BtEliminar.Size = new System.Drawing.Size(212, 46);
+            this.BtEliminar.TabIndex = 2;
+            this.BtEliminar.Text = "ELIMINAR USUARIO";
+            this.BtEliminar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.BtEliminar.UseAccentColor = false;
+            this.BtEliminar.UseVisualStyleBackColor = true;
+            this.BtEliminar.Click += new System.EventHandler(this.BtEliminar_Click);
             // 
             // BtPreguntas
             // 
+            this.BtPreguntas.AutoSize = false;
             this.BtPreguntas.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BtPreguntas.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.BtPreguntas.Depth = 0;
             this.BtPreguntas.Enabled = false;
             this.BtPreguntas.HighEmphasis = true;
             this.BtPreguntas.Icon = null;
-            this.BtPreguntas.Location = new System.Drawing.Point(63, 138);
+            this.BtPreguntas.Location = new System.Drawing.Point(63, 156);
             this.BtPreguntas.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.BtPreguntas.MouseState = MaterialSkin.MouseState.HOVER;
             this.BtPreguntas.Name = "BtPreguntas";
             this.BtPreguntas.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.BtPreguntas.Size = new System.Drawing.Size(212, 36);
+            this.BtPreguntas.Size = new System.Drawing.Size(212, 46);
             this.BtPreguntas.TabIndex = 1;
             this.BtPreguntas.Text = "PREGUNTAS Y RESPUESTAS";
             this.BtPreguntas.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.BtPreguntas.UseAccentColor = false;
             this.BtPreguntas.UseVisualStyleBackColor = true;
+            this.BtPreguntas.Visible = false;
             this.BtPreguntas.Click += new System.EventHandler(this.Btpreguntas_Click);
             // 
             // materialBtnSalir
@@ -138,39 +161,18 @@ namespace GUI
             this.materialBtnSalir.Depth = 0;
             this.materialBtnSalir.HighEmphasis = true;
             this.materialBtnSalir.Icon = null;
-            this.materialBtnSalir.Location = new System.Drawing.Point(63, 79);
+            this.materialBtnSalir.Location = new System.Drawing.Point(63, 89);
             this.materialBtnSalir.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialBtnSalir.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialBtnSalir.Name = "materialBtnSalir";
             this.materialBtnSalir.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialBtnSalir.Size = new System.Drawing.Size(212, 36);
+            this.materialBtnSalir.Size = new System.Drawing.Size(212, 46);
             this.materialBtnSalir.TabIndex = 0;
             this.materialBtnSalir.Text = "SALIR";
             this.materialBtnSalir.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialBtnSalir.UseAccentColor = false;
             this.materialBtnSalir.UseVisualStyleBackColor = true;
             this.materialBtnSalir.Click += new System.EventHandler(this.materialBtnSalir_Click);
-            // 
-            // materialBtnConfig
-            // 
-            this.materialBtnConfig.AutoSize = false;
-            this.materialBtnConfig.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialBtnConfig.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialBtnConfig.Depth = 0;
-            this.materialBtnConfig.HighEmphasis = true;
-            this.materialBtnConfig.Icon = null;
-            this.materialBtnConfig.Location = new System.Drawing.Point(63, 20);
-            this.materialBtnConfig.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialBtnConfig.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialBtnConfig.Name = "materialBtnConfig";
-            this.materialBtnConfig.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialBtnConfig.Size = new System.Drawing.Size(212, 36);
-            this.materialBtnConfig.TabIndex = 0;
-            this.materialBtnConfig.Text = "CONFIGURACION";
-            this.materialBtnConfig.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialBtnConfig.UseAccentColor = false;
-            this.materialBtnConfig.UseVisualStyleBackColor = true;
-            this.materialBtnConfig.Click += new System.EventHandler(this.materialBtnConfig_Click);
             // 
             // tablapuntaje
             // 
@@ -398,7 +400,6 @@ namespace GUI
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.materialCard1.ResumeLayout(false);
-            this.materialCard1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablapuntaje)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
@@ -421,7 +422,6 @@ namespace GUI
         private System.Windows.Forms.DataGridView tablapuntaje;
         private MaterialSkin.Controls.MaterialCard materialCard1;
         private MaterialSkin.Controls.MaterialButton materialBtnSalir;
-        private MaterialSkin.Controls.MaterialButton materialBtnConfig;
         private System.Windows.Forms.Label label3;
         private MaterialSkin.Controls.MaterialCard materialCard2;
         private System.Windows.Forms.Label label4;
@@ -431,5 +431,6 @@ namespace GUI
         private System.Windows.Forms.Label label5;
         private MaterialSkin.Controls.MaterialButton Btpersonaje1;
         private MaterialSkin.Controls.MaterialButton BtPreguntas;
+        private MaterialSkin.Controls.MaterialButton BtEliminar;
     }
 }

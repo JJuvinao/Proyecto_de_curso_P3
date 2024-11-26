@@ -33,13 +33,15 @@
             this.Btcategoria = new MaterialSkin.Controls.MaterialButton();
             this.Btagregar = new MaterialSkin.Controls.MaterialButton();
             this.Btsalir = new MaterialSkin.Controls.MaterialButton();
+            this.bteliminar = new MaterialSkin.Controls.MaterialButton();
+            this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)(this.tablapreyres)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(97, 118);
+            this.label1.Location = new System.Drawing.Point(97, 82);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(698, 25);
             this.label1.TabIndex = 1;
@@ -48,27 +50,28 @@
             // 
             // tablapreyres
             // 
+            this.tablapreyres.AllowUserToOrderColumns = true;
             this.tablapreyres.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.tablapreyres.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.tablapreyres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tablapreyres.Location = new System.Drawing.Point(102, 153);
+            this.tablapreyres.Location = new System.Drawing.Point(15, 119);
             this.tablapreyres.Name = "tablapreyres";
             this.tablapreyres.Size = new System.Drawing.Size(692, 359);
             this.tablapreyres.TabIndex = 2;
             // 
             // Btcategoria
             // 
+            this.Btcategoria.AutoSize = false;
             this.Btcategoria.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Btcategoria.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.Btcategoria.Depth = 0;
             this.Btcategoria.HighEmphasis = true;
             this.Btcategoria.Icon = null;
-            this.Btcategoria.Location = new System.Drawing.Point(102, 536);
+            this.Btcategoria.Location = new System.Drawing.Point(714, 141);
             this.Btcategoria.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Btcategoria.MouseState = MaterialSkin.MouseState.HOVER;
             this.Btcategoria.Name = "Btcategoria";
             this.Btcategoria.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.Btcategoria.Size = new System.Drawing.Size(206, 36);
+            this.Btcategoria.Size = new System.Drawing.Size(189, 36);
             this.Btcategoria.TabIndex = 3;
             this.Btcategoria.Text = "MOSTRAR POR CATEGORIA";
             this.Btcategoria.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -84,12 +87,12 @@
             this.Btagregar.Depth = 0;
             this.Btagregar.HighEmphasis = true;
             this.Btagregar.Icon = null;
-            this.Btagregar.Location = new System.Drawing.Point(351, 536);
+            this.Btagregar.Location = new System.Drawing.Point(714, 189);
             this.Btagregar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Btagregar.MouseState = MaterialSkin.MouseState.HOVER;
             this.Btagregar.Name = "Btagregar";
             this.Btagregar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.Btagregar.Size = new System.Drawing.Size(206, 36);
+            this.Btagregar.Size = new System.Drawing.Size(188, 36);
             this.Btagregar.TabIndex = 3;
             this.Btagregar.Text = "Agregar";
             this.Btagregar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -105,12 +108,12 @@
             this.Btsalir.Depth = 0;
             this.Btsalir.HighEmphasis = true;
             this.Btsalir.Icon = null;
-            this.Btsalir.Location = new System.Drawing.Point(589, 536);
+            this.Btsalir.Location = new System.Drawing.Point(714, 333);
             this.Btsalir.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Btsalir.MouseState = MaterialSkin.MouseState.HOVER;
             this.Btsalir.Name = "Btsalir";
             this.Btsalir.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.Btsalir.Size = new System.Drawing.Size(206, 36);
+            this.Btsalir.Size = new System.Drawing.Size(188, 36);
             this.Btsalir.TabIndex = 3;
             this.Btsalir.Text = "VOLVER";
             this.Btsalir.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -118,11 +121,54 @@
             this.Btsalir.UseVisualStyleBackColor = true;
             this.Btsalir.Click += new System.EventHandler(this.materialBtnVolver_Click);
             // 
+            // bteliminar
+            // 
+            this.bteliminar.AutoSize = false;
+            this.bteliminar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bteliminar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.bteliminar.Depth = 0;
+            this.bteliminar.HighEmphasis = true;
+            this.bteliminar.Icon = null;
+            this.bteliminar.Location = new System.Drawing.Point(714, 237);
+            this.bteliminar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.bteliminar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.bteliminar.Name = "bteliminar";
+            this.bteliminar.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.bteliminar.Size = new System.Drawing.Size(188, 36);
+            this.bteliminar.TabIndex = 4;
+            this.bteliminar.Text = "Eliminar";
+            this.bteliminar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.bteliminar.UseAccentColor = false;
+            this.bteliminar.UseVisualStyleBackColor = true;
+            this.bteliminar.Click += new System.EventHandler(this.bteliminar_Click);
+            // 
+            // materialButton1
+            // 
+            this.materialButton1.AutoSize = false;
+            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton1.Depth = 0;
+            this.materialButton1.HighEmphasis = true;
+            this.materialButton1.Icon = null;
+            this.materialButton1.Location = new System.Drawing.Point(714, 285);
+            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton1.Name = "materialButton1";
+            this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton1.Size = new System.Drawing.Size(188, 36);
+            this.materialButton1.TabIndex = 5;
+            this.materialButton1.Text = "Eliminar";
+            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton1.UseAccentColor = false;
+            this.materialButton1.UseVisualStyleBackColor = true;
+            // 
             // VistaConsulPrgRp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 600);
+            this.ClientSize = new System.Drawing.Size(915, 517);
+            this.Controls.Add(this.materialButton1);
+            this.Controls.Add(this.bteliminar);
             this.Controls.Add(this.Btsalir);
             this.Controls.Add(this.Btagregar);
             this.Controls.Add(this.Btcategoria);
@@ -134,7 +180,6 @@
             this.Text = "Preguntas y Respuestas";
             ((System.ComponentModel.ISupportInitialize)(this.tablapreyres)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -145,5 +190,7 @@
         private MaterialSkin.Controls.MaterialButton Btcategoria;
         private MaterialSkin.Controls.MaterialButton Btagregar;
         private MaterialSkin.Controls.MaterialButton Btsalir;
+        private MaterialSkin.Controls.MaterialButton bteliminar;
+        private MaterialSkin.Controls.MaterialButton materialButton1;
     }
 }
