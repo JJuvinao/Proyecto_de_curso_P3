@@ -238,15 +238,15 @@
     <None Include="Resources\icons8-category-50.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Desktop\P3proyect\Heroes_Del_Aprendizajes\Animaciones\Animaciones.csproj">
+    <ProjectReference Include="..\Animaciones\Animaciones.csproj">
       <Project>{be683cb5-45fb-4b9e-b221-8914d2b8946d}</Project>
       <Name>Animaciones</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Desktop\P3proyect\Heroes_Del_Aprendizajes\BLL\BLL.csproj">
+    <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{9d1f703b-577c-459b-b6be-7462a9e1d22e}</Project>
       <Name>BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Desktop\P3proyect\Heroes_Del_Aprendizajes\Entity\Entity.csproj">
+    <ProjectReference Include="..\Entity\Entity.csproj">
       <Project>{db619be2-1cf7-43e2-86eb-fdceaac3df41}</Project>
       <Name>Entity</Name>
     </ProjectReference>

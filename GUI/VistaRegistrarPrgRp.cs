@@ -1,5 +1,6 @@
 ﻿using BLL;
 using Entity;
+using MaterialSkin;
 using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
@@ -22,15 +23,15 @@ namespace GUI
         {
             InitializeComponent();
 
-            var materialSkinManager = MaterialSkin.MaterialSkinManager.Instance;
+            var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.DARK;
-            materialSkinManager.ColorScheme = new MaterialSkin.ColorScheme(
-                MaterialSkin.Primary.Yellow800,
-                MaterialSkin.Primary.Yellow900,
-                MaterialSkin.Primary.Green600,
-                MaterialSkin.Accent.LightGreen200,
-                MaterialSkin.TextShade.WHITE
+            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+            materialSkinManager.ColorScheme = new ColorScheme(
+                Primary.BlueGrey800,
+                Primary.BlueGrey900,
+                Primary.BlueGrey500,
+                Accent.LightBlue200,
+                TextShade.WHITE
             );
             usuario = user;
             this.StartPosition = FormStartPosition.CenterScreen;
