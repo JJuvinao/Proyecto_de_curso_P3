@@ -15,6 +15,7 @@ namespace GUI
     public partial class OpcionDeBuffer : MaterialForm
     {
         int opcion = 0;
+        SeleccionPrreyRes seleccionpreyres;
         public OpcionDeBuffer()
         {
             InitializeComponent();
@@ -41,6 +42,18 @@ namespace GUI
             labelcancelar.Text = "Salir de buffer";
         }
 
+        private void Abrirvista()
+        {
+            seleccionpreyres = new SeleccionPrreyRes();
+            seleccionpreyres.ShowDialog();
+        }
+
+        private void Mostrarmsg()
+        {
+            MessageBox.Show("REPUESTA INCORECTA" + "\n"
+                                + "RESPUESTA CORRECTA: " + seleccionpreyres.RepuestaCorrecto());
+        }
+
         public int Ocpcion()
         {
             return opcion;
@@ -48,13 +61,30 @@ namespace GUI
 
         private void Btaumentar_Click(object sender, EventArgs e)
         {
-            opcion = 1;
+
+            Abrirvista();
+            if (seleccionpreyres.Responder())
+            {
+                opcion = 1;
+            }
+            else
+            {
+                Mostrarmsg();
+            }
             this.Close();
         }
 
         private void btnRecuperar_Click(object sender, EventArgs e)
         {
-            opcion = 2;
+            Abrirvista();
+            if (seleccionpreyres.Responder())
+            {
+                opcion = 2;
+            }
+            else
+            {
+                Mostrarmsg();
+            }
             this.Close();
         }
 

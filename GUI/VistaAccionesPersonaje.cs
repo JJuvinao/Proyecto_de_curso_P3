@@ -33,6 +33,7 @@ namespace GUI
         AnimacionVarias animacionVarias;
         AniNpcs aniNpcs;
         NPCservice npcservise;
+        SeleccionPrreyRes seleccionpreyres;
         string Rutafondo, Rutapiso;
         bool turno = true;
         int puntajejugar = 0;
@@ -115,20 +116,28 @@ namespace GUI
 
         private async void Btdefender_Click(object sender, EventArgs e)
         {
-            AnimacionDefender();
-            personaje_actual.Defender(turno);
-            Estadisticas();
-            ValidarVidaPersonaje();
-            ValidarVidaNpc();
-            if (Btataque.Enabled != false)
+            Abrirvista();
+            if (seleccionpreyres.Responder())
             {
-                turno = false;
-                GestionarBotones(2);
-                AccionNpc();
+                AnimacionDefender();
+                personaje_actual.Defender(turno);
+                Estadisticas();
+                ValidarVidaPersonaje();
+                ValidarVidaNpc();
+                if (Btataque.Enabled != false)
+                {
+                    turno = false;
+                    GestionarBotones(2);
+                    AccionNpc();
+                }
+                await Task.Delay(1500);
+                PonerColor();
+                AnimacionInicial();
             }
-            await Task.Delay(1500);
-            PonerColor();
-            AnimacionInicial();
+            else
+            {
+                Mostrarmsg();
+            }
         }
 
         private async void Btbeffer_Click(object sender, EventArgs e)
@@ -144,8 +153,12 @@ namespace GUI
                 string msg = gestorAcciones.Beffer(opc);
                 labelMensaje.Text = msg;
                 Estadisticas();
-                await Task.Delay(1500);
+                await Task.Delay(600);
                 AnimacionInicial();
+                await Task.Delay(700);
+                turno = false;
+                GestionarBotones(2);
+                AccionNpc();
             }
         }
 
@@ -155,6 +168,7 @@ namespace GUI
 
             if (resultado == DialogResult.Yes)
             {
+                puntajejugar = 0;
                 personaje_actual.Morir();
                 ValidarVidaPersonaje();
             }
@@ -184,6 +198,17 @@ namespace GUI
         #endregion
 
         #region METODOS
+        private void Abrirvista()
+        {
+            seleccionpreyres = new SeleccionPrreyRes();
+            seleccionpreyres.ShowDialog();
+        }
+
+        private void Mostrarmsg()
+        {
+            MessageBox.Show("REPUESTA INCORECTA" + "\n"
+                                + "RESPUESTA CORRECTA: " + seleccionpreyres.RepuestaCorrecto());
+        }
 
         private void ValidarVidaPersonaje()
         {
