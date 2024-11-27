@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="Arma.cs" />
     <Compile Include="Categorias.cs" />
-    <Compile Include="Config.cs" />
     <Compile Include="Samurai.cs" />
     <Compile Include="Habilidades.cs" />
     <Compile Include="Mago.cs" />

@@ -81,17 +81,13 @@ namespace GUI
 
         private string SeleccionRol()
         {
-            string rol;
-
             if (btestudiante.Checked)
             {
-                rol = "Estudiante";
+                return  "Estudiante";
             }else
             {
-                rol = "Profesor";
+                return  "Profesor";
             }
-
-            return rol;
         }
 
         private void Guardar(User user)

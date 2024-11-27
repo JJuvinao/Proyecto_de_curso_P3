@@ -51,10 +51,11 @@
             // 
             this.tablapreyres.AllowUserToOrderColumns = true;
             this.tablapreyres.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tablapreyres.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.tablapreyres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tablapreyres.Location = new System.Drawing.Point(15, 119);
+            this.tablapreyres.Location = new System.Drawing.Point(44, 110);
             this.tablapreyres.Name = "tablapreyres";
-            this.tablapreyres.Size = new System.Drawing.Size(692, 359);
+            this.tablapreyres.Size = new System.Drawing.Size(738, 359);
             this.tablapreyres.TabIndex = 2;
             // 
             // Btcategoria
@@ -65,7 +66,7 @@
             this.Btcategoria.Depth = 0;
             this.Btcategoria.HighEmphasis = true;
             this.Btcategoria.Icon = null;
-            this.Btcategoria.Location = new System.Drawing.Point(714, 141);
+            this.Btcategoria.Location = new System.Drawing.Point(44, 491);
             this.Btcategoria.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Btcategoria.MouseState = MaterialSkin.MouseState.HOVER;
             this.Btcategoria.Name = "Btcategoria";
@@ -86,7 +87,7 @@
             this.Btagregar.Depth = 0;
             this.Btagregar.HighEmphasis = true;
             this.Btagregar.Icon = null;
-            this.Btagregar.Location = new System.Drawing.Point(714, 189);
+            this.Btagregar.Location = new System.Drawing.Point(241, 491);
             this.Btagregar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Btagregar.MouseState = MaterialSkin.MouseState.HOVER;
             this.Btagregar.Name = "Btagregar";
@@ -107,12 +108,12 @@
             this.Btsalir.Depth = 0;
             this.Btsalir.HighEmphasis = true;
             this.Btsalir.Icon = null;
-            this.Btsalir.Location = new System.Drawing.Point(714, 285);
+            this.Btsalir.Location = new System.Drawing.Point(611, 491);
             this.Btsalir.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Btsalir.MouseState = MaterialSkin.MouseState.HOVER;
             this.Btsalir.Name = "Btsalir";
             this.Btsalir.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.Btsalir.Size = new System.Drawing.Size(188, 36);
+            this.Btsalir.Size = new System.Drawing.Size(171, 36);
             this.Btsalir.TabIndex = 3;
             this.Btsalir.Text = "VOLVER";
             this.Btsalir.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -128,12 +129,12 @@
             this.bteliminar.Depth = 0;
             this.bteliminar.HighEmphasis = true;
             this.bteliminar.Icon = null;
-            this.bteliminar.Location = new System.Drawing.Point(714, 237);
+            this.bteliminar.Location = new System.Drawing.Point(437, 491);
             this.bteliminar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.bteliminar.MouseState = MaterialSkin.MouseState.HOVER;
             this.bteliminar.Name = "bteliminar";
             this.bteliminar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.bteliminar.Size = new System.Drawing.Size(188, 36);
+            this.bteliminar.Size = new System.Drawing.Size(166, 36);
             this.bteliminar.TabIndex = 4;
             this.bteliminar.Text = "Eliminar";
             this.bteliminar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -145,7 +146,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 517);
+            this.ClientSize = new System.Drawing.Size(825, 536);
             this.Controls.Add(this.bteliminar);
             this.Controls.Add(this.Btsalir);
             this.Controls.Add(this.Btagregar);
