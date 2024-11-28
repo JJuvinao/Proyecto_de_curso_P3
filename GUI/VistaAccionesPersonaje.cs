@@ -40,6 +40,7 @@ namespace GUI
 
         #endregion
 
+        public VistaAccionesPersonaje() { }
         public VistaAccionesPersonaje(string fondo,string piso, User usser, Mundo mund, Plantilla plantilla)
         {
             InitializeComponent();
@@ -88,9 +89,9 @@ namespace GUI
             if (personaje_actual.mana >= 5)
             {
                 int opc;
-                PonerColor();
                 opcion = new OpcionesDeAtacarPersonaje(personaje_actual, npc);
                 opcion.ShowDialog();
+                PonerColor();
                 opc = opcion.Prueba();
                 puntajejugar += 110;
                 if (opc != 0)
@@ -128,9 +129,10 @@ namespace GUI
                 {
                     turno = false;
                     GestionarBotones(2);
+                    await Task.Delay(100);
                     AccionNpc();
                 }
-                await Task.Delay(1500);
+                await Task.Delay(1200);
                 PonerColor();
                 AnimacionInicial();
             }
@@ -148,6 +150,7 @@ namespace GUI
             opc = opcionBuffer.Ocpcion();
             if (opc != 0)
             {
+                GestionarBotones(2);
                 AnimacionBuffer();
                 await Task.Delay(1500);
                 string msg = gestorAcciones.Beffer(opc);
@@ -157,7 +160,6 @@ namespace GUI
                 AnimacionInicial();
                 await Task.Delay(700);
                 turno = false;
-                GestionarBotones(2);
                 AccionNpc();
             }
         }
@@ -217,6 +219,7 @@ namespace GUI
                 Btataque.Enabled = false;
                 Btbeffer.Enabled = false;
                 Btdefender.Enabled = false;
+                Btrendirse.Enabled = false;
                 personaje_actual.Morir();
                 Estadisticas();
                 MessageBox.Show("murio el personaje");
@@ -225,19 +228,25 @@ namespace GUI
             }
         }
 
-        private void ValidarVidaNpc()
+        private async void ValidarVidaNpc()
         {
             if (npc.vida <= 0)
             {
                 Btataque.Enabled = false;
                 Btbeffer.Enabled = false;
                 Btdefender.Enabled = false;
+                Btrendirse.Enabled = false;
                 npc.Morir();
                 Estadisticas();
                 MessageBox.Show("murio el npc");
                 AnimacionMorirNpc();
                 puntaje = new Puntajes(user.Id, mundo.Id, puntajejugar);
                 RegistrarPuntaje();
+                MostrarPuntaje();
+                await Task.Delay(2000);
+                this.Hide();
+                new VistaUserPersonajes(user).ShowDialog();
+                this.Close();
             }
         }
 
@@ -283,7 +292,6 @@ namespace GUI
         private void RegistrarPuntaje()
         {
             var msg = puntajeService.Registrar(puntaje);
-            MessageBox.Show(msg);
         }
 
         private void MostrarPuntaje()
@@ -346,7 +354,7 @@ namespace GUI
             GestionarBotones(1);
         }
 
-        private void PonerColor()
+        public void PonerColor()
         {
             PictureNpc2.BackColor = Color.Transparent;
             sangrenpc1.BackColor = Color.Transparent;
