@@ -241,8 +241,8 @@ namespace GUI
                 MessageBox.Show("murio el npc");
                 AnimacionMorirNpc();
                 puntaje = new Puntajes(user.Id, mundo.Id, puntajejugar);
-                RegistrarPuntaje();
                 MostrarPuntaje();
+                RegistrarPuntaje();
                 await Task.Delay(2000);
                 this.Hide();
                 new VistaUserPersonajes(user).ShowDialog();

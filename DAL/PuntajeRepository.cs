@@ -58,7 +58,7 @@ namespace DAL
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add("id_user", OracleDbType.Int32).Value = puntaje.Id_user;
                     command.Parameters.Add(":id_mundo", OracleDbType.Varchar2).Value = puntaje.Id_mundo;
-                    command.Parameters.Add(":", OracleDbType.Varchar2).Value = puntaje.Puntaje;
+                    command.Parameters.Add(":puntaje", OracleDbType.Varchar2).Value = puntaje.Puntaje;
 
                     command.ExecuteNonQuery();
                 }
